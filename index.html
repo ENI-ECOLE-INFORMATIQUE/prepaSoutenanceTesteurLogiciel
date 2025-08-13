@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Soutenance - Score Final</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .answers button {
+            display: block;
+            margin: 8px 0;
+            padding: 10px;
+            border: none;
+            background-color: #2196F3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+        }
+        .answers button:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .explication {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        #score {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quiz - Préparation Soutenance</h1>
+
+    <div id="quiz"></div>
+    <div id="score"></div>
+
+    <script>
+        const questions = [
+            {
+                question: "Qu’est-ce qu’un test unitaire ?",
+                answers: [
+                    { text: "Un test qui vérifie l’ensemble du logiciel", correct: false },
+                    { text: "Un test qui vérifie une petite partie du code isolée", correct: true },
+                    { text: "Un test qui vérifie uniquement l’interface graphique", correct: false }
+                ],
+                explanation: "Un test unitaire vérifie une fonction ou méthode spécifique, isolée du reste du programme."
+            },
+            {
+                question: "Quelle est la différence entre un test fonctionnel et un test non-fonctionnel ?",
+                answers: [
+                    { text: "Le test fonctionnel vérifie le comportement attendu, le non-fonctionnel vérifie des aspects comme la performance", correct: true },
+                    { text: "Le test fonctionnel vérifie la vitesse du programme", correct: false },
+                    { text: "Il n’y a pas de différence", correct: false }
+                ],
+                explanation: "Les tests fonctionnels valident ce que fait le logiciel, les non-fonctionnels comment il le fait."
+            },
+            {
+                question: "Qu’est-ce que l’automatisation des tests ?",
+                answers: [
+                    { text: "L’utilisation de scripts ou outils pour exécuter automatiquement des tests", correct: true },
+                    { text: "La suppression des tests manuels", correct: false },
+                    { text: "Le fait de tester sans développeur", correct: false }
+                ],
+                explanation: "L’automatisation permet de lancer régulièrement des tests sans intervention humaine."
+            },
+            {
+                question: "Qu’est-ce qu’un test de régression ?",
+                answers: [
+                    { text: "Un test qui vérifie que de nouvelles modifications n’ont pas cassé les fonctionnalités existantes", correct: true },
+                    { text: "Un test qui vérifie la vitesse du programme", correct: false },
+                    { text: "Un test qui ne se fait qu’une fois", correct: false }
+                ],
+                explanation: "Les tests de régression détectent si un changement de code a introduit de nouveaux bugs."
+            }
+        ];
+
+        // Mélange aléatoire
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffle(questions);
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function showQuestion() {
+            const quizDiv = document.getElementById("quiz");
+            quizDiv.innerHTML = "";
+
+            if (currentQuestion < questions.length) {
+                const q = questions[currentQuestion];
+
+                const questionDiv = document.createElement("div");
+                questionDiv.classList.add("question");
+
+                const questionText = document.createElement("h3");
+                questionText.textContent = `Q${currentQuestion + 1} : ${q.question}`;
+                questionDiv.appendChild(questionText);
+
+                const answersDiv = document.createElement("div");
+                answersDiv.classList.add("answers");
+
+                q.answers.forEach(answer => {
+                    const btn = document.createElement("button");
+                    btn.textContent = answer.text;
+                    btn.addEventListener("click", () => {
+                        const resultDiv = document.createElement("div");
+                        resultDiv.classList.add("result");
+                        if (answer.correct) {
+                            resultDiv.textContent = "✅ Bonne réponse !";
+                            score++;
+                        } else {
+                            resultDiv.textContent = "❌ Mauvaise réponse.";
+                        }
+                        questionDiv.appendChild(resultDiv);
+
+                        const explicationDiv = document.createElement("div");
+                        explicationDiv.classList.add("explication");
+                        explicationDiv.textContent = q.explanation;
+                        questionDiv.appendChild(explicationDiv);
+
+                        // Passer à la prochaine question après 2 secondes
+                        setTimeout(() => {
+                            currentQuestion++;
+                            showQuestion();
+                        }, 2000);
+                    });
+                    answersDiv.appendChild(btn);
+                });
+
+                questionDiv.appendChild(answersDiv);
+                quizDiv.appendChild(questionDiv);
+            } else {
+                showScore();
+            }
+        }
+
+        function showScore() {
+            document.getElementById("quiz").innerHTML = "";
+            const scoreDiv = document.getElementById("score");
+            const percentage = Math.round((score / questions.length) * 100);
+
+            let message = "";
+            if (percentage === 100) {
+                message = "🎯 Excellent ! Tu maîtrises parfaitement le sujet.";
+            } else if (percentage >= 70) {
+                message = "👍 Très bien, encore un petit effort.";
+            } else {
+                message = "📚 Continue à réviser pour améliorer ton score.";
+            }
+
+            scoreDiv.innerHTML = `Score final : ${score}/${questions.length} (${percentage}%)<br>${message}`;
+        }
+
+        showQuestion();
+    </script>
+
+</body>
+</html>
