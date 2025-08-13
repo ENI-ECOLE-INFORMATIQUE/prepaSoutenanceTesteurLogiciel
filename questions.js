@@ -303,5 +303,107 @@ const quiz = [
         ],
         correct: 0,
         explanation: "Le Root Cause Analysis vise à trouver la cause exacte d’un problème pour éviter qu’il ne se reproduise."
+    },
+    // --- Nouvelles questions ---
+    {
+        question: "Qu’est-ce qu’un test end-to-end (E2E) ?",
+        answers: [
+            "Tester uniquement une fonction isolée",
+            "Tester le parcours complet d’un utilisateur dans l’application",
+            "Tester les performances du serveur"
+        ],
+        correct: 1,
+        explanation: "Un test end-to-end simule l’expérience utilisateur de bout en bout pour s’assurer que tout fonctionne correctement ensemble."
+    },
+    {
+        question: "Qu’est-ce qu’un bug de type 'off-by-one' ?",
+        answers: [
+            "Une erreur dans un calcul où l’indice ou la limite est décalé de 1",
+            "Un bug critique qui bloque le logiciel",
+            "Un bug esthétique"
+        ],
+        correct: 0,
+        explanation: "Les erreurs off-by-one se produisent souvent dans les boucles ou les indices, où une valeur est décalée d’une unité."
+    },
+    {
+        question: "Que signifie 'regression testing automation' ?",
+        answers: [
+            "Automatiser tous les tests unitaires",
+            "Automatiser les tests pour détecter des régressions rapidement",
+            "Ne tester que les nouvelles fonctionnalités"
+        ],
+        correct: 1,
+        explanation: "Il s’agit de mettre en place des tests automatisés afin de détecter rapidement les régressions après une modification du code."
+    },
+    {
+        question: "Qu’est-ce qu’un test alpha et un test bêta ?",
+        answers: [
+            "Alpha : interne, Beta : externe avec utilisateurs finaux",
+            "Alpha : performance, Beta : sécurité",
+            "Alpha et Beta sont identiques"
+        ],
+        correct: 0,
+        explanation: "Les tests alpha sont effectués en interne avant la sortie officielle, tandis que les tests bêta impliquent de vrais utilisateurs pour détecter les problèmes restants."
+    },
+    {
+        question: "Que signifie 'shift-left testing' ?",
+        answers: [
+            "Effectuer les tests plus tôt dans le cycle de développement",
+            "Tester uniquement la production",
+            "Reporter les tests à la fin du projet"
+        ],
+        correct: 0,
+        explanation: "Le 'shift-left' vise à détecter les bugs dès le début du développement pour réduire les coûts et améliorer la qualité."
+    },
+    {
+        question: "Pourquoi utilise-t-on des tests unitaires mocks et stubs ?",
+        answers: [
+            "Pour simplifier le code source",
+            "Pour isoler les composants et tester uniquement la logique ciblée",
+            "Pour accélérer l’exécution du serveur"
+        ],
+        correct: 1,
+        explanation: "Mocks et stubs remplacent certains composants afin que le test se concentre uniquement sur l’unité testée."
+    },
+    {
+        question: "Qu’est-ce qu’un test de fumée automatisé ?",
+        answers: [
+            "Un test rapide exécuté automatiquement pour vérifier les fonctionnalités de base",
+            "Un test qui mesure le temps de réponse",
+            "Un test manuel complexe"
+        ],
+        correct: 0,
+        explanation: "Les tests de fumée automatisés valident rapidement que l’application démarre et que les fonctionnalités essentielles fonctionnent."
+    },
+    {
+        question: "Qu’est-ce qu’un test exploratoire en agile ?",
+        answers: [
+            "Tester uniquement selon un plan prédéfini",
+            "Explorer librement l’application tout en créant des notes sur les bugs et les comportements",
+            "Automatiser tous les tests"
+        ],
+        correct: 1,
+        explanation: "Le test exploratoire en agile consiste à tester sans script précis, en s’adaptant aux découvertes et en documentant les problèmes."
+    },
+    {
+        question: "Qu’est-ce qu’un test de régression partiel ?",
+        answers: [
+            "Tester uniquement les modules affectés par une modification",
+            "Tester toutes les fonctionnalités de l’application",
+            "Tester uniquement les nouvelles fonctionnalités"
+        ],
+        correct: 0,
+        explanation: "Un test de régression partiel vérifie uniquement les zones impactées par une modification pour gagner du temps tout en détectant les bugs potentiels."
+    },
+    {
+        question: "Quelle est l’utilité d’un test pair-review ?",
+        answers: [
+            "Deux testeurs vérifient le même scénario pour améliorer la qualité et détecter plus de bugs",
+            "Deux développeurs écrivent du code ensemble",
+            "Deux utilisateurs valident la fonctionnalité"
+        ],
+        correct: 0,
+        explanation: "Le test pair-review permet de combiner l’expérience de deux testeurs pour identifier plus efficacement les anomalies."
     }
+
 ];
