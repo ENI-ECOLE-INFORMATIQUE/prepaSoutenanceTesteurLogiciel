@@ -28,20 +28,6 @@ Il est conçu pour préparer une **soutenance** devant des étudiants/testeurs d
 
 ---
 
-## 🛠 Déploiement sur GitHub Pages
-1. **Créer un dépôt GitHub**  
-   - Nom recommandé : `quiz-soutenance`  
-   - Mettre le fichier `index.html` à la racine du dépôt
-
-2. **Activer GitHub Pages**  
-   - Aller dans **Settings** > **Pages**
-   - Dans **Branch**, choisir : `main` / `(root)`
-   - Sauvegarder  
-   - Une URL sera générée :  
-     ```
-     https://VOTRE_NOM_UTILISATEUR.github.io/quiz-soutenance
-     ```
-
 3. **Accéder au quiz en ligne**  
    - Ouvrir le lien fourni par GitHub Pages
    - Partager l’URL avec les testeurs
