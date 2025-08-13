@@ -31,6 +31,10 @@ Il est conçu pour préparer une **soutenance** devant des étudiants/testeurs d
 3. **Accéder au quiz en ligne**  
    - Ouvrir le lien fourni par GitHub Pages
    - Partager l’URL avec les testeurs
+  
+## 🚀 Lancer le quiz
+
+🎯 **[Cliquez ici pour accéder au quiz en ligne](https://TON-NOM.github.io/quiz-soutenance)**
 
 ---
 
