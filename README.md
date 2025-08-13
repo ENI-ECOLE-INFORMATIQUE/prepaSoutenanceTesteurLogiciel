@@ -52,7 +52,8 @@ Il est conçu pour préparer une **soutenance** devant des étudiants/testeurs d
 ---
 
 ## 🖼 Aperçu visuel
-![Capture d'écran du quiz](https://eni-ecole-informatique.github.io/prepaSoutenanceTesteurLogiciel/img/capture-quizz-v1.png?text=Apercu+du+Quiz)
+**[Cliquez ici pour accéder à une capture d'écran du quizz](https://eni-ecole-informatique.github.io/prepaSoutenanceTesteurLogiciel/img/capture-quizz-v1.png?text=Apercu+du+Quiz)**
+
 
 ---
 
