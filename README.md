@@ -34,7 +34,7 @@ Il est conçu pour préparer une **soutenance** devant des étudiants/testeurs d
   
 ## 🚀 Lancer le quiz
 
-🎯 **[Cliquez ici pour accéder au quiz en ligne](https://TON-NOM.github.io/quiz-soutenance)**
+🎯 **[Cliquez ici pour accéder au quiz en ligne](https://eni-ecole-informatique.github.io/prepaSoutenanceTesteurLogiciel/)**
 
 ---
 
