@@ -39,15 +39,20 @@ Il est conçu pour préparer une **soutenance** devant des étudiants/testeurs d
 ---
 
 ## 📂 Structure du projet
-📁 quiz-soutenance
-│── index.html # Contient tout le code HTML, CSS et JavaScript
+📁 prepasoutenancetesteurlogiciel
+│── index.html # Contient tout le code HTML
+|── img
+|────── capture-quizz-v1.png
+|── question.js # contient l'ensemble des questions du quizz
+|── quiz.js # contient les scripts js pour gérer le timer, les questions, les boutons etc.
 │── README.md # Documentation du projet
+|── style.css # CSS du projet
 
 
 ---
 
 ## 🖼 Aperçu visuel
-![Capture d'écran du quiz](https://via.placeholder.com/800x400.png?text=Apercu+du+Quiz)
+![Capture d'écran du quiz](https://eni-ecole-informatique.github.io/prepaSoutenanceTesteurLogiciel/img/capture-quizz-v1.png?text=Apercu+du+Quiz)
 
 ---
 
