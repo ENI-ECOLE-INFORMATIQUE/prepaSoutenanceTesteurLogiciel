@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Soutenance - Score Final</title>
+    <title>Quiz Soutenance - Timer & Navigation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,12 +56,35 @@
             font-weight: bold;
             margin-top: 20px;
         }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d32f2f;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .nav-buttons button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav-buttons button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
 
     <h1>Quiz - Préparation Soutenance</h1>
-
+    <div id="timer">⏳ Temps restant : 20s</div>
     <div id="quiz"></div>
     <div id="score"></div>
 
@@ -93,32 +116,35 @@
                     { text: "Le fait de tester sans développeur", correct: false }
                 ],
                 explanation: "L’automatisation permet de lancer régulièrement des tests sans intervention humaine."
-            },
-            {
-                question: "Qu’est-ce qu’un test de régression ?",
-                answers: [
-                    { text: "Un test qui vérifie que de nouvelles modifications n’ont pas cassé les fonctionnalités existantes", correct: true },
-                    { text: "Un test qui vérifie la vitesse du programme", correct: false },
-                    { text: "Un test qui ne se fait qu’une fois", correct: false }
-                ],
-                explanation: "Les tests de régression détectent si un changement de code a introduit de nouveaux bugs."
             }
         ];
 
-        // Mélange aléatoire
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        shuffle(questions);
-
         let currentQuestion = 0;
         let score = 0;
+        let timer;
+        let timeLeft = 20;
+        let answered = false;
+
+        function startTimer() {
+            timeLeft = 20;
+            document.getElementById("timer").textContent = `⏳ Temps restant : ${timeLeft}s`;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").textContent = `⏳ Temps restant : ${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    if (!answered) {
+                        showResult(false); // Temps écoulé → mauvaise réponse
+                    }
+                }
+            }, 1000);
+        }
 
         function showQuestion() {
+            clearInterval(timer);
+            answered = false;
+            startTimer();
+
             const quizDiv = document.getElementById("quiz");
             quizDiv.innerHTML = "";
 
@@ -139,39 +165,73 @@
                     const btn = document.createElement("button");
                     btn.textContent = answer.text;
                     btn.addEventListener("click", () => {
-                        const resultDiv = document.createElement("div");
-                        resultDiv.classList.add("result");
-                        if (answer.correct) {
-                            resultDiv.textContent = "✅ Bonne réponse !";
-                            score++;
-                        } else {
-                            resultDiv.textContent = "❌ Mauvaise réponse.";
+                        if (!answered) {
+                            answered = true;
+                            clearInterval(timer);
+                            showResult(answer.correct);
+                            showExplanation(q.explanation);
                         }
-                        questionDiv.appendChild(resultDiv);
-
-                        const explicationDiv = document.createElement("div");
-                        explicationDiv.classList.add("explication");
-                        explicationDiv.textContent = q.explanation;
-                        questionDiv.appendChild(explicationDiv);
-
-                        // Passer à la prochaine question après 2 secondes
-                        setTimeout(() => {
-                            currentQuestion++;
-                            showQuestion();
-                        }, 2000);
                     });
                     answersDiv.appendChild(btn);
                 });
 
                 questionDiv.appendChild(answersDiv);
                 quizDiv.appendChild(questionDiv);
+
+                // Boutons navigation
+                const navDiv = document.createElement("div");
+                navDiv.classList.add("nav-buttons");
+
+                const prevBtn = document.createElement("button");
+                prevBtn.textContent = "⬅ Question précédente";
+                prevBtn.disabled = currentQuestion === 0;
+                prevBtn.addEventListener("click", () => {
+                    currentQuestion--;
+                    showQuestion();
+                });
+
+                const nextBtn = document.createElement("button");
+                nextBtn.textContent = "➡ Question suivante";
+                nextBtn.addEventListener("click", () => {
+                    if (currentQuestion < questions.length - 1) {
+                        currentQuestion++;
+                        showQuestion();
+                    } else {
+                        showScore();
+                    }
+                });
+
+                navDiv.appendChild(prevBtn);
+                navDiv.appendChild(nextBtn);
+                quizDiv.appendChild(navDiv);
+
             } else {
                 showScore();
             }
         }
 
+        function showResult(isCorrect) {
+            const resultDiv = document.createElement("div");
+            resultDiv.classList.add("result");
+            if (isCorrect) {
+                resultDiv.textContent = "✅ Bonne réponse !";
+                score++;
+            } else {
+                resultDiv.textContent = "❌ Mauvaise réponse.";
+            }
+            document.querySelector(".question").appendChild(resultDiv);
+        }
+
+        function showExplanation(text) {
+            const explicationDiv = document.createElement("div");
+            explicationDiv.classList.add("explication");
+            explicationDiv.textContent = text;
+            document.querySelector(".question").appendChild(explicationDiv);
+        }
+
         function showScore() {
             document.getElementById("quiz").innerHTML = "";
+            document.getElementById("timer").textContent = "";
             const scoreDiv = document.getElementById("score");
             const percentage = Math.round((score / questions.length) * 100);
 
