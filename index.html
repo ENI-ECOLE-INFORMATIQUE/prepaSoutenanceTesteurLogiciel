@@ -1,29 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Quiz Soutenance - Testeurs Logiciels</title>
-<style>
-    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f7f7f7; }
-    .quiz-container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .question { font-size: 1.2em; margin-bottom: 10px; }
-    .answers button { display: block; margin: 5px 0; padding: 10px; width: 100%; font-size: 1em; border-radius: 5px; border: none; cursor: pointer; }
-    .answers button:hover { opacity: 0.9; }
-    .feedback { margin-top: 15px; font-weight: bold; }
-    .timer { font-size: 1em; color: #d9534f; margin-bottom: 10px; }
-    .nav-buttons { margin-top: 20px; display: flex; justify-content: space-between; }
-    .nav-buttons button { padding: 10px; border: none; border-radius: 5px; cursor: pointer; background: #007BFF; color: white; }
-    .nav-buttons button:disabled { background: #ccc; cursor: not-allowed; }
-    .result { text-align: center; }
-    .result h2 { margin-bottom: 20px; }
-    .result button { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; }
-</style>
+    <meta charset="UTF-8">
+    <title>Quiz Soutenance - Testeurs Logiciels</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="quiz-container" id="quizContainer">
     <h1>Quiz Soutenance - Testeurs Logiciels</h1>
-    <div class="timer">⏱ Temps restant : <span id="time">15</span> sec</div>
+    <div class="timer">⏱ Temps restant : <span id="time">30</span> sec</div>
     <div class="question" id="question"></div>
     <div class="answers" id="answers"></div>
     <div class="feedback" id="feedback"></div>
@@ -33,151 +19,8 @@
     </div>
 </div>
 
-<script>
-const quiz = [
-    {
-        question: "Qu’est-ce que l’automatisation des tests ?",
-        answers: ["Exécuter les tests manuellement", "Utiliser des scripts pour exécuter les tests", "Ne plus faire de tests du tout"],
-        correct: 1,
-        explanation: "L’automatisation consiste à utiliser des scripts pour exécuter des tests de manière régulière et efficace."
-    },
-    {
-        question: "Qu’est-ce qu’un test unitaire ?",
-        answers: ["Tester l’ensemble de l’application", "Tester une fonction ou un module isolé", "Tester l’application sur plusieurs navigateurs"],
-        correct: 1,
-        explanation: "Un test unitaire vérifie une petite partie du code (une fonction, un module) de manière isolée."
-    },
-    {
-        question: "Que signifie 'BDD' dans le contexte des tests ?",
-        answers: ["Base De Données", "Behavior Driven Development", "Bug Detection Delay"],
-        correct: 1,
-        explanation: "BDD signifie Behavior Driven Development : une méthode qui décrit les fonctionnalités en langage naturel pour faciliter la compréhension."
-    }
-];
-
-let currentQuestion = 0;
-let score = 0;
-let timer;
-let timeLeft = 30;
-
-function startTimer() {
-    clearInterval(timer);
-    timeLeft = 30;
-    document.getElementById("time").textContent = timeLeft;
-    timer = setInterval(() => {
-        timeLeft--;
-        document.getElementById("time").textContent = timeLeft;
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            showExplanation(null);
-        }
-    }, 1000);
-}
-
-function showQuestion(index) {
-    const q = quiz[index];
-    document.getElementById("question").textContent = q.question;
-    const answersDiv = document.getElementById("answers");
-    answersDiv.innerHTML = "";
-    q.answers.forEach((answer, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = answer;
-        btn.onclick = () => showExplanation(i);
-        answersDiv.appendChild(btn);
-    });
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("prevBtn").disabled = index === 0;
-    document.getElementById("nextBtn").disabled = true;
-    startTimer();
-}
-
-function showExplanation(selected) {
-    clearInterval(timer);
-    const q = quiz[currentQuestion];
-    const feedbackDiv = document.getElementById("feedback");
-    const buttons = document.querySelectorAll("#answers button");
-    buttons.forEach((btn, i) => {
-        btn.disabled = true;
-        if (i === q.correct) btn.style.backgroundColor = "#4CAF50";
-        if (i === selected && selected !== q.correct) btn.style.backgroundColor = "#f44336";
-    });
-
-    if (selected === q.correct) {
-        score++;
-        feedbackDiv.textContent = "✅ Bonne réponse ! " + q.explanation;
-    } else if (selected === null) {
-        feedbackDiv.textContent = "⏰ Temps écoulé ! " + q.explanation;
-    } else {
-        feedbackDiv.textContent = "❌ Mauvaise réponse. " + q.explanation;
-    }
-    document.getElementById("nextBtn").disabled = false;
-}
-
-function showResult() {
-    const percent = Math.round((score / quiz.length) * 100);
-    let message = "Pas mal, mais tu peux mieux faire 💪";
-    if (percent === 100) message = "Parfait ! Tu es prêt(e) pour la soutenance 🎉";
-    else if (percent >= 70) message = "Très bien ! Tu maîtrises bien le sujet 👍";
-    
-    document.getElementById("quizContainer").innerHTML = `
-        <div class="result">
-            <h2>Quiz terminé 🎯</h2>
-            <p>Score : ${score}/${quiz.length} (${percent}%)</p>
-            <p>${message}</p>
-            <button onclick="restartQuiz()">🔄 Recommencer</button>
-        </div>
-    `;
-}
-
-function restartQuiz() {
-    score = 0;
-    currentQuestion = 0;
-    document.getElementById("quizContainer").innerHTML = `
-        <h1>Quiz Soutenance - Testeurs Logiciels</h1>
-        <div class="timer">⏱ Temps restant : <span id="time">30</span> sec</div>
-        <div class="question" id="question"></div>
-        <div class="answers" id="answers"></div>
-        <div class="feedback" id="feedback"></div>
-        <div class="nav-buttons">
-            <button id="prevBtn" disabled>⬅ Question précédente</button>
-            <button id="nextBtn" disabled>Question suivante ➡</button>
-        </div>
-    `;
-    document.getElementById("prevBtn").onclick = () => {
-        if (currentQuestion > 0) {
-            currentQuestion--;
-            showQuestion(currentQuestion);
-        }
-    };
-    document.getElementById("nextBtn").onclick = () => {
-        if (currentQuestion < quiz.length - 1) {
-            currentQuestion++;
-            showQuestion(currentQuestion);
-        } else {
-            showResult();
-        }
-    };
-    showQuestion(currentQuestion);
-}
-
-document.getElementById("prevBtn").onclick = () => {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        showQuestion(currentQuestion);
-    }
-};
-
-document.getElementById("nextBtn").onclick = () => {
-    if (currentQuestion < quiz.length - 1) {
-        currentQuestion++;
-        showQuestion(currentQuestion);
-    } else {
-        showResult();
-    }
-};
-
-showQuestion(currentQuestion);
-</script>
+<script src="questions.js"></script>
+<script src="quiz.js"></script>
 
 </body>
 </html>
