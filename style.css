@@ -69,9 +69,27 @@ body {
     font-size: 1em; 
     cursor: pointer; 
 }
-
+#-------------------------------------------------------
+# Footer
+#-------------------------------------------------------
 footer{
     margin-top: 15px;
     font-size: 0.7em;
     font-style: italic;
+}
+#-------------------------------------------------------
+# Navigation
+#-------------------------------------------------------
+nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+nav a:hover {
+    color: #007BFF;
 }
