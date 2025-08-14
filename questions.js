@@ -404,6 +404,377 @@ const quiz = [
         ],
         correct: 0,
         explanation: "Le test pair-review permet de combiner l’expérience de deux testeurs pour identifier plus efficacement les anomalies."
-    }
+    },
 
+    // --- Nouvelles questions ---
+    {
+        question: "C'est quoi une webapp ?",
+        answers: [
+            "Une application accessible depuis un navigateur web",
+            "Une application installée sur un ordinateur uniquement",
+            "Un logiciel sans interface graphique"
+        ],
+        correct: 0,
+        explanation: "Une webapp est une application accessible via un navigateur, souvent responsive et pouvant fonctionner sur différents appareils."
+    },
+    {
+        question: "C'est quoi la différence entre une webapp et une application standard ?",
+        answers: [
+            "La webapp est accessible via un navigateur, l'application standard doit être installée",
+            "La webapp fonctionne uniquement hors ligne",
+            "La webapp ne peut pas avoir de base de données"
+        ],
+        correct: 0,
+        explanation: "Une webapp fonctionne dans un navigateur, tandis qu'une application standard nécessite une installation locale."
+    },
+    {
+        question: "C'est quoi un CTPO ?",
+        answers: [
+            "Chief Technical and Product Officer",
+            "Central Test Process Operator",
+            "Cloud Technology Processing Option"
+        ],
+        correct: 0,
+        explanation: "Le CTPO est un poste de direction qui combine les responsabilités techniques et produit."
+    },
+    {
+        question: "Quel est le rôle d'un CTPO ?",
+        answers: [
+            "Superviser la partie technique et produit d’une organisation",
+            "Développer uniquement le backend",
+            "Faire la maintenance des serveurs"
+        ],
+        correct: 0,
+        explanation: "Le CTPO coordonne la vision produit et la stratégie technique."
+    },
+    {
+        question: "C'est quoi une API ?",
+        answers: [
+            "Un ensemble de règles permettant à des applications de communiquer entre elles",
+            "Un type de base de données",
+            "Un langage de programmation"
+        ],
+        correct: 0,
+        explanation: "Une API définit comment deux systèmes peuvent interagir par le biais de requêtes et de réponses."
+    },
+    {
+        question: "C'est quoi une promesse en JavaScript ?",
+        answers: [
+            "Un objet représentant l'achèvement ou l'échec d'une opération asynchrone",
+            "Une fonction qui s'exécute immédiatement",
+            "Un script de sécurité"
+        ],
+        correct: 0,
+        explanation: "Une promesse gère des opérations asynchrones et fournit un résultat futur."
+    },
+    {
+        question: "A quoi sert await dans un script JS ?",
+        answers: [
+            "Attendre qu'une promesse soit résolue avant de continuer l'exécution",
+            "Lancer une fonction immédiatement",
+            "Arrêter le script"
+        ],
+        correct: 0,
+        explanation: "Await permet de suspendre l'exécution d'une fonction asynchrone jusqu'à ce qu'une promesse soit terminée."
+    },
+    {
+        question: "Peux-tu me donner la définition de Cloud Functions ?",
+        answers: [
+            "Du code exécuté à la demande dans le cloud sans gérer de serveur",
+            "Un service de stockage en ligne",
+            "Un outil de débogage"
+        ],
+        correct: 0,
+        explanation: "Les Cloud Functions permettent d'exécuter du code dans un environnement géré, déclenché par des événements."
+    },
+    {
+        question: "Peux-tu m'expliquer ce qu'est NodeJS ?",
+        answers: [
+            "Un environnement d'exécution JavaScript côté serveur",
+            "Un langage de programmation",
+            "Une base de données"
+        ],
+        correct: 0,
+        explanation: "NodeJS permet d'exécuter du JavaScript en dehors du navigateur, notamment pour le backend."
+    },
+    {
+        question: "Peux-tu m'expliquer ce qu'est Firebase ?",
+        answers: [
+            "Une plateforme de développement d'applications proposée par Google",
+            "Un langage de programmation",
+            "Un outil de versionning"
+        ],
+        correct: 0,
+        explanation: "Firebase fournit des services comme l'hébergement, l'authentification et la base de données en temps réel."
+    },
+    {
+        question: "Peux-tu m'expliquer ce qu'est Angular ?",
+        answers: [
+            "Un framework JavaScript pour créer des applications web",
+            "Un langage de programmation",
+            "Une base de données"
+        ],
+        correct: 0,
+        explanation: "Angular est un framework développé par Google pour créer des applications web dynamiques."
+    },
+    {
+        question: "Peux-tu me donner la définition d'un Framework ?",
+        answers: [
+            "Un ensemble d’outils et de bibliothèques facilitant le développement",
+            "Un langage de programmation",
+            "Un type de serveur"
+        ],
+        correct: 0,
+        explanation: "Un framework fournit une structure et des composants prêts à l’emploi pour accélérer le développement."
+    },
+    {
+        question: "Qu'est-ce que Playwright ?",
+        answers: [
+            "Un outil de test automatisé pour navigateurs",
+            "Un langage de programmation",
+            "Un outil de gestion de projet"
+        ],
+        correct: 0,
+        explanation: "Playwright permet d'automatiser les tests de navigateurs pour vérifier le comportement des applications web."
+    },
+    {
+        question: "A quoi sert un planning poker ?",
+        answers: [
+            "Estimer la complexité des tâches en Agile",
+            "Planifier des réunions",
+            "Créer des diagrammes"
+        ],
+        correct: 0,
+        explanation: "Le planning poker est une technique Agile pour estimer les efforts nécessaires à une tâche."
+    },
+    {
+        question: "C'est quoi un test RGA ?",
+        answers: [
+            "Un test de conformité réglementaire d’accessibilité",
+            "Un test de performance réseau",
+            "Un test de sécurité"
+        ],
+        correct: 0,
+        explanation: "RGA signifie Référentiel Général d’Accessibilité et vérifie la conformité aux règles d’accessibilité numérique."
+    },
+    {
+        question: "C'est quoi une enum ?",
+        answers: [
+            "Un type de donnée énuméré avec des valeurs prédéfinies",
+            "Une boucle de programmation",
+            "Une variable temporaire"
+        ],
+        correct: 0,
+        explanation: "Une enum permet de définir un ensemble constant de valeurs nommées."
+    },
+    {
+        question: "Qu'est-ce que les 3A ?",
+        answers: [
+            "Arrange, Act, Assert en test unitaire",
+            "Analyse, Automatisation, Application",
+            "Audit, Accessibilité, Approbation"
+        ],
+        correct: 0,
+        explanation: "Les 3A représentent la structure Arrange (préparer), Act (agir), Assert (vérifier) en test unitaire."
+    },
+    {
+        question: "C'est quoi Notion ?",
+        answers: [
+            "Un outil de prise de notes et gestion de projets collaboratif",
+            "Un framework web",
+            "Une base de données"
+        ],
+        correct: 0,
+        explanation: "Notion est un espace de travail collaboratif permettant notes, gestion de tâches et documentation."
+    },
+    {
+        question: "C'est quoi un cahier de tests ?",
+        answers: [
+            "Un document listant les scénarios et cas de test",
+            "Un rapport d'incidents",
+            "Un guide utilisateur"
+        ],
+        correct: 0,
+        explanation: "Le cahier de tests recense tous les cas de tests à exécuter pour vérifier un logiciel."
+    },
+    {
+        question: "Que doit-on mettre dans un cahier de tests ?",
+        answers: [
+            "Les prérequis, scénarios, résultats attendus et observés",
+            "Uniquement les bugs détectés",
+            "Les tâches de développement"
+        ],
+        correct: 0,
+        explanation: "Un cahier de tests contient les préconditions, les étapes de test, les résultats attendus et ceux observés."
+    },
+    {
+        question: "C'est quoi un test de charge ?",
+        answers: [
+            "Un test pour mesurer la performance sous forte utilisation",
+            "Un test de compatibilité",
+            "Un test de sécurité"
+        ],
+        correct: 0,
+        explanation: "Le test de charge évalue le comportement du système lorsqu'il est sollicité intensivement."
+    },
+    {
+        question: "Comment faire un test de charge ?",
+        answers: [
+            "Simuler un grand nombre d’utilisateurs ou de requêtes simultanées",
+            "Vérifier le code ligne par ligne",
+            "Analyser le code statiquement"
+        ],
+        correct: 0,
+        explanation: "Un test de charge se fait via des outils simulant de nombreux utilisateurs ou requêtes."
+    },
+    {
+        question: "C'est quoi git ?",
+        answers: [
+            "Un système de gestion de versions de code",
+            "Un langage de programmation",
+            "Un serveur web"
+        ],
+        correct: 0,
+        explanation: "Git est un outil de contrôle de version distribué pour suivre l’évolution du code."
+    },
+    {
+        question: "C'est quoi gitlab ?",
+        answers: [
+            "Une plateforme de gestion de code basée sur Git",
+            "Un éditeur de texte",
+            "Un serveur de base de données"
+        ],
+        correct: 0,
+        explanation: "GitLab est un service de gestion de dépôts Git avec intégration continue et outils collaboratifs."
+    },
+    {
+        question: "C'est quoi GitHub ?",
+        answers: [
+            "Une plateforme d’hébergement de projets Git",
+            "Un framework web",
+            "Un système de débogage"
+        ],
+        correct: 0,
+        explanation: "GitHub est un service d’hébergement et de gestion de projets utilisant Git."
+    },
+    {
+        question: "Quelle est la principale différence entre un test de charge et un test de stress ?",
+        answers: [
+            "Le test de charge mesure sous forte utilisation, le stress pousse le système au-delà de ses limites",
+            "Le test de charge est plus rapide",
+            "Le test de stress est plus précis"
+        ],
+        correct: 0,
+        explanation: "Le test de charge évalue les performances en usage intense, le stress cherche à provoquer la panne."
+    },
+    {
+        question: "C'est quoi un locator dans du code JS ?",
+        answers: [
+            "Un sélecteur permettant de trouver un élément dans le DOM",
+            "Une variable temporaire",
+            "Un module d’importation"
+        ],
+        correct: 0,
+        explanation: "Un locator est un identifiant (CSS, XPath, etc.) utilisé pour cibler un élément HTML dans le DOM."
+    },
+    {
+        question: "Qu'est-ce qu'un bug ?",
+        answers: [
+            "Un défaut dans un logiciel entraînant un comportement inattendu",
+            "Une fonctionnalité optionnelle",
+            "Un test automatisé"
+        ],
+        correct: 0,
+        explanation: "Un bug est une erreur ou anomalie qui empêche le logiciel de fonctionner comme prévu."
+    },
+    {
+        question: "Combien de temps dure un sprint en méthode Agile ?",
+        answers: [
+            "En général entre 1 et 4 semaines",
+            "Toujours 1 semaine",
+            "Toujours 1 mois"
+        ],
+        correct: 0,
+        explanation: "La durée d'un sprint est fixée entre 1 et 4 semaines selon l'équipe et le projet."
+    },
+    {
+        question: "Quelle est la première étape de la planification d'un test Agile ?",
+        answers: [
+            "Identifier les critères d'acceptation et les user stories",
+            "Coder les fonctionnalités",
+            "Faire un test de performance"
+        ],
+        correct: 0,
+        explanation: "En Agile, on commence par analyser les user stories et définir les critères d’acceptation."
+    },
+    {
+        question: "Quand est-ce qu'on fait un sprint review ?",
+        answers: [
+            "À la fin du sprint pour présenter le travail accompli",
+            "Au début du sprint",
+            "Avant chaque test unitaire"
+        ],
+        correct: 0,
+        explanation: "Le sprint review se tient à la fin de chaque sprint pour présenter les fonctionnalités livrées."
+    },
+    {
+        question: "Quelle est la différence entre Front end et Back end ?",
+        answers: [
+            "Le front end est la partie visible par l’utilisateur, le back end gère la logique et les données",
+            "Le front end gère les bases de données",
+            "Le back end affiche l’interface"
+        ],
+        correct: 0,
+        explanation: "Le front end est l’interface utilisateur, le back end traite les données et la logique métier."
+    },
+    {
+        question: "C'est quoi une branche dans git ?",
+        answers: [
+            "Une version parallèle du code pour développer sans impacter la principale",
+            "Un serveur secondaire",
+            "Un module d’extension"
+        ],
+        correct: 0,
+        explanation: "Une branche permet de travailler sur des fonctionnalités ou correctifs séparément du code principal."
+    },
+    {
+        question: "Qu'est-ce que SonarQube ?",
+        answers: [
+            "Un outil d'analyse de qualité du code",
+            "Un langage de programmation",
+            "Un serveur web"
+        ],
+        correct: 0,
+        explanation: "SonarQube analyse le code pour détecter les bugs, failles et mauvaises pratiques."
+    },
+    {
+        question: "C'est quoi un rapport Gatling ?",
+        answers: [
+            "Un rapport généré par un outil de test de charge",
+            "Un document de sécurité",
+            "Un diagramme de flux"
+        ],
+        correct: 0,
+        explanation: "Gatling produit des rapports détaillés sur les performances et le comportement sous charge."
+    },
+    {
+        question: "Quel est le rôle d'un Product Owner ?",
+        answers: [
+            "Définir la vision produit et prioriser le backlog",
+            "Coder les fonctionnalités",
+            "Tester le produit"
+        ],
+        correct: 0,
+        explanation: "Le Product Owner gère la vision produit, les priorités et le backlog."
+    },
+    {
+        question: "Quels sont les 4 piliers de l'agilité ?",
+        answers: [
+            "Individus et interactions, logiciel fonctionnel, collaboration client, adaptation au changement",
+            "Planification stricte, documentation, validation client, tests automatisés",
+            "Itérations, sprints, user stories, tests"
+        ],
+        correct: 0,
+        explanation: "Les 4 piliers de l’agilité viennent du manifeste agile : individus/interactions, logiciel fonctionnel, collaboration client, adaptation."
+    }
 ];
