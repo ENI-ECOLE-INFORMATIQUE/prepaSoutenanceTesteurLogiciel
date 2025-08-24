@@ -3,6 +3,17 @@ let score = 0;
 let timer;
 let timeLeft = 30;
 
+/**
+ * Fonction utilitaire pour mélanger un tableau
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 function startTimer() {
     clearInterval(timer);
     timeLeft = 30;
@@ -19,33 +30,50 @@ function startTimer() {
 
 function showQuestion(index) {
     const q = quiz[index];
+
+    // Créer un tableau d'objets { text, isCorrect }
+    let answers = q.answers.map((answer, i) => ({
+        text: answer,
+        isCorrect: i === q.correct
+    }));
+
+    // Mélanger les réponses
+    answers = shuffleArray(answers);
+
+    // Afficher la question
     document.getElementById("question").textContent = q.question;
+
+    // Réinitialiser les réponses
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
-    q.answers.forEach((answer, i) => {
+
+    // Générer les boutons
+    answers.forEach((answerObj, i) => {
         const btn = document.createElement("button");
-        btn.textContent = answer;
-        btn.onclick = () => showExplanation(i);
+        btn.textContent = answerObj.text;
+        btn.onclick = () => showExplanation(i, answers);
         answersDiv.appendChild(btn);
     });
+
     document.getElementById("feedback").textContent = "";
     document.getElementById("prevBtn").disabled = index === 0;
     document.getElementById("nextBtn").disabled = true;
     startTimer();
 }
 
-function showExplanation(selected) {
+function showExplanation(selected, answersShuffled) {
     clearInterval(timer);
     const q = quiz[currentQuestion];
     const feedbackDiv = document.getElementById("feedback");
     const buttons = document.querySelectorAll("#answers button");
+
     buttons.forEach((btn, i) => {
         btn.disabled = true;
-        if (i === q.correct) btn.style.backgroundColor = "#4CAF50";
-        if (i === selected && selected !== q.correct) btn.style.backgroundColor = "#f44336";
+        if (answersShuffled[i].isCorrect) btn.style.backgroundColor = "#4CAF50";
+        if (i === selected && !answersShuffled[i].isCorrect) btn.style.backgroundColor = "#f44336";
     });
 
-    if (selected === q.correct) {
+    if (selected !== null && answersShuffled[selected].isCorrect) {
         score++;
         feedbackDiv.textContent = "✅ Bonne réponse ! " + q.explanation;
     } else if (selected === null) {
