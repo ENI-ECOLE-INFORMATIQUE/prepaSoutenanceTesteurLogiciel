@@ -778,3 +778,104 @@ const quiz = [
         explanation: "Les 4 piliers de l’agilité viennent du manifeste agile : individus/interactions, logiciel fonctionnel, collaboration client, adaptation."
     }
 ];
+
+// --- Tests de Vérification ---
+quiz.push({
+    question: "Qu'est-ce qu'un test de vérification ?",
+    answers: [
+        "Un test qui permet de vérifier que le logiciel respecte les spécifications et exigences définies.",
+        "Un test réalisé uniquement après la mise en production.",
+        "Un test qui sert à vérifier la performance de l'application.",
+        "Un test réalisé uniquement par les utilisateurs finaux."
+    ],
+    correct: 0,
+    explanation: "Les tests de vérification consistent à s'assurer que le produit respecte les spécifications et exigences définies (validation de la conception par rapport au cahier des charges)."
+});
+
+quiz.push({
+    question: "À quel moment effectue-t-on généralement des tests de vérification ?",
+    answers: [
+        "Pendant les phases de développement et d'intégration.",
+        "Uniquement en production.",
+        "Après la livraison finale au client.",
+        "Seulement si une anomalie est détectée."
+    ],
+    correct: 0,
+    explanation: "Les tests de vérification sont effectués pendant le développement et l’intégration pour s’assurer que chaque module respecte les spécifications avant la validation globale."
+});
+
+// --- Tests de Confirmation ---
+quiz.push({
+    question: "Qu'est-ce qu'un test de confirmation ?",
+    answers: [
+        "Un test qui permet de vérifier qu'un bug corrigé ne réapparaît plus.",
+        "Un test qui valide la conformité du produit aux spécifications initiales.",
+        "Un test de charge exécuté pour confirmer la performance.",
+        "Un test obligatoire avant la mise en production."
+    ],
+    correct: 0,
+    explanation: "Un test de confirmation est exécuté pour s’assurer qu’un défaut signalé a bien été corrigé et que la fonctionnalité concernée fonctionne désormais correctement."
+});
+
+quiz.push({
+    question: "Quelle est la différence entre un test de régression et un test de confirmation ?",
+    answers: [
+        "Le test de confirmation vérifie qu'un bug corrigé est bien résolu, tandis que le test de régression s'assure que la correction n'a pas introduit de nouveaux problèmes ailleurs.",
+        "Le test de régression et le test de confirmation sont identiques.",
+        "Le test de régression se concentre sur les performances, le test de confirmation sur la sécurité.",
+        "Le test de confirmation se fait avant livraison, le test de régression après."
+    ],
+    correct: 0,
+    explanation: "Le test de confirmation valide la correction d’un bug précis, tandis que le test de régression vérifie que cette correction n’a pas impacté négativement d’autres fonctionnalités."
+});
+
+// --- Vérification vs Confirmation ---
+quiz.push({
+    question: "Quelle est la principale différence entre un test de vérification et un test de confirmation ?",
+    answers: [
+        "La vérification s’assure que le produit respecte les spécifications, tandis que la confirmation vérifie qu’un bug corrigé fonctionne correctement.",
+        "La vérification est faite après la livraison, la confirmation avant la livraison.",
+        "La vérification teste uniquement les performances, la confirmation uniquement la sécurité.",
+        "La vérification est réalisée par le client, la confirmation par le développeur."
+    ],
+    correct: 0,
+    explanation: "La vérification se concentre sur la conformité aux spécifications initiales, tandis que la confirmation consiste à tester la correction d’un bug précis."
+});
+
+quiz.push({
+    question: "Dans quel cas utiliserait-on un test de vérification plutôt qu’un test de confirmation ?",
+    answers: [
+        "Lorsqu’on veut valider que les fonctionnalités développées respectent les spécifications.",
+        "Lorsqu’on veut s’assurer qu’un bug corrigé est bien résolu.",
+        "Lorsqu’on veut tester les performances sous forte charge.",
+        "Lorsqu’on veut valider la sécurité de l’application."
+    ],
+    correct: 0,
+    explanation: "On utilise un test de vérification pour valider que les fonctionnalités sont conformes aux spécifications. Le test de confirmation, lui, intervient après correction d’un défaut."
+});
+
+quiz.push({
+    question: "Quel type de test est directement lié au cycle de correction d’anomalies ?",
+    answers: [
+        "Le test de confirmation.",
+        "Le test de vérification.",
+        "Le test unitaire.",
+        "Le test de charge."
+    ],
+    correct: 0,
+    explanation: "Le test de confirmation est lié au processus de correction d’anomalies : il permet de vérifier qu’un bug signalé a bien été corrigé."
+});
+
+quiz.push({
+    question: "Les tests de vérification et de confirmation font partie de quel objectif global ?",
+    answers: [
+        "Améliorer la qualité et la fiabilité du logiciel.",
+        "Mesurer la performance du logiciel.",
+        "Garantir uniquement la sécurité de l’application.",
+        "Évaluer l’expérience utilisateur."
+    ],
+    correct: 0,
+    explanation: "Les deux types de tests participent à l’assurance qualité en visant à améliorer la fiabilité et la robustesse du logiciel."
+});
+
+
