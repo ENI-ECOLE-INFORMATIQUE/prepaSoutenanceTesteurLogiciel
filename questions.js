@@ -878,4 +878,126 @@ quiz.push({
     explanation: "Les deux types de tests participent à l’assurance qualité en visant à améliorer la fiabilité et la robustesse du logiciel."
 });
 
+// --- Plan de test ---
+quiz.push({
+    theme: "Plan de test",
+    question: "Qu’est-ce qu’un plan de test dans le processus de test logiciel ?",
+    answers: [
+        "Un document qui décrit la stratégie, les objectifs, les ressources et le planning des activités de test.",
+        "Un document qui recense uniquement les bugs rencontrés.",
+        "Un rapport final envoyé au client à la fin du projet.",
+        "Un cahier des charges pour les développeurs."
+    ],
+    correct: 0,
+    explanation: "Le plan de test est un document de référence qui décrit la stratégie globale de test, ses objectifs, les ressources nécessaires et la planification."
+});
+
+quiz.push({
+    theme: "Plan de test",
+    question: "Que contient généralement un plan de test ?",
+    answers: [
+        "Les objectifs de test, le périmètre, les ressources, les environnements, la stratégie et le planning.",
+        "Uniquement la liste des cas de test.",
+        "Les tickets de bug et leurs correctifs.",
+        "Uniquement les résultats d’exécution."
+    ],
+    correct: 0,
+    explanation: "Un plan de test comprend : objectifs, périmètre, stratégie, ressources, environnement, risques, planning et critères d’entrée/sortie."
+});
+
+// --- Cas de test ---
+quiz.push({
+    theme: "Cas de test",
+    question: "Qu’est-ce qu’un cas de test ?",
+    answers: [
+        "Un scénario documenté qui décrit les conditions, les données, les actions et les résultats attendus pour vérifier une fonctionnalité.",
+        "Un bug identifié dans le logiciel.",
+        "Un script automatisé exécuté par un outil.",
+        "Une documentation de projet sans lien avec les tests."
+    ],
+    correct: 0,
+    explanation: "Un cas de test est un scénario structuré qui permet de valider une fonctionnalité précise en suivant des conditions d’entrée, des étapes et des résultats attendus."
+});
+
+quiz.push({
+    theme: "Cas de test",
+    question: "Que doit contenir un cas de test bien rédigé ?",
+    answers: [
+        "Un identifiant unique, un objectif, des prérequis, des étapes, des données de test et un résultat attendu.",
+        "Uniquement un résultat attendu.",
+        "Un descriptif général de l’application.",
+        "Les anomalies rencontrées sur le projet."
+    ],
+    correct: 0,
+    explanation: "Un cas de test doit contenir : identifiant, description/objectif, prérequis, étapes détaillées, données de test, résultats attendus et état."
+});
+
+// --- Rapport d’exécution ---
+quiz.push({
+    theme: "Rapport d’exécution",
+    question: "Qu’est-ce qu’un rapport d’exécution de test ?",
+    answers: [
+        "Un document qui présente les résultats des cas de test exécutés, leur statut (succès/échec) et les anomalies détectées.",
+        "Un plan prévisionnel des tests.",
+        "Un cahier des charges fonctionnel.",
+        "Un script de test automatisé."
+    ],
+    correct: 0,
+    explanation: "Le rapport d’exécution fournit une vision claire des résultats des tests, des cas réussis, échoués et des anomalies détectées."
+});
+
+quiz.push({
+    theme: "Rapport d’exécution",
+    question: "Que doit contenir un rapport d’exécution ?",
+    answers: [
+        "La liste des cas de test exécutés, leur statut, les anomalies rencontrées et une synthèse globale.",
+        "Uniquement les bugs corrigés.",
+        "Les cas de test qui n’ont pas encore été rédigés.",
+        "La documentation technique du produit."
+    ],
+    correct: 0,
+    explanation: "Un rapport d’exécution inclut : cas exécutés, résultats, anomalies, statistiques et une synthèse pour les parties prenantes."
+});
+
+quiz.push({
+    theme: "Rapport d’exécution",
+    question: "Comment transmettre efficacement un rapport d’exécution aux parties prenantes ?",
+    answers: [
+        "En utilisant un format clair (PDF, outil de gestion de tests, email) et en adaptant le niveau de détail selon le public.",
+        "Uniquement par oral lors d’une réunion.",
+        "En envoyant les fichiers de logs bruts.",
+        "En stockant le rapport sans le partager."
+    ],
+    correct: 0,
+    explanation: "Un rapport doit être transmis dans un format adapté (document ou outil) et présenter un niveau de détail compréhensible pour le public (manager, client, équipe technique)."
+});
+
+// --- Ticket de bug ---
+quiz.push({
+    theme: "Ticket de bug",
+    question: "Qu’est-ce qu’un ticket de bug ?",
+    answers: [
+        "Un enregistrement dans un outil de suivi permettant de décrire, prioriser et suivre la résolution d’une anomalie.",
+        "Un document qui décrit les objectifs de test.",
+        "Un cas de test automatisé.",
+        "Un rapport final de projet."
+    ],
+    correct: 0,
+    explanation: "Un ticket de bug est une fiche descriptive dans un outil de suivi (Jira, Redmine, etc.) qui permet de signaler une anomalie et d’en suivre l’évolution."
+});
+
+quiz.push({
+    theme: "Ticket de bug",
+    question: "Que doit contenir un ticket de bug bien rédigé ?",
+    answers: [
+        "Un titre clair, un identifiant, la description, la sévérité, la priorité, l’environnement, les étapes de reproduction, le résultat obtenu et le résultat attendu.",
+        "Uniquement une capture d’écran.",
+        "Le code source du module concerné.",
+        "Les objectifs du plan de test."
+    ],
+    correct: 0,
+    explanation: "Un ticket de bug doit être précis : titre, description, sévérité, priorité, environnement, étapes de reproduction, résultat obtenu vs attendu et éventuellement des pièces jointes."
+});
+
+
 
