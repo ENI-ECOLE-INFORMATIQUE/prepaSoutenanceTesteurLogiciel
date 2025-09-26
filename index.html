@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Quiz Soutenance - Testeurs Logiciels</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <title>Accueil — Révisions Testeurs Logiciels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Atelier de révision pour testeurs logiciels : quiz et fiches de révision thématiques." />
+  <link rel="stylesheet" href="style.css">
 
-<div class="quiz-container" id="quizContainer">
-    <img src="img/logo_eni.png" alt="LOGO ENI">
-     <nav>
+  <div class="home-container" id="homeContainer">
+    <img src="img/logo_eni.png" alt="LOGO ENI" class="topnav" aria-label="Navigation principale">
+    <nav>
         <a href="index.html" title="Accueil">Accueil</a>
+        <a href="quiz.html" title="Quiz">Quiz</a>
         <a href="revision.html" title="Révision">Révision</a>
     </nav>
-    <h1>Quiz Soutenance - Testeurs Logiciels</h1>
-    <div class="timer">⏱ Temps restant : <span id="time">30</span> sec</div>
-    <div class="question" id="question"></div>
-    <div class="answers" id="answers"></div>
-    <div class="feedback" id="feedback"></div>
-    <div class="nav-buttons">
-        <button id="prevBtn" disabled>⬅ Question précédente</button>
-        <button id="nextBtn" disabled>Question suivante ➡</button>
-    </div>
-    <footer>&copy; ENI ECOLE INFORMATIQUE - Denis SANCHEZ - v0.5 : 2025/09/26</footer>
-</div>
 
-<script src="questions.js"></script>
-<script src="quiz.js"></script>
+    <header class="hero">
+      <h1>Atelier de Révision — Testeurs Logiciels</h1>
+      <p class="tagline">
+        Ce site a été conçu pour aider les apprenants à <strong>réviser les fondamentaux du test logiciel</strong> :
+        types de tests, plan &amp; cas de test, automatisation/CI‑CD, accessibilité, reporting, et plus encore.
+      </p>
+      <p class="details">
+        Deux modes complémentaires sont à votre disposition :
+        <br><strong>• Quiz</strong> pour vous évaluer rapidement. <br>
+        <strong>• Révisions</strong> pour parcourir les questions avec leur réponse et explication.
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="quiz.html" title="Quiz">Quiz</a>  
+        <a class="btn btn-secondary" href="revision.html" title="Révision">Révision</a>
+      </div>
+
+    <main>
+      <section class="about">
+        <h2>Ce que vous allez travailler</h2>
+        <ul>
+          <li><strong>Thèmes</strong> : fondamentaux, types de tests, performance, automatisation &amp; CI/CD, méthodes &amp; Agile, plan/cas de test, ticket de bug, accessibilité, etc.</li>
+          <li><strong>Niveaux</strong> : Débutant, Intermédiaire, Avancé (affichés sur chaque carte de révision).</li>
+          <li><strong>Objectif</strong> : consolider vos connaissances, améliorer votre vocabulaire métier et préparer vos mises en situation.</li>
+        </ul>
+      </section>
+
+      <section class="tips">
+        <h2>Conseils d’utilisation</h2>
+        <ol>
+          <li>Commencez par les <strong>Révisions</strong> pour (re)voir les concepts clés avec explications.</li>
+          <li en>Enchaînez avec le <strong>Quiz</strong> pour évaluer votre niveau et cibler les thèmes à renforcer.</li>
+          <li>Utilisez les <strong>filtres par thème et niveau</strong>, ainsi que la <strong>recherche</strong> dans les révisions pour aller à l’essentiel.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      &copy; ENI ECOLE INFORMATIQUE — Denis SANCHEZ — v0.8 : 2025/09/26
+    </footer>
+  </div>
 
 </body>
 </html>

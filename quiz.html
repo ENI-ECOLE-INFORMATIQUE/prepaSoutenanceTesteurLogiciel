@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Soutenance - Testeurs Logiciels</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="quiz-container" id="quizContainer">
+    <img src="img/logo_eni.png" alt="LOGO ENI">
+     <nav>
+        <a href="index.html" title="Accueil">Accueil</a>
+        <a href="revision.html" title="Révision">Révision</a>
+    </nav>
+    <h1>Quiz Soutenance - Testeurs Logiciels</h1>
+    <div class="timer">⏱ Temps restant : <span id="time">30</span> sec</div>
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+    <div class="feedback" id="feedback"></div>
+    <div class="nav-buttons">
+        <button id="prevBtn" disabled>⬅ Question précédente</button>
+        <button id="nextBtn" disabled>Question suivante ➡</button>
+    </div>
+    <footer>&copy; ENI ECOLE INFORMATIQUE - Denis SANCHEZ - v0.5 : 2025/09/26</footer>
+</div>
+
+<script src="questions.js"></script>
+<script src="quiz.js"></script>
+
+</body>
+</html>
