@@ -1,4 +1,4 @@
-// Fichier généré automatiquement : regroupé par thème et avec attribut theme pour chaque question
+// Fichier thématique enrichi (ajout des questions demandées)
 const quiz = [
   {
     theme: "Fondamentaux du test",
@@ -243,6 +243,30 @@ const quiz = [
     explanation: "GitLab est un service de gestion de dépôts Git avec intégration continue et outils collaboratifs."
   },
   {
+    theme: "Types de tests",
+    question: "Laquelle est une spécification non fonctionnelle et son test associé ?",
+    answers: [
+      "Temps de réponse < 500 ms sous 200 utilisateurs → test de performance/charge.",
+      "Pouvoir créer une facture → test fonctionnel de création.",
+      "Avoir un bouton ‘Payer’ bleu → test d’UI visuelle uniquement.",
+      "Ajouter un champ ‘commentaire’ → test de saisie basique."
+    ],
+    correct: 0,
+    explanation: "Les NFR portent sur performance, sécurité, accessibilité, fiabilité, etc. et se valident via des tests non fonctionnels dédiés."
+  },
+  {
+    theme: "Types de tests",
+    question: "Que signifie la non‑régression ?",
+    answers: [
+      "Qu’aucune fonctionnalité existante n’est dégradée après une modification ; on le vérifie par des tests de régression.",
+      "Que la livraison est toujours plus rapide après chaque sprint.",
+      "Que les performances augmentent automatiquement après un refactoring.",
+      "Qu’aucun test ne doit jamais échouer en CI."
+    ],
+    correct: 0,
+    explanation: "La non‑régression vise l’absence d’effets secondaires sur l’existant ; les suites de régression (souvent automatisées) la contrôlent."
+  },
+  {
     theme: "Tests de performance",
     question: "Quel type de test se concentre sur la performance et la charge du système ?",
     answers: [
@@ -441,6 +465,42 @@ const quiz = [
     explanation: "Playwright permet d'automatiser les tests de navigateurs pour vérifier le comportement des applications web."
   },
   {
+    theme: "Automatisation & CI/CD",
+    question: "Quels sont les bénéfices ET les limites réelles de l’automatisation des tests ?",
+    answers: [
+      "Elle réduit le temps d’exécution et sécurise les régressions, mais exige un investissement initial et une maintenance continue, et ne remplace pas les tests exploratoires.",
+      "Elle remplace totalement les testeurs une fois en place et ne nécessite plus de maintenance.",
+      "Elle est surtout utile pour les tests d’interface manuels et lente pour les régressions.",
+      "Elle ne sert qu’aux tests de performance et n’apporte rien en recette fonctionnelle."
+    ],
+    correct: 0,
+    explanation: "Automatiser apporte vitesse, répétabilité et feedback rapide, mais demande du design, du code et une maintenance des scripts. Certains tests (exploratoires, ergonomie, aspects UX) restent manuels."
+  },
+  {
+    theme: "Automatisation & CI/CD",
+    question: "Quels critères privilégier pour choisir un framework d’automatisation ?",
+    answers: [
+      "Compatibilité avec le stack technique, stabilité, écosystème/plugins, intégration CI/CD, facilité de prise en main et maintenance.",
+      "Popularité sur les réseaux sociaux et présence d’un thème sombre.",
+      "Exigence d’écrire tout en framework maison pour garder le contrôle total.",
+      "Le framework le plus complexe, car il couvrira forcément tous les besoins."
+    ],
+    correct: 0,
+    explanation: "Le bon choix s’appuie sur la compatibilité (langage/outils), la robustesse, l’écosystème, l’intégration CI/CD, la maintenabilité et la courbe d’apprentissage."
+  },
+  {
+    theme: "Automatisation & CI/CD",
+    question: "Quel est le rôle des tests automatisés dans une chaîne CI/CD ?",
+    answers: [
+      "Fournir un feedback rapide et bloquer le merge/déploiement si des tests critiques échouent.",
+      "Créer des rapports uniquement après la mise en production.",
+      "Remplacer la revue de code.",
+      "Déployer automatiquement même si des tests échouent, pour gagner du temps."
+    ],
+    correct: 0,
+    explanation: "La CI exécute automatiquement les suites de tests et empêche l’intégration/livraison en cas d’échec, améliorant la qualité et la vitesse de livraison."
+  },
+  {
     theme: "Méthodes & Agile",
     question: "Que signifie 'BDD' dans le contexte des tests ?",
     answers: [
@@ -573,6 +633,18 @@ const quiz = [
     explanation: "Les 4 piliers de l’agilité viennent du manifeste agile : individus/interactions, logiciel fonctionnel, collaboration client, adaptation."
   },
   {
+    theme: "Méthodes & Agile",
+    question: "Comment adapter la communication des résultats entre Product Owner et développeurs ?",
+    answers: [
+      "PO : synthèse risques/impacts et décisions ; Développeurs : détails techniques, logs, steps reproductibles et priorité d’actions.",
+      "Envoyer le même rapport verbeux à tout le monde.",
+      "Ne communiquer que les succès pour ne pas bloquer la roadmap.",
+      "Réserver les résultats aux testeurs uniquement."
+    ],
+    correct: 0,
+    explanation: "Un reporting efficace est ciblé : décisionnel et orienté valeur pour le PO ; actionnable et technique pour l’équipe de dev."
+  },
+  {
     theme: "Plan de test",
     question: "Dans un plan de test, que contient la section 'préconditions' ?",
     answers: [
@@ -606,6 +678,42 @@ const quiz = [
     ],
     correct: 0,
     explanation: "Un plan de test comprend : objectifs, périmètre, stratégie, ressources, environnement, risques, planning et critères d’entrée/sortie."
+  },
+  {
+    theme: "Plan de test",
+    question: "Quelle différence entre un plan de test (ISTQB) et une suite de tests ?",
+    answers: [
+      "Le plan de test décrit la stratégie, le périmètre, les ressources et le planning ; la suite de tests est l’ensemble structuré de cas exécutables.",
+      "Aucune : ce sont deux termes pour la même chose.",
+      "Le plan de test contient uniquement la liste des bugs ; la suite de tests, la stratégie.",
+      "La suite de tests est un document managérial, le plan de test est un script automatisé."
+    ],
+    correct: 0,
+    explanation: "Le plan de test est un document de pilotage ; la suite de tests regroupe les cas destinés à l’exécution. Les deux sont complémentaires."
+  },
+  {
+    theme: "Plan de test",
+    question: "Que faire face à une spécification ambiguë ou incomplète ?",
+    answers: [
+      "Demander une clarification (PO/BA), documenter les questions, proposer des exemples/exemples concrets et aligner les critères d’acceptation.",
+      "Interpréter seul pour gagner du temps et écrire les tests selon son intuition.",
+      "Ignorer la spécification et tester uniquement le comportement actuel.",
+      "Reporter le sujet en production pour décider plus tard."
+    ],
+    correct: 0,
+    explanation: "La clarification amont évite les malentendus : questions écrites, exemples, critères d’acceptation et mise à jour des artefacts."
+  },
+  {
+    theme: "Plan de test",
+    question: "Quel principe de base pour établir un plan d’exécution des tests ?",
+    answers: [
+      "Prioriser par risque/criticité métier, gérer les dépendances et la disponibilité des environnements/données.",
+      "Exécuter par ordre alphabétique des cas de test.",
+      "Toujours commencer par les tests les plus longs.",
+      "Lancer tous les cas en parallèle sans tenir compte des environnements."
+    ],
+    correct: 0,
+    explanation: "Un scheduling efficace tient compte du risque, des prérequis (données/env), des fenêtres de tir et des ressources."
   },
   {
     theme: "Cas de test",
@@ -654,6 +762,42 @@ const quiz = [
     explanation: "Un cas de test doit contenir : identifiant, description/objectif, prérequis, étapes détaillées, données de test, résultats attendus et état."
   },
   {
+    theme: "Cas de test",
+    question: "Quel est l’enchaînement logique d’un scénario de test bien rédigé ?",
+    answers: [
+      "Préconditions → Étapes → Résultats attendus → Post‑conditions",
+      "Résultats attendus → Étapes → Préconditions → Post‑conditions",
+      "Étapes → Préconditions → Résultats attendus → Post‑conditions",
+      "Préconditions → Post‑conditions → Étapes → Résultats attendus"
+    ],
+    correct: 0,
+    explanation: "Un scénario clair pose le contexte (préconditions), décrit l’action (étapes), précise le résultat attendu et éventuellement les post‑conditions pour remettre le système dans un état propre."
+  },
+  {
+    theme: "Cas de test",
+    question: "Quel principe est recommandé pour rédiger un cas de test efficace ?",
+    answers: [
+      "Un cas = un objectif clair, des données précises, des étapes reproductibles et un résultat attendu mesurable.",
+      "Regrouper le maximum de vérifications hétérogènes dans un seul cas pour gagner du temps.",
+      "Omettre les données de test pour éviter de figer le scénario.",
+      "Écrire uniquement le résultat attendu sans détailler les étapes."
+    ],
+    correct: 0,
+    explanation: "Des cas atomiques et reproductibles facilitent l’exécution, l’automatisation et l’analyse des échecs."
+  },
+  {
+    theme: "Cas de test",
+    question: "Quelle démarche permet de dériver des cas de test à partir des spécifications fonctionnelles ?",
+    answers: [
+      "Identifier les critères d’acceptation par user story, définir les scénarios (heureux/erreur/bords) et écrire des cas traçables.",
+      "Attendre la fin du développement puis improviser des tests exploratoires uniquement.",
+      "Écrire des cas de test sans lire les spécifications pour rester neutre.",
+      "Se limiter aux scénarios heureux afin de simplifier la recette."
+    ],
+    correct: 0,
+    explanation: "L’ingénierie des tests part des exigences/US et critères d’acceptation pour couvrir cas nominal, erreurs et limites, avec traçabilité bidirectionnelle."
+  },
+  {
     theme: "Rapport d’exécution",
     question: "Qu’est-ce qu’un rapport d’exécution de test ?",
     answers: [
@@ -690,6 +834,30 @@ const quiz = [
     explanation: "Un rapport doit être transmis dans un format adapté (document ou outil) et présenter un niveau de détail compréhensible pour le public (manager, client, équipe technique)."
   },
   {
+    theme: "Rapport d’exécution",
+    question: "Quels éléments clés présenter lors d’un reporting de tests ?",
+    answers: [
+      "Taux de réussite/échec, cas bloqués, couverture, risques et tendances, avec un focus sur les impacts métier.",
+      "La liste exhaustive des logs techniques uniquement.",
+      "Uniquement les succès pour rassurer les parties prenantes.",
+      "Le nom des testeurs et la durée quotidienne de chacun."
+    ],
+    correct: 0,
+    explanation: "Un bon reporting combine indicateurs quantitatifs et analyse des risques pour aider à la décision (go/no‑go, priorisation)."
+  },
+  {
+    theme: "Rapport d’exécution",
+    question: "Comment garantir la confidentialité lors d’une présentation des résultats ?",
+    answers: [
+      "Anonymiser/masquer les données sensibles, limiter les accès, partager le strict nécessaire et utiliser des environnements non‑prod.",
+      "Utiliser des données de production en clair pour rester fidèle à la réalité.",
+      "Transférer tous les dumps de base de données pour que chacun puisse vérifier.",
+      "Envoyer les rapports à l’ensemble de l’entreprise pour transparence totale."
+    ],
+    correct: 0,
+    explanation: "La confidentialité passe par l’anonymisation, le masquage, le contrôle d’accès et l’absence de données personnelles réelles dans les supports."
+  },
+  {
     theme: "Ticket de bug",
     question: "Qu’est-ce qu’un ticket de bug ?",
     answers: [
@@ -712,6 +880,30 @@ const quiz = [
     ],
     correct: 0,
     explanation: "Un ticket de bug doit être précis : titre, description, sévérité, priorité, environnement, étapes de reproduction, résultat obtenu vs attendu et éventuellement des pièces jointes."
+  },
+  {
+    theme: "Ticket de bug",
+    question: "Quel élément améliore le plus la capacité à reproduire une anomalie ?",
+    answers: [
+      "Des étapes de reproduction précises avec données, contexte, captures/logs et résultat attendu vs obtenu.",
+      "Un titre créatif et court sans détails.",
+      "Uniquement le code source soupçonné.",
+      "La sévérité sans description."
+    ],
+    correct: 0,
+    explanation: "La qualité d’un ticket repose sur la reproductibilité : étapes, données, environnement, preuves et attente métier."
+  },
+  {
+    theme: "Ticket de bug",
+    question: "Laquelle des propositions décrit correctement la différence entre sévérité et priorité ?",
+    answers: [
+      "La sévérité mesure l’impact fonctionnel/technique ; la priorité définit l’urgence de correction.",
+      "La sévérité est décidée par le PO ; la priorité par le testeur.",
+      "La priorité est l’impact, la sévérité l’ordre d’exécution.",
+      "Ce sont des synonymes."
+    ],
+    correct: 0,
+    explanation: "Sévérité = gravité du dysfonctionnement ; priorité = ordre/urgence de traitement, décidé selon le risque et le contexte projet."
   },
   {
     theme: "Cahier de tests",
@@ -887,6 +1079,18 @@ const quiz = [
     explanation: "SonarQube analyse le code pour détecter les bugs, failles et mauvaises pratiques."
   },
   {
+    theme: "Outils & Plateformes",
+    question: "Bonne pratique pour joindre des documents dans un ticket Jira ?",
+    answers: [
+      "Attacher captures, logs, jeux de données et lier commits/PRs ; nommer clairement et contrôler l’accès.",
+      "Éviter toute pièce jointe pour alléger l’outil.",
+      "Mettre un zip de la base de production pour simplifier la reproduction.",
+      "Remplacer la description par une capture d’écran sans texte."
+    ],
+    correct: 0,
+    explanation: "Des artefacts bien nommés et traçables (captures, logs, liens vers PR/CI) accélèrent la compréhension et la correction."
+  },
+  {
     theme: "Web & Développement",
     question: "C'est quoi une webapp ?",
     answers: [
@@ -1019,6 +1223,18 @@ const quiz = [
     explanation: "Le front end est l’interface utilisateur, le back end traite les données et la logique métier."
   },
   {
+    theme: "Web & Développement",
+    question: "Quelle est la différence entre clé primaire et clé étrangère ?",
+    answers: [
+      "La clé primaire identifie de façon unique une ligne dans sa table ; la clé étrangère référence la clé primaire d’une autre table pour créer une relation.",
+      "La clé primaire est toujours un texte ; la clé étrangère toujours un nombre.",
+      "La clé étrangère identifie de façon unique une ligne ; la clé primaire référence une autre table.",
+      "Elles sont strictement équivalentes et interchangeables."
+    ],
+    correct: 0,
+    explanation: "PK = identifiant unique local ; FK = lien référentiel vers une autre table (intégrité référentielle)."
+  },
+  {
     theme: "Accessibilité",
     question: "C'est quoi un test RGA ?",
     answers: [
@@ -1028,6 +1244,30 @@ const quiz = [
     ],
     correct: 0,
     explanation: "RGA signifie Référentiel Général d’Accessibilité et vérifie la conformité aux règles d’accessibilité numérique."
+  },
+  {
+    theme: "Accessibilité",
+    question: "Quelle approche est la plus adaptée pour tester l’accessibilité d’une application web ?",
+    answers: [
+      "Combiner des outils automatiques (linting, contrastes, ARIA) et des tests manuels (navigation clavier, lecteurs d’écran) selon les référentiels (WCAG/RGAA).",
+      "Se fier à un seul outil automatique : s’il est vert, c’est conforme.",
+      "Tester uniquement avec la souris car c’est l’usage majoritaire.",
+      "Vérifier la charte graphique sans regarder le code."
+    ],
+    correct: 0,
+    explanation: "Les tests d’accessibilité exigent des vérifications automatiques et manuelles (clavier, focus, lecteurs d’écran) par rapport aux critères WCAG/RGAA."
+  },
+  {
+    theme: "Accessibilité",
+    question: "Quelles références doit‑on connaître pour l’accessibilité web (France) ?",
+    answers: [
+      "Les WCAG (W3C) et le référentiel RGAA, qui en est l’adaptation française.",
+      "Uniquement la norme ISO/IEC 27001 sur la sécurité de l’information.",
+      "Le manifeste agile et les user stories d’accessibilité.",
+      "Aucune : seule la charte graphique interne compte."
+    ],
+    correct: 0,
+    explanation: "Les critères WCAG constituent la base internationale ; en France, le RGAA s’appuie sur les WCAG pour cadrer la conformité des sites publics."
   },
   {
     theme: "Organisation & rôles produit",
@@ -1052,3 +1292,4 @@ const quiz = [
     explanation: "Le CTPO coordonne la vision produit et la stratégie technique."
   }
 ];
+
