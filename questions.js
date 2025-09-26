@@ -1692,3 +1692,11 @@ const quiz = [
     explanation: "Le Go/No‑Go relève de la gouvernance projet/produit sur la base d’éléments qualité, risques et valeur."
   }
 ];
+
+
+// Rendre le quiz disponible en global
+if (typeof window !== 'undefined') {
+  window.quiz = quiz;
+} else if (typeof globalThis !== 'undefined') {
+  globalThis.quiz = quiz;
+}
