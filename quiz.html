@@ -8,12 +8,14 @@
 <body>
 
 <div class="quiz-container" id="quizContainer">
-    <img src="img/logo_eni.png" alt="LOGO ENI">
-     <nav>
+    <img src="img/logo_eni.png" alt="LOGO ENI" class="topnav" aria-label="Navigation principale">
+    <nav>
         <a href="index.html" title="Accueil">Accueil</a>
+        <a href="quiz.html" title="Quiz">Quiz</a>
         <a href="revision.html" title="Révision">Révision</a>
     </nav>
     <h1>Quiz Soutenance - Testeurs Logiciels</h1>
+     <a id="top"></a>
     <div class="timer">⏱ Temps restant : <span id="time">30</span> sec</div>
     <div class="question" id="question"></div>
     <div class="answers" id="answers"></div>
@@ -25,8 +27,21 @@
     <footer>&copy; ENI ECOLE INFORMATIQUE - Denis SANCHEZ - v0.5 : 2025/09/26</footer>
 </div>
 
+<!-- Bouton Revenir en haut -->
+<button id="backToTop"
+        class="back-to-top"
+        aria-label="Revenir en haut"
+        title="Revenir en haut">
+  <!-- Icône (SVG) : flèche vers le haut -->
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path fill="currentColor"
+          d="M12 4l-6 6h4v6h4v-6h4l-6-6z"/>
+  </svg>
+</button>
+
 <script src="questions.js"></script>
-<script src="quiz.js"></script>
+<script src="revision.js"></script>
+<script src="back-to-top.js"></script>
 
 </body>
 </html>
