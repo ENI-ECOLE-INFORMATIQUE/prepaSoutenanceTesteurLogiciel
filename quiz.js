@@ -3,6 +3,7 @@
   const el = (id) => document.getElementById(id);
 
   const themeSelect   = el('themeSelect');
+  const levelSelect   = el('levelSelect');
   const questionCount = el('questionCount');
   const availableInfo = el('availableInfo');
   const startBtn      = el('startBtn');
@@ -27,7 +28,7 @@
 
   // --- Sécurité (données)
   if (!Array.isArray(window.quiz)) {
-    alert('Données quiz introuvables. Assure-toi que questions.js définit window.quiz = quiz (c’est le cas dans ton fichier).');
+    alert('Données quiz introuvables. Assure-toi que questions.js définit window.quiz = quiz.');
     return;
   }
 
@@ -35,11 +36,12 @@
   const uniq = (arr) => Array.from(new Set(arr));
   const getTheme = (q) => q.theme || 'Non classé';
   const getLevel = (q) => q.niveau || 'Intermédiaire';
-  const byTheme = (t) => window.quiz.filter(q => getTheme(q) === t);
-
   const escapeHtml = (str) => String(str).replace(/[&<>\"']/g, (s) => ({
     '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
   }[s]));
+
+  const levelOrder = ['Débutant', 'Intermédiaire', 'Avancé'];
+  const sortLevels = (arr) => arr.slice().sort((a,b) => levelOrder.indexOf(a) - levelOrder.indexOf(b));
 
   function shuffle(arr) {
     const a = arr.slice();
@@ -50,15 +52,14 @@
     return a;
   }
 
-  // --- Construire la liste des thèmes + option Tous
+  // --- Population des sélecteurs
   function populateThemes() {
     const themes = uniq(window.quiz.map(getTheme)).sort((a,b)=>a.localeCompare(b,'fr'));
 
-    // Compter par thème
+    // Comptes initiaux (tous niveaux)
     const counts = {};
-    for (const t of themes) counts[t] = byTheme(t).length;
+    for (const t of themes) counts[t] = window.quiz.filter(q => getTheme(q) === t).length;
 
-    // Tous les thèmes
     const total = window.quiz.length;
     const options = [`<option value="__all__">Tous les thèmes (${total})</option>`]
       .concat(themes.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)} (${counts[t]})</option>`));
@@ -66,21 +67,46 @@
     themeSelect.innerHTML = options.join('');
   }
 
-  // --- Maintenir le max de questions possible
+  function populateLevels() {
+    const levels = sortLevels(uniq(window.quiz.map(getLevel)));
+    const total = window.quiz.length;
+
+    const options = [`<option value="__all__">Tous niveaux (${total})</option>`]
+      .concat(levels.map(l => {
+        const c = window.quiz.filter(q => getLevel(q) === l).length;
+        return `<option value="${escapeHtml(l)}">${escapeHtml(l)} (${c})</option>`;
+      }));
+
+    levelSelect.innerHTML = options.join('');
+  }
+
+  // --- Filtrage combiné (thème + niveau)
+  function filterPool(themeValue, levelValue) {
+    return window.quiz.filter(q => {
+      const themeOK = (themeValue === '__all__') || (getTheme(q) === themeValue);
+      const levelOK = (levelValue === '__all__') || (getLevel(q) === levelValue);
+      return themeOK && levelOK;
+    });
+  }
+
+  // --- Information de disponibilité + contraintes sur le nombre
   function updateAvailableInfo() {
     const selectedTheme = themeSelect.value;
-    const poolSize = (selectedTheme === '__all__')
-      ? window.quiz.length
-      : byTheme(selectedTheme).length;
+    const selectedLevel = levelSelect.value;
+
+    const pool = filterPool(selectedTheme, selectedLevel);
+    const poolSize = pool.length;
 
     const asked = parseInt(questionCount.value, 10) || 1;
     questionCount.max = Math.max(1, poolSize);
     if (asked > poolSize) {
-      questionCount.value = poolSize;
+      questionCount.value = poolSize || 1;
     } else if (asked < 1) {
       questionCount.value = 1;
     }
+
     availableInfo.textContent = `Disponibles pour ce choix : ${poolSize}`;
+    startBtn.disabled = poolSize === 0;
   }
 
   // --- État de partie
@@ -94,17 +120,12 @@
 
   function buildSession() {
     const selectedTheme = themeSelect.value;
+    const selectedLevel = levelSelect.value;
     const N = parseInt(questionCount.value, 10) || 1;
 
-    // Définir le pool de départ
-    const basePool = (selectedTheme === '__all__')
-      ? window.quiz.slice()
-      : byTheme(selectedTheme);
-
-    // Échantillonner aléatoirement N questions
+    const basePool = filterPool(selectedTheme, selectedLevel);
     const sampled = shuffle(basePool).slice(0, Math.min(N, basePool.length));
 
-    // Pour chaque question : mélanger les réponses et recalculer l'index correct
     const prepared = sampled.map(source => {
       const ans = source.answers.slice();
       const indices = ans.map((_, i) => i);
@@ -176,7 +197,6 @@
     validateBtn.hidden = false;
 
     if (session.checked[i]) {
-      // déjà validée : re‑montrer l’explication & couleurs
       showCorrection();
       validateBtn.hidden = true;
       nextBtn.hidden = (i === session.pool.length - 1) ? true : false;
@@ -191,7 +211,7 @@
   function showCorrection() {
     const i = session.index;
     const q = session.pool[i];
-    const selected = session.answers[i];
+    aconst selected = session.answers[i];
     const isCorrect = selected === q.correct;
 
     // Marquage visuel des options
@@ -253,7 +273,6 @@
     validateBtn.hidden = true;
     nextBtn.hidden = (i === session.pool.length - 1) ? true : false;
 
-    // Fin du quiz : enchaîner vers résultats
     if (i === session.pool.length - 1) {
       setTimeout(showResults, 350);
     }
@@ -267,7 +286,6 @@
   });
 
   restartBtn.addEventListener('click', () => {
-    // Retour au panneau de configuration
     quizSetup.hidden = false;
     quizStage.hidden = true;
     resultStage.hidden = true;
@@ -285,7 +303,6 @@
 
     scoreLine.textContent = `Score : ${score} / ${total} (${pct}%)`;
 
-    // Récapitulatif (questions + bonne réponse)
     const frag = document.createDocumentFragment();
     session.pool.forEach((q, i) => {
       const wrap = document.createElement('div');
@@ -314,8 +331,10 @@
 
   // --- Initialisation
   populateThemes();
+  populateLevels();
   updateAvailableInfo();
 
   themeSelect.addEventListener('change', updateAvailableInfo);
+  levelSelect.addEventListener('change', updateAvailableInfo);
   questionCount.addEventListener('input', updateAvailableInfo);
 })();
