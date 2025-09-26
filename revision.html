@@ -15,21 +15,25 @@
     </nav>
     <h1>Révision Testeurs Logiciels</h1>
     
-    <!-- Barre de filtres -->
-    
+   
+ <!-- Barre de filtres -->
     <div class="filters">
+      <label for="searchInput" class="visually-hidden">Recherche</label>
+      <input id="searchInput" type="search" placeholder="Rechercher (question, réponse, explication…)" autocomplete="off" />
+
       <label for="themeFilter"><strong>Thème :</strong></label>
       <select id="themeFilter"></select>
 
-      <label for="levelFilter" style="margin-left:.5rem;"><strong>Niveau :</strong></label>
+      <label for="levelFilter"><strong>Niveau :</strong></label>
       <select id="levelFilter"></select>
 
-      <span id="countInfo" aria-live="polite" style="margin-left:1rem;"></span>
+      <span id="countInfo" aria-live="polite"></span>
     </div>
 
 
+
     <div id="quiz-container"></div>
-    <footer>&copy; ENI ECOLE INFORMATIQUE - Denis SANCHEZ - v0.6 : 2025/09/26</footer>
+    <footer>&copy; ENI ECOLE INFORMATIQUE - Denis SANCHEZ - v0.7: 2025/09/26</footer>
 </div>
 
 <script src="questions.js"></script>
