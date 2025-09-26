@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiz Soutenance - Testeurs Logiciels</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,20 +18,58 @@
     <h1>Quiz Soutenance - Testeurs Logiciels</h1>
      <a id="top"></a>
      
-    <!-- Barre méta : thème + niveau -->
-    <div class="meta">
-      <span id="metaTheme" class="badge badge-theme" title="Thème"></span>
-      <span id="metaLevel" class="badge badge-level" title="Niveau"></span>
-    </div>
+  
+<!-- Panneau de configuration du quiz -->
+    <section class="quiz-setup" id="quizSetup">
+      <div class="setup-row">
+        <label for="themeSelect"><strong>Thème :</strong></label>
+        <select id="themeSelect"></select>
+      </div>
 
-    <div class="timer">⏱ Temps restant : <span id="time">30</span> sec</div>
-    <div class="question" id="question"></div>
-    <div class="answers" id="answers"></div>
-    <div class="feedback" id="feedback"></div>
-    <div class="nav-buttons">
-        <button id="prevBtn" disabled>⬅ Question précédente</button>
-        <button id="nextBtn" disabled>Question suivante ➡</button>
-    </div>
+      <div class="setup-row">
+        <label for="questionCount"><strong>Nombre de questions :</strong></label>
+        <input id="questionCount" type="number" min="1" step="1" value="10" />
+        <small id="availableInfo" class="muted"></small>
+      </div>
+
+      <div class="setup-row">
+        <button id="startBtn" class="btn btn-primary">🎯 Lancer le quiz</button>
+      </div>
+    </section>
+
+    <!-- Zone de jeu -->
+    <section id="quizStage" class="quiz-stage" hidden>
+      <div class="stage-header">
+        <div class="meta">
+          <span id="badgeTheme" class="badge badge-theme"></span>
+          <span id="badgeLevel" class="badge badge-level"></span>
+        </div>
+        <div id="progress" class="muted"></div>
+      </div>
+
+      <h2 id="questionText"></h2>
+
+      <form id="answersForm" class="answers"></form>
+
+      <div class="actions">
+        <button id="prevBtn" class="btn" type="button">◀ Précédent</button>
+        <button id="validateBtn" class="btn btn-primary" type="button">Valider</button>
+        <button id="nextBtn" class="btn" type="button" hidden>Suivant ▶</button>
+      </div>
+
+      <div id="explanationBox" class="explanation" hidden></div>
+    </section>
+
+    <!-- Résultats -->
+    <section id="resultStage" class="result-stage" hidden>
+      <h2>Résultats</h2>
+      <p id="scoreLine"></p>
+      <div id="recapList"></div>
+      <div class="actions">
+        <button id="restartBtn" class="btn">↺ Recommencer</button>
+      </div>
+    </section>
+
     <footer>&copy; ENI ECOLE INFORMATIQUE - Denis SANCHEZ - v0.8 : 2025/09/26</footer>
 </div>
 
