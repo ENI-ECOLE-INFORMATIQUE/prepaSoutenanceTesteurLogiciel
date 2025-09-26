@@ -25,20 +25,21 @@
   const recapList     = el('recapList');
   const restartBtn    = el('restartBtn');
 
-  // --- Sécurité
+  // --- Sécurité (données)
   if (!Array.isArray(window.quiz)) {
-    alert('Données quiz introuvables. Assure-toi que questions.thematiques.v3.js définit window.quiz = quiz.');
+    alert('Données quiz introuvables. Assure-toi que questions.js définit window.quiz = quiz (c’est le cas dans ton fichier).');
     return;
   }
 
   // --- Utilitaires
   const uniq = (arr) => Array.from(new Set(arr));
-  const byTheme = (t) => window.quiz.filter(q => (q.theme || 'Non classé') === t);
   const getTheme = (q) => q.theme || 'Non classé';
   const getLevel = (q) => q.niveau || 'Intermédiaire';
+  const byTheme = (t) => window.quiz.filter(q => getTheme(q) === t);
 
-  const stripAccents = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  const escapeHtml = (str) => String(str).replace(/[&<>"']/g, (s) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  const escapeHtml = (str) => String(str).replace(/[&<>\"']/g, (s) => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+  }[s]));
 
   function shuffle(arr) {
     const a = arr.slice();
@@ -141,7 +142,6 @@
     badgeLevel.className = 'badge badge-level ' + levelClass(q.niveau);
 
     progressEl.textContent = `Question ${i + 1} / ${session.pool.length}`;
-
     questionText.innerHTML = escapeHtml(q.question || '');
 
     // réponses
@@ -176,7 +176,7 @@
     validateBtn.hidden = false;
 
     if (session.checked[i]) {
-      // déjà validée : re‑montrer l’explication & couleur
+      // déjà validée : re‑montrer l’explication & couleurs
       showCorrection();
       validateBtn.hidden = true;
       nextBtn.hidden = (i === session.pool.length - 1) ? true : false;
@@ -253,7 +253,7 @@
     validateBtn.hidden = true;
     nextBtn.hidden = (i === session.pool.length - 1) ? true : false;
 
-    // En fin de quiz : passer directement aux résultats si dernière question
+    // Fin du quiz : enchaîner vers résultats
     if (i === session.pool.length - 1) {
       setTimeout(showResults, 350);
     }
