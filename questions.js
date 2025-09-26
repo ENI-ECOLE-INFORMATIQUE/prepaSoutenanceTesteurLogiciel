@@ -1,7 +1,8 @@
-// Fichier thématique enrichi (ajout des questions demandées)
+// Fichier thématique équilibré + niveau (débutant/intermédiaire/avancé)
 const quiz = [
   {
     theme: "Fondamentaux du test",
+    niveau: "Débutant",
     question: "Quel est le rôle principal d’un testeur logiciel ?",
     answers: [
       "Développer de nouvelles fonctionnalités",
@@ -13,6 +14,7 @@ const quiz = [
   },
   {
     theme: "Fondamentaux du test",
+    niveau: "Débutant",
     question: "Qu’est-ce qu’un bug critique ?",
     answers: [
       "Un bug esthétique qui n’affecte pas le fonctionnement",
@@ -24,6 +26,7 @@ const quiz = [
   },
   {
     theme: "Fondamentaux du test",
+    niveau: "Avancé",
     question: "Que signifie 'flaky test' ?",
     answers: [
       "Un test qui échoue ou réussit de manière aléatoire",
@@ -35,6 +38,7 @@ const quiz = [
   },
   {
     theme: "Fondamentaux du test",
+    niveau: "Avancé",
     question: "Qu’est-ce que l’analyse des causes profondes (Root Cause Analysis) ?",
     answers: [
       "Une méthode pour identifier l’origine d’un bug",
@@ -46,6 +50,7 @@ const quiz = [
   },
   {
     theme: "Fondamentaux du test",
+    niveau: "Débutant",
     question: "Qu’est-ce qu’un bug de type 'off-by-one' ?",
     answers: [
       "Une erreur dans un calcul où l’indice ou la limite est décalé de 1",
@@ -57,6 +62,7 @@ const quiz = [
   },
   {
     theme: "Fondamentaux du test",
+    niveau: "Débutant",
     question: "Peux-tu me donner la définition d'un Framework ?",
     answers: [
       "Un ensemble d’outils et de bibliothèques facilitant le développement",
@@ -68,6 +74,7 @@ const quiz = [
   },
   {
     theme: "Fondamentaux du test",
+    niveau: "Débutant",
     question: "Qu'est-ce qu'un bug ?",
     answers: [
       "Un défaut dans un logiciel entraînant un comportement inattendu",
@@ -79,6 +86,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test unitaire ?",
     answers: [
       "Tester l’ensemble de l’application",
@@ -90,6 +98,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Quel est le but principal d’un test d’intégration ?",
     answers: [
       "Tester les performances du système",
@@ -101,6 +110,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test de régression ?",
     answers: [
       "Tester les nouvelles fonctionnalités uniquement",
@@ -112,6 +122,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Que signifie 'test exploratoire' ?",
     answers: [
       "Test basé sur un plan prédéfini",
@@ -123,6 +134,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Quel est l’objectif des tests d’acceptation utilisateur (UAT) ?",
     answers: [
       "Vérifier que le code est bien documenté",
@@ -134,6 +146,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test fumée (Smoke Test) ?",
     answers: [
       "Un test rapide pour vérifier que l’application démarre et fonctionne globalement",
@@ -145,6 +158,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test de compatibilité ?",
     answers: [
       "Un test de performance",
@@ -156,6 +170,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test de sécurité ?",
     answers: [
       "Un test visant à détecter les vulnérabilités du logiciel",
@@ -167,6 +182,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un 'regression suite' ?",
     answers: [
       "Un ensemble de tests automatisés pour vérifier qu’aucune régression n’est introduite",
@@ -178,6 +194,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test end-to-end (E2E) ?",
     answers: [
       "Tester uniquement une fonction isolée",
@@ -189,6 +206,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test alpha et un test bêta ?",
     answers: [
       "Alpha : interne, Beta : externe avec utilisateurs finaux",
@@ -200,6 +218,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test exploratoire en agile ?",
     answers: [
       "Tester uniquement selon un plan prédéfini",
@@ -211,6 +230,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un test de régression partiel ?",
     answers: [
       "Tester uniquement les modules affectés par une modification",
@@ -222,6 +242,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Qu'est-ce que les 3A ?",
     answers: [
       "Arrange, Act, Assert en test unitaire",
@@ -233,6 +254,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "C'est quoi gitlab ?",
     answers: [
       "Une plateforme de gestion de code basée sur Git",
@@ -244,6 +266,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Avancé",
     question: "Laquelle est une spécification non fonctionnelle et son test associé ?",
     answers: [
       "Temps de réponse < 500 ms sous 200 utilisateurs → test de performance/charge.",
@@ -256,6 +279,7 @@ const quiz = [
   },
   {
     theme: "Types de tests",
+    niveau: "Intermédiaire",
     question: "Que signifie la non‑régression ?",
     answers: [
       "Qu’aucune fonctionnalité existante n’est dégradée après une modification ; on le vérifie par des tests de régression.",
@@ -268,6 +292,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "Quel type de test se concentre sur la performance et la charge du système ?",
     answers: [
       "Test fonctionnel",
@@ -279,6 +304,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "Quelle est la principale différence entre un test fonctionnel et un test non-fonctionnel ?",
     answers: [
       "Le test fonctionnel se base sur les exigences métier, le non-fonctionnel sur la qualité du système",
@@ -290,6 +316,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "Quel est l’objectif d’un test de charge ?",
     answers: [
       "Tester la compatibilité entre navigateurs",
@@ -301,6 +328,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "Qu’est-ce qu’un test de montée en charge (Stress Test) ?",
     answers: [
       "Un test qui simule une augmentation progressive du nombre d’utilisateurs",
@@ -312,6 +340,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "C'est quoi un test de charge ?",
     answers: [
       "Un test pour mesurer la performance sous forte utilisation",
@@ -323,6 +352,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "Comment faire un test de charge ?",
     answers: [
       "Simuler un grand nombre d’utilisateurs ou de requêtes simultanées",
@@ -334,6 +364,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "Quelle est la principale différence entre un test de charge et un test de stress ?",
     answers: [
       "Le test de charge mesure sous forte utilisation, le stress pousse le système au-delà de ses limites",
@@ -345,6 +376,7 @@ const quiz = [
   },
   {
     theme: "Tests de performance",
+    niveau: "Avancé",
     question: "C'est quoi un rapport Gatling ?",
     answers: [
       "Un rapport généré par un outil de test de charge",
@@ -356,6 +388,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Qu’est-ce que l’automatisation des tests ?",
     answers: [
       "Exécuter les tests manuellement",
@@ -367,6 +400,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Que signifie 'mock' dans les tests ?",
     answers: [
       "Un faux objet ou service simulé pour isoler un test",
@@ -378,6 +412,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Qu’est-ce que le 'code coverage' (couverture de code) ?",
     answers: [
       "Le pourcentage de lignes de code exécutées par les tests",
@@ -389,6 +424,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Que signifie 'CI/CD' pour les tests automatisés ?",
     answers: [
       "Continuous Integration / Continuous Deployment",
@@ -400,6 +436,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Que signifie 'pipeline de tests' dans CI/CD ?",
     answers: [
       "Une suite automatisée de tests exécutée à chaque modification du code",
@@ -411,6 +448,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Quelle est la principale différence entre un test manuel et un test automatisé ?",
     answers: [
       "Le test manuel est exécuté par un humain, le test automatisé par un script",
@@ -422,6 +460,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Que signifie 'regression testing automation' ?",
     answers: [
       "Automatiser tous les tests unitaires",
@@ -433,6 +472,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Pourquoi utilise-t-on des tests unitaires mocks et stubs ?",
     answers: [
       "Pour simplifier le code source",
@@ -444,6 +484,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Qu’est-ce qu’un test de fumée automatisé ?",
     answers: [
       "Un test rapide exécuté automatiquement pour vérifier les fonctionnalités de base",
@@ -455,6 +496,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Qu'est-ce que Playwright ?",
     answers: [
       "Un outil de test automatisé pour navigateurs",
@@ -466,6 +508,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Quels sont les bénéfices ET les limites réelles de l’automatisation des tests ?",
     answers: [
       "Elle réduit le temps d’exécution et sécurise les régressions, mais exige un investissement initial et une maintenance continue, et ne remplace pas les tests exploratoires.",
@@ -478,6 +521,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Quels critères privilégier pour choisir un framework d’automatisation ?",
     answers: [
       "Compatibilité avec le stack technique, stabilité, écosystème/plugins, intégration CI/CD, facilité de prise en main et maintenance.",
@@ -490,6 +534,7 @@ const quiz = [
   },
   {
     theme: "Automatisation & CI/CD",
+    niveau: "Avancé",
     question: "Quel est le rôle des tests automatisés dans une chaîne CI/CD ?",
     answers: [
       "Fournir un feedback rapide et bloquer le merge/déploiement si des tests critiques échouent.",
@@ -502,6 +547,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Avancé",
     question: "Que signifie 'BDD' dans le contexte des tests ?",
     answers: [
       "Base De Données",
@@ -513,6 +559,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Avancé",
     question: "Que signifie 'TDD' ?",
     answers: [
       "Test Driven Development",
@@ -524,6 +571,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Avancé",
     question: "En TDD, quelle est la séquence typique ?",
     answers: [
       "Fail → Pass → Refactor",
@@ -535,6 +583,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Intermédiaire",
     question: "Pourquoi utilise-t-on des environnements de préproduction pour les tests ?",
     answers: [
       "Pour tester sur un environnement identique à la production sans impacter les utilisateurs",
@@ -546,6 +595,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "Que signifie 'shift-left testing' ?",
     answers: [
       "Effectuer les tests plus tôt dans le cycle de développement",
@@ -557,6 +607,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "Quelle est l’utilité d’un test pair-review ?",
     answers: [
       "Deux testeurs vérifient le même scénario pour améliorer la qualité et détecter plus de bugs",
@@ -568,6 +619,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "A quoi sert un planning poker ?",
     answers: [
       "Estimer la complexité des tâches en Agile",
@@ -579,6 +631,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "Combien de temps dure un sprint en méthode Agile ?",
     answers: [
       "En général entre 1 et 4 semaines",
@@ -590,6 +643,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Intermédiaire",
     question: "Quelle est la première étape de la planification d'un test Agile ?",
     answers: [
       "Identifier les critères d'acceptation et les user stories",
@@ -601,6 +655,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "Quand est-ce qu'on fait un sprint review ?",
     answers: [
       "À la fin du sprint pour présenter le travail accompli",
@@ -612,6 +667,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Intermédiaire",
     question: "Quel est le rôle d'un Product Owner ?",
     answers: [
       "Définir la vision produit et prioriser le backlog",
@@ -623,6 +679,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "Quels sont les 4 piliers de l'agilité ?",
     answers: [
       "Individus et interactions, logiciel fonctionnel, collaboration client, adaptation au changement",
@@ -634,6 +691,7 @@ const quiz = [
   },
   {
     theme: "Méthodes & Agile",
+    niveau: "Débutant",
     question: "Comment adapter la communication des résultats entre Product Owner et développeurs ?",
     answers: [
       "PO : synthèse risques/impacts et décisions ; Développeurs : détails techniques, logs, steps reproductibles et priorité d’actions.",
@@ -646,6 +704,7 @@ const quiz = [
   },
   {
     theme: "Plan de test",
+    niveau: "Intermédiaire",
     question: "Dans un plan de test, que contient la section 'préconditions' ?",
     answers: [
       "Les étapes pour exécuter le test",
@@ -657,6 +716,7 @@ const quiz = [
   },
   {
     theme: "Plan de test",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un plan de test dans le processus de test logiciel ?",
     answers: [
       "Un document qui décrit la stratégie, les objectifs, les ressources et le planning des activités de test.",
@@ -669,6 +729,7 @@ const quiz = [
   },
   {
     theme: "Plan de test",
+    niveau: "Avancé",
     question: "Que contient généralement un plan de test ?",
     answers: [
       "Les objectifs de test, le périmètre, les ressources, les environnements, la stratégie et le planning.",
@@ -681,6 +742,7 @@ const quiz = [
   },
   {
     theme: "Plan de test",
+    niveau: "Intermédiaire",
     question: "Quelle différence entre un plan de test (ISTQB) et une suite de tests ?",
     answers: [
       "Le plan de test décrit la stratégie, le périmètre, les ressources et le planning ; la suite de tests est l’ensemble structuré de cas exécutables.",
@@ -693,6 +755,7 @@ const quiz = [
   },
   {
     theme: "Plan de test",
+    niveau: "Intermédiaire",
     question: "Que faire face à une spécification ambiguë ou incomplète ?",
     answers: [
       "Demander une clarification (PO/BA), documenter les questions, proposer des exemples/exemples concrets et aligner les critères d’acceptation.",
@@ -705,6 +768,7 @@ const quiz = [
   },
   {
     theme: "Plan de test",
+    niveau: "Avancé",
     question: "Quel principe de base pour établir un plan d’exécution des tests ?",
     answers: [
       "Prioriser par risque/criticité métier, gérer les dépendances et la disponibilité des environnements/données.",
@@ -716,7 +780,21 @@ const quiz = [
     explanation: "Un scheduling efficace tient compte du risque, des prérequis (données/env), des fenêtres de tir et des ressources."
   },
   {
+    theme: "Plan de test",
+    niveau: "Intermédiaire",
+    question: "Quels critères d’entrée/sortie doit-on définir dans un plan de test ?",
+    answers: [
+      "Critères d’entrée : environnements/données/prérequis prêts ; critères de sortie : couverture, taux d’échec toléré, anomalies critiques closes.",
+      "Uniquement le nombre de testeurs disponibles.",
+      "La liste des frameworks d’automatisation supportés.",
+      "Le budget total du projet et le planning des sprints."
+    ],
+    correct: 0,
+    explanation: "Les critères d’entrée/sortie (entry/exit) encadrent le démarrage et l’arrêt : disponibilité des moyens, niveau de couverture et qualité minimale attendue."
+  },
+  {
     theme: "Cas de test",
+    niveau: "Intermédiaire",
     question: "Pourquoi documenter les cas de test ?",
     answers: [
       "Pour pouvoir répéter les tests et assurer la traçabilité",
@@ -728,6 +806,7 @@ const quiz = [
   },
   {
     theme: "Cas de test",
+    niveau: "Débutant",
     question: "C'est quoi un cahier de tests ?",
     answers: [
       "Un document listant les scénarios et cas de test",
@@ -739,6 +818,7 @@ const quiz = [
   },
   {
     theme: "Cas de test",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un cas de test ?",
     answers: [
       "Un scénario documenté qui décrit les conditions, les données, les actions et les résultats attendus pour vérifier une fonctionnalité.",
@@ -751,6 +831,7 @@ const quiz = [
   },
   {
     theme: "Cas de test",
+    niveau: "Intermédiaire",
     question: "Que doit contenir un cas de test bien rédigé ?",
     answers: [
       "Un identifiant unique, un objectif, des prérequis, des étapes, des données de test et un résultat attendu.",
@@ -763,6 +844,7 @@ const quiz = [
   },
   {
     theme: "Cas de test",
+    niveau: "Intermédiaire",
     question: "Quel est l’enchaînement logique d’un scénario de test bien rédigé ?",
     answers: [
       "Préconditions → Étapes → Résultats attendus → Post‑conditions",
@@ -775,6 +857,7 @@ const quiz = [
   },
   {
     theme: "Cas de test",
+    niveau: "Intermédiaire",
     question: "Quel principe est recommandé pour rédiger un cas de test efficace ?",
     answers: [
       "Un cas = un objectif clair, des données précises, des étapes reproductibles et un résultat attendu mesurable.",
@@ -787,6 +870,7 @@ const quiz = [
   },
   {
     theme: "Cas de test",
+    niveau: "Intermédiaire",
     question: "Quelle démarche permet de dériver des cas de test à partir des spécifications fonctionnelles ?",
     answers: [
       "Identifier les critères d’acceptation par user story, définir les scénarios (heureux/erreur/bords) et écrire des cas traçables.",
@@ -799,6 +883,7 @@ const quiz = [
   },
   {
     theme: "Rapport d’exécution",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un rapport d’exécution de test ?",
     answers: [
       "Un document qui présente les résultats des cas de test exécutés, leur statut (succès/échec) et les anomalies détectées.",
@@ -811,6 +896,7 @@ const quiz = [
   },
   {
     theme: "Rapport d’exécution",
+    niveau: "Intermédiaire",
     question: "Que doit contenir un rapport d’exécution ?",
     answers: [
       "La liste des cas de test exécutés, leur statut, les anomalies rencontrées et une synthèse globale.",
@@ -823,6 +909,7 @@ const quiz = [
   },
   {
     theme: "Rapport d’exécution",
+    niveau: "Intermédiaire",
     question: "Comment transmettre efficacement un rapport d’exécution aux parties prenantes ?",
     answers: [
       "En utilisant un format clair (PDF, outil de gestion de tests, email) et en adaptant le niveau de détail selon le public.",
@@ -835,6 +922,7 @@ const quiz = [
   },
   {
     theme: "Rapport d’exécution",
+    niveau: "Avancé",
     question: "Quels éléments clés présenter lors d’un reporting de tests ?",
     answers: [
       "Taux de réussite/échec, cas bloqués, couverture, risques et tendances, avec un focus sur les impacts métier.",
@@ -847,6 +935,7 @@ const quiz = [
   },
   {
     theme: "Rapport d’exécution",
+    niveau: "Intermédiaire",
     question: "Comment garantir la confidentialité lors d’une présentation des résultats ?",
     answers: [
       "Anonymiser/masquer les données sensibles, limiter les accès, partager le strict nécessaire et utiliser des environnements non‑prod.",
@@ -858,7 +947,34 @@ const quiz = [
     explanation: "La confidentialité passe par l’anonymisation, le masquage, le contrôle d’accès et l’absence de données personnelles réelles dans les supports."
   },
   {
+    theme: "Rapport d’exécution",
+    niveau: "Avancé",
+    question: "Quels KPI sont utiles pour une décision Go/No‑Go ?",
+    answers: [
+      "Taux de réussite, défauts ouverts (par sévérité), tendance des échecs, couverture et risques résiduels.",
+      "Le nombre de commits par développeur.",
+      "Le volume d’emails envoyés pendant le sprint.",
+      "La taille des logs générés par l’application."
+    ],
+    correct: 0,
+    explanation: "Les KPI doivent éclairer le risque produit : statut des tests, défauts critiques, couverture, tendances et impacts métier."
+  },
+  {
+    theme: "Rapport d’exécution",
+    niveau: "Intermédiaire",
+    question: "Quel format de restitution facilite la compréhension rapide par les décideurs ?",
+    answers: [
+      "Un tableau de bord synthétique (tendances, heatmaps, défauts critiques) accompagné d’un résumé des risques.",
+      "Un export brut de tous les logs et des cas détaillés.",
+      "Une présentation uniquement textuelle de 30 pages.",
+      "Des captures d’écran sans légende."
+    ],
+    correct: 0,
+    explanation: "Une vue exécutive synthétique + détails sur demande accélère les décisions sans noyer l’audience."
+  },
+  {
     theme: "Ticket de bug",
+    niveau: "Intermédiaire",
     question: "Qu’est-ce qu’un ticket de bug ?",
     answers: [
       "Un enregistrement dans un outil de suivi permettant de décrire, prioriser et suivre la résolution d’une anomalie.",
@@ -871,6 +987,7 @@ const quiz = [
   },
   {
     theme: "Ticket de bug",
+    niveau: "Intermédiaire",
     question: "Que doit contenir un ticket de bug bien rédigé ?",
     answers: [
       "Un titre clair, un identifiant, la description, la sévérité, la priorité, l’environnement, les étapes de reproduction, le résultat obtenu et le résultat attendu.",
@@ -883,6 +1000,7 @@ const quiz = [
   },
   {
     theme: "Ticket de bug",
+    niveau: "Intermédiaire",
     question: "Quel élément améliore le plus la capacité à reproduire une anomalie ?",
     answers: [
       "Des étapes de reproduction précises avec données, contexte, captures/logs et résultat attendu vs obtenu.",
@@ -895,6 +1013,7 @@ const quiz = [
   },
   {
     theme: "Ticket de bug",
+    niveau: "Avancé",
     question: "Laquelle des propositions décrit correctement la différence entre sévérité et priorité ?",
     answers: [
       "La sévérité mesure l’impact fonctionnel/technique ; la priorité définit l’urgence de correction.",
@@ -906,7 +1025,47 @@ const quiz = [
     explanation: "Sévérité = gravité du dysfonctionnement ; priorité = ordre/urgence de traitement, décidé selon le risque et le contexte projet."
   },
   {
+    theme: "Ticket de bug",
+    niveau: "Débutant",
+    question: "Quel est le workflow standard d’un ticket d’anomalie ?",
+    answers: [
+      "Nouveau → En cours → Résolu → Vérifié/Retest → Fermé",
+      "Nouveau → Fermé → Résolu → En cours",
+      "Résolu → Nouveau → En cours → Fermé",
+      "En cours → Nouveau → Fermé → Résolu"
+    ],
+    correct: 0,
+    explanation: "Le flux standard va de la création à la résolution, puis à la vérification par le testeur avant fermeture."
+  },
+  {
+    theme: "Ticket de bug",
+    niveau: "Intermédiaire",
+    question: "Comment documenter un défaut intermittent (flaky) ?",
+    answers: [
+      "Préciser la fréquence, les conditions observées, ajouter logs/vidéos et hypothèses, puis marquer le ticket comme intermittent.",
+      "Le fermer car il n’est pas systématique.",
+      "Retirer toutes les informations pour éviter de biaiser l’analyse.",
+      "Le requalifier en amélioration."
+    ],
+    correct: 0,
+    explanation: "Les défauts intermittents nécessitent des preuves (logs/vidéos), un contexte précis et un suivi pour corrélation."
+  },
+  {
+    theme: "Ticket de bug",
+    niveau: "Intermédiaire",
+    question: "Que faire si le testeur ne parvient pas à reproduire un bug ?",
+    answers: [
+      "Demander des informations complémentaires (données, environnement, version), ajouter instrumentation et tenter en conditions proches.",
+      "Supposer qu’il est corrigé et fermer le ticket.",
+      "Baisser la sévérité automatiquement.",
+      "Attendre la production pour décider."
+    ],
+    correct: 0,
+    explanation: "La reproduction passe par la collecte d’informations, l’alignement d’environnement et parfois l’ajout de logs/instrumentation."
+  },
+  {
     theme: "Cahier de tests",
+    niveau: "Intermédiaire",
     question: "Que doit-on mettre dans un cahier de tests ?",
     answers: [
       "Les prérequis, scénarios, résultats attendus et observés",
@@ -917,7 +1076,86 @@ const quiz = [
     explanation: "Un cahier de tests contient les préconditions, les étapes de test, les résultats attendus et ceux observés."
   },
   {
+    theme: "Cahier de tests",
+    niveau: "Débutant",
+    question: "Quel est l’objectif principal d’un cahier de tests ?",
+    answers: [
+      "Décrire l’ensemble des cas permettant de vérifier les exigences et soutenir la traçabilité et le pilotage.",
+      "Lister uniquement les anomalies rencontrées.",
+      "Remplacer le backlog produit.",
+      "Documenter la charte graphique."
+    ],
+    correct: 0,
+    explanation: "Le cahier de tests structure la couverture par rapport aux exigences et sert de base de pilotage qualité."
+  },
+  {
+    theme: "Cahier de tests",
+    niveau: "Intermédiaire",
+    question: "Quels éléments clés figurent dans un cahier de tests complet ?",
+    answers: [
+      "Index, périmètre, traçabilité exigences↔tests, cas détaillés, statut, risques et historique des exécutions.",
+      "Uniquement les user stories.",
+      "Uniquement les environnements techniques.",
+      "Uniquement la liste des testeurs."
+    ],
+    correct: 0,
+    explanation: "Un cahier de tests complet relie exigences et cas, suit l’état d’exécution et met en évidence les risques."
+  },
+  {
+    theme: "Cahier de tests",
+    niveau: "Intermédiaire",
+    question: "Comment assurer la traçabilité entre exigences et cas de test ?",
+    answers: [
+      "À l’aide d’une matrice de traçabilité bidirectionnelle (exigence ↔ cas ↔ défauts).",
+      "En reliant seulement les cas entre eux.",
+      "En supprimant les identifiants uniques.",
+      "En stockant les documents sur des partages non versionnés."
+    ],
+    correct: 0,
+    explanation: "La matrice de traçabilité garantit la couverture et facilite l’analyse d’impact lors des changements."
+  },
+  {
+    theme: "Cahier de tests",
+    niveau: "Avancé",
+    question: "Comment gérer les versions du cahier de tests ?",
+    answers: [
+      "Baseliner par release, versionner les changements et tracer les cas ajoutés/modifiés/supprimés.",
+      "Écraser toujours le document précédent.",
+      "Ne pas dater les modifications pour alléger le suivi.",
+      "Multiplier les copies e‑mail sans référentiel commun."
+    ],
+    correct: 0,
+    explanation: "Le versioning par release facilite les audits et la reproductibilité des campagnes."
+  },
+  {
+    theme: "Cahier de tests",
+    niveau: "Intermédiaire",
+    question: "Quelles techniques de conception peut-on consigner pour guider la couverture ?",
+    answers: [
+      "Partitions d’équivalence, valeurs limites, tables de décision, cas d’usage et diagrammes d’états.",
+      "Exclusivement des tests exploratoires.",
+      "Uniquement les tests de performance.",
+      "Uniquement des tests UI."
+    ],
+    correct: 0,
+    explanation: "Les techniques de conception aident à systématiser la couverture et à réduire le nombre de cas redondants."
+  },
+  {
+    theme: "Cahier de tests",
+    niveau: "Intermédiaire",
+    question: "Comment maintenir le cahier de tests à jour pendant le projet ?",
+    answers: [
+      "Mettre en place un processus de revue (PO/QA/Dev), actualiser après chaque changement d’exigence et marquer les cas impactés.",
+      "Le figer en début de projet et ne plus le modifier.",
+      "Supprimer les cas obsolètes sans trace.",
+      "Laisser chaque testeur le modifier librement sans revue."
+    ],
+    correct: 0,
+    explanation: "Les revues régulières et l’annotation des impacts assurent l’actualité du référentiel de tests."
+  },
+  {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "Dans les tests automatisés, que signifie 'assertion' ?",
     answers: [
       "Une commande qui vérifie si une condition est vraie",
@@ -929,6 +1167,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "Qu'est-ce qu'un test de vérification ?",
     answers: [
       "Un test qui permet de vérifier que le logiciel respecte les spécifications et exigences définies.",
@@ -941,6 +1180,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "À quel moment effectue-t-on généralement des tests de vérification ?",
     answers: [
       "Pendant les phases de développement et d'intégration.",
@@ -953,6 +1193,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "Qu'est-ce qu'un test de confirmation ?",
     answers: [
       "Un test qui permet de vérifier qu'un bug corrigé ne réapparaît plus.",
@@ -965,6 +1206,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "Quelle est la différence entre un test de régression et un test de confirmation ?",
     answers: [
       "Le test de confirmation vérifie qu'un bug corrigé est bien résolu, tandis que le test de régression s'assure que la correction n'a pas introduit de nouveaux problèmes ailleurs.",
@@ -977,6 +1219,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Débutant",
     question: "Quelle est la principale différence entre un test de vérification et un test de confirmation ?",
     answers: [
       "La vérification s’assure que le produit respecte les spécifications, tandis que la confirmation vérifie qu’un bug corrigé fonctionne correctement.",
@@ -989,6 +1232,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "Dans quel cas utiliserait-on un test de vérification plutôt qu’un test de confirmation ?",
     answers: [
       "Lorsqu’on veut valider que les fonctionnalités développées respectent les spécifications.",
@@ -1001,6 +1245,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Débutant",
     question: "Quel type de test est directement lié au cycle de correction d’anomalies ?",
     answers: [
       "Le test de confirmation.",
@@ -1013,6 +1258,7 @@ const quiz = [
   },
   {
     theme: "Vérification & Confirmation",
+    niveau: "Intermédiaire",
     question: "Les tests de vérification et de confirmation font partie de quel objectif global ?",
     answers: [
       "Améliorer la qualité et la fiabilité du logiciel.",
@@ -1025,6 +1271,7 @@ const quiz = [
   },
   {
     theme: "Outils & Plateformes",
+    niveau: "Intermédiaire",
     question: "C'est quoi Notion ?",
     answers: [
       "Un outil de prise de notes et gestion de projets collaboratif",
@@ -1036,6 +1283,7 @@ const quiz = [
   },
   {
     theme: "Outils & Plateformes",
+    niveau: "Débutant",
     question: "C'est quoi git ?",
     answers: [
       "Un système de gestion de versions de code",
@@ -1047,6 +1295,7 @@ const quiz = [
   },
   {
     theme: "Outils & Plateformes",
+    niveau: "Intermédiaire",
     question: "C'est quoi GitHub ?",
     answers: [
       "Une plateforme d’hébergement de projets Git",
@@ -1058,6 +1307,7 @@ const quiz = [
   },
   {
     theme: "Outils & Plateformes",
+    niveau: "Débutant",
     question: "C'est quoi une branche dans git ?",
     answers: [
       "Une version parallèle du code pour développer sans impacter la principale",
@@ -1069,6 +1319,7 @@ const quiz = [
   },
   {
     theme: "Outils & Plateformes",
+    niveau: "Intermédiaire",
     question: "Qu'est-ce que SonarQube ?",
     answers: [
       "Un outil d'analyse de qualité du code",
@@ -1080,6 +1331,7 @@ const quiz = [
   },
   {
     theme: "Outils & Plateformes",
+    niveau: "Intermédiaire",
     question: "Bonne pratique pour joindre des documents dans un ticket Jira ?",
     answers: [
       "Attacher captures, logs, jeux de données et lier commits/PRs ; nommer clairement et contrôler l’accès.",
@@ -1091,7 +1343,21 @@ const quiz = [
     explanation: "Des artefacts bien nommés et traçables (captures, logs, liens vers PR/CI) accélèrent la compréhension et la correction."
   },
   {
+    theme: "Outils & Plateformes",
+    niveau: "Intermédiaire",
+    question: "Quel est l’intérêt des pipelines CI intégrés (GitLab/GitHub) pour les tests ?",
+    answers: [
+      "Déclencher automatiquement les suites de tests à chaque change et publier des rapports unifiés dans le dépôt.",
+      "Remplacer tous les tests manuels par magie.",
+      "Empêcher toute personnalisation du process.",
+      "Exécuter uniquement des tests en production."
+    ],
+    correct: 0,
+    explanation: "L’intégration native facilite l’automatisation, la traçabilité et la visibilité des résultats au plus près du code."
+  },
+  {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "C'est quoi une webapp ?",
     answers: [
       "Une application accessible depuis un navigateur web",
@@ -1103,6 +1369,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "C'est quoi la différence entre une webapp et une application standard ?",
     answers: [
       "La webapp est accessible via un navigateur, l'application standard doit être installée",
@@ -1114,6 +1381,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Intermédiaire",
     question: "C'est quoi une API ?",
     answers: [
       "Un ensemble de règles permettant à des applications de communiquer entre elles",
@@ -1125,6 +1393,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "C'est quoi une promesse en JavaScript ?",
     answers: [
       "Un objet représentant l'achèvement ou l'échec d'une opération asynchrone",
@@ -1136,6 +1405,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "A quoi sert await dans un script JS ?",
     answers: [
       "Attendre qu'une promesse soit résolue avant de continuer l'exécution",
@@ -1147,6 +1417,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "Peux-tu me donner la définition de Cloud Functions ?",
     answers: [
       "Du code exécuté à la demande dans le cloud sans gérer de serveur",
@@ -1158,6 +1429,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Intermédiaire",
     question: "Peux-tu m'expliquer ce qu'est NodeJS ?",
     answers: [
       "Un environnement d'exécution JavaScript côté serveur",
@@ -1169,6 +1441,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Intermédiaire",
     question: "Peux-tu m'expliquer ce qu'est Firebase ?",
     answers: [
       "Une plateforme de développement d'applications proposée par Google",
@@ -1180,6 +1453,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Intermédiaire",
     question: "Peux-tu m'expliquer ce qu'est Angular ?",
     answers: [
       "Un framework JavaScript pour créer des applications web",
@@ -1191,6 +1465,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "C'est quoi une enum ?",
     answers: [
       "Un type de donnée énuméré avec des valeurs prédéfinies",
@@ -1202,6 +1477,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "C'est quoi un locator dans du code JS ?",
     answers: [
       "Un sélecteur permettant de trouver un élément dans le DOM",
@@ -1213,6 +1489,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "Quelle est la différence entre Front end et Back end ?",
     answers: [
       "Le front end est la partie visible par l’utilisateur, le back end gère la logique et les données",
@@ -1224,6 +1501,7 @@ const quiz = [
   },
   {
     theme: "Web & Développement",
+    niveau: "Débutant",
     question: "Quelle est la différence entre clé primaire et clé étrangère ?",
     answers: [
       "La clé primaire identifie de façon unique une ligne dans sa table ; la clé étrangère référence la clé primaire d’une autre table pour créer une relation.",
@@ -1236,6 +1514,7 @@ const quiz = [
   },
   {
     theme: "Accessibilité",
+    niveau: "Avancé",
     question: "C'est quoi un test RGA ?",
     answers: [
       "Un test de conformité réglementaire d’accessibilité",
@@ -1247,6 +1526,7 @@ const quiz = [
   },
   {
     theme: "Accessibilité",
+    niveau: "Avancé",
     question: "Quelle approche est la plus adaptée pour tester l’accessibilité d’une application web ?",
     answers: [
       "Combiner des outils automatiques (linting, contrastes, ARIA) et des tests manuels (navigation clavier, lecteurs d’écran) selon les référentiels (WCAG/RGAA).",
@@ -1259,6 +1539,7 @@ const quiz = [
   },
   {
     theme: "Accessibilité",
+    niveau: "Avancé",
     question: "Quelles références doit‑on connaître pour l’accessibilité web (France) ?",
     answers: [
       "Les WCAG (W3C) et le référentiel RGAA, qui en est l’adaptation française.",
@@ -1270,7 +1551,60 @@ const quiz = [
     explanation: "Les critères WCAG constituent la base internationale ; en France, le RGAA s’appuie sur les WCAG pour cadrer la conformité des sites publics."
   },
   {
+    theme: "Accessibilité",
+    niveau: "Intermédiaire",
+    question: "Quel contraste minimum WCAG AA pour du texte normal ?",
+    answers: [
+      "Au moins 4,5:1",
+      "Au moins 7:1",
+      "Au moins 3:1",
+      "Aucun seuil n’est recommandé"
+    ],
+    correct: 0,
+    explanation: "Les WCAG AA recommandent un contraste ≥ 4,5:1 pour le texte normal (≥ 3:1 pour gros caractères)."
+  },
+  {
+    theme: "Accessibilité",
+    niveau: "Débutant",
+    question: "Quelle règle de navigation clavier vérifier en priorité ?",
+    answers: [
+      "Ordre de focus logique et visible sur tous les éléments interactifs.",
+      "Masquer le focus pour un look plus propre.",
+      "Exiger un périphérique tactile.",
+      "Désactiver la touche Tab."
+    ],
+    correct: 0,
+    explanation: "La navigation au clavier impose un ordre de tabulation cohérent et un indicateur de focus visible."
+  },
+  {
+    theme: "Accessibilité",
+    niveau: "Intermédiaire",
+    question: "Concernant ARIA, quelle pratique est recommandée ?",
+    answers: [
+      "N’utiliser ARIA qu’en complément du HTML sémantique, avec des rôles/attributs pertinents.",
+      "Remplacer tout le HTML par ARIA.",
+      "Ajouter le plus d’attributs ARIA possible pour être sûr.",
+      "Éviter tout attribut de rôle."
+    ],
+    correct: 0,
+    explanation: "Le HTML sémantique prime ; ARIA comble les lacunes sans sur‑spécifier inutilement."
+  },
+  {
+    theme: "Accessibilité",
+    niveau: "Intermédiaire",
+    question: "Quel contrôle avec lecteurs d’écran est le plus critique ?",
+    answers: [
+      "Présence d’alternatives textuelles, libellés corrects et ordre de lecture cohérent.",
+      "Un visuel animé pour chaque bouton.",
+      "Des raccourcis clavier propriétaires uniquement.",
+      "Aucun test avec lecteur d’écran n’est nécessaire."
+    ],
+    correct: 0,
+    explanation: "Les lecteurs d’écran s’appuient sur des libellés/alternatives corrects et une structure DOM cohérente."
+  },
+  {
     theme: "Organisation & rôles produit",
+    niveau: "Débutant",
     question: "C'est quoi un CTPO ?",
     answers: [
       "Chief Technical and Product Officer",
@@ -1282,6 +1616,7 @@ const quiz = [
   },
   {
     theme: "Organisation & rôles produit",
+    niveau: "Débutant",
     question: "Quel est le rôle d'un CTPO ?",
     answers: [
       "Superviser la partie technique et produit d’une organisation",
@@ -1290,6 +1625,70 @@ const quiz = [
     ],
     correct: 0,
     explanation: "Le CTPO coordonne la vision produit et la stratégie technique."
+  },
+  {
+    theme: "Organisation & rôles produit",
+    niveau: "Intermédiaire",
+    question: "Quel est le rôle d’un QA Lead/Test Manager ?",
+    answers: [
+      "Définir la stratégie de test, piloter la qualité, gérer les risques et coordonner l’équipe QA.",
+      "Coder toutes les fonctionnalités critiques.",
+      "Valider seul le Go/No‑Go sans avis du métier.",
+      "Administrer uniquement les serveurs."
+    ],
+    correct: 0,
+    explanation: "Le QA Lead pilote la qualité (stratégie, planification, risques) et coordonne les activités de test."
+  },
+  {
+    theme: "Organisation & rôles produit",
+    niveau: "Débutant",
+    question: "Qui définit les critères d’acceptation d’une user story ?",
+    answers: [
+      "Le Product Owner avec l’appui de l’équipe (dev/QA/BA).",
+      "Uniquement le développeur.",
+      "Uniquement le testeur.",
+      "Uniquement le manager."
+    ],
+    correct: 0,
+    explanation: "Les critères d’acceptation sont définis par le PO en collaboration avec l’équipe pour clarifier le besoin et la validation."
+  },
+  {
+    theme: "Organisation & rôles produit",
+    niveau: "Avancé",
+    question: "En quoi consiste une matrice RACI appliquée aux anomalies ?",
+    answers: [
+      "À clarifier qui est Responsable, Approbateur, Consulté et Informé pour chaque étape du traitement.",
+      "À mesurer la performance réseau.",
+      "À définir les priorités techniques seulement.",
+      "À attribuer un owner unique pour tout le projet."
+    ],
+    correct: 0,
+    explanation: "RACI évite les flous de responsabilité et fluidifie la résolution."
+  },
+  {
+    theme: "Organisation & rôles produit",
+    niveau: "Intermédiaire",
+    question: "Quelle est la différence entre BA (Business Analyst) et PO (Product Owner) ?",
+    answers: [
+      "Le BA analyse/process formalise les besoins et les processus ; le PO porte la vision produit et priorise le backlog.",
+      "Le BA code, le PO teste.",
+      "Le PO rédige les contrats, le BA choisit l’architecture.",
+      "Aucune : c’est le même rôle."
+    ],
+    correct: 0,
+    explanation: "BA et PO sont complémentaires : analyse/process vs vision/valeur et priorisation."
+  },
+  {
+    theme: "Organisation & rôles produit",
+    niveau: "Avancé",
+    question: "Qui arbitre la décision Go/No‑Go ?",
+    answers: [
+      "Selon la gouvernance : PO/PM avec parties prenantes, en s’appuyant sur le rapport de tests et les risques.",
+      "Toujours le développeur en charge du module.",
+      "Exclusivement le testeur le plus expérimenté.",
+      "Un vote anonyme de toute l’entreprise."
+    ],
+    correct: 0,
+    explanation: "Le Go/No‑Go relève de la gouvernance projet/produit sur la base d’éléments qualité, risques et valeur."
   }
 ];
-
