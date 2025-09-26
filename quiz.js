@@ -1,4 +1,3 @@
-import quiz from './questions.js';
 let currentQuestion = 0;
 let score = 0;
 let timer;

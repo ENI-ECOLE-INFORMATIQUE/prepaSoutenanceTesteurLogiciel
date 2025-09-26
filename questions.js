@@ -1052,5 +1052,3 @@ const quiz = [
     explanation: "Le CTPO coordonne la vision produit et la stratégie technique."
   }
 ];
-
-export default quiz;

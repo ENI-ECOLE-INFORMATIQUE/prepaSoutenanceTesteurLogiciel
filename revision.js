@@ -1,4 +1,3 @@
-import quiz from './questions.js';
 const container = document.getElementById('quiz-container');
 
         quiz.forEach((q, index) => {
