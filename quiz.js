@@ -29,7 +29,7 @@ let allQuestions = [];     // toutes les questions filtrées
 let currentIndex = 0;      // index de la question actuelle
 let score = 0;             // score utilisateur
 let userAnswers = {};      // réponses de l'utilisateur
-
+let questionData = quiz;
 // ----------------------------
 // 1. Peupler les selects
 // ----------------------------
