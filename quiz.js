@@ -34,6 +34,8 @@ let userAnswers = {};      // réponses de l'utilisateur
 // 1. Peupler les selects
 // ----------------------------
 function populateSelects() {
+    console.log(questionData);
+    console.log(quiz);
     if (typeof questionsData !== "object") {
         console.error("❌ questionsData est introuvable !");
         return;
