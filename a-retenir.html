@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le plus important à retenir pour la soutenance</title>
+    <link rel="stylesheet" href="style.css?v=2026-10-06-4">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="retention-page">
+        <div class="container">
+            <section class="retention-hero">
+                <h1>Le plus important à retenir pour la soutenance</h1>
+                <p class="retention-subtitle">Titre RNCP39088 « Testeur logiciels » (niveau 5, BAC+2) — les points à mémoriser pour parler clairement devant le jury.</p>
+            </section>
+
+            <section class="retention-flash-box">
+                <h2>Les 3 blocs de compétences du titre (RNCP39088)</h2>
+                <ul>
+                    <li><strong>Bloc 1 — Analyser et concevoir :</strong> spécifier les exigences du logiciel et sélectionner les cas de test en fonction du périmètre de test.</li>
+                    <li><strong>Bloc 2 — Exécuter et restituer :</strong> implémenter et exécuter les cas de test, analyser les résultats et rédiger les rapports d'exécution.</li>
+                    <li><strong>Bloc 3 — Automatiser :</strong> automatiser les scénarios de tests et produire un compte rendu d'exécution.</li>
+                </ul>
+            </section>
+
+            <section class="retention-flash-box">
+                <h2>Les 5 idées à garder absolument</h2>
+                <ul>
+                    <li>Tester, c'est chercher des défauts pour <strong>informer une décision</strong> — pas prouver que le logiciel fonctionne.</li>
+                    <li>Un cas de test n'existe que s'il a un <strong>résultat attendu vérifiable</strong> ; sans attendu, pas de verdict.</li>
+                    <li><strong>Sévérité</strong> = impact technique du défaut ; <strong>priorité</strong> = urgence de sa correction. Ce sont deux échelles différentes.</li>
+                    <li>On automatise ce qui est <strong>répétitif, critique et stable</strong> — pas tout : le test exploratoire reste manuel.</li>
+                    <li>Plus un défaut est trouvé tôt, <strong>moins il coûte cher</strong> : c'est le principe du « shift-left » (tester le plus tôt possible).</li>
+                </ul>
+            </section>
+
+            <section class="retention-grid">
+                <article class="retention-card">
+                    <h3>1. Quel est le rôle du testeur logiciel ?</h3>
+                    <p><strong>Réponse :</strong> Identifier les défauts, vérifier la conformité aux exigences et fournir des informations fiables sur la qualité, pour éclairer la décision de mise en production. Le testeur ne corrige pas : il rapporte et il documente.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>2. Vérification ou confirmation : quelle différence ?</h3>
+                    <p><strong>Réponse :</strong> La vérification demande « construit-on le produit correctement ? » (conformité à la spécification). La confirmation demande « construit-on le bon produit ? » (réponse au besoin réel de l'utilisateur). Bien tester, c'est faire les deux.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>3. Que contient un cas de test bien écrit ?</h3>
+                    <p><strong>Réponse :</strong> Un objectif, des préconditions, des étapes précises, des données de test et un résultat attendu vérifiable. Il doit être reproductible par une autre personne et traçable vers l'exigence qu'il couvre.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>4. Plan de test, cahier de tests, cas de test : quelle hiérarchie ?</h3>
+                    <p><strong>Réponse :</strong> Le plan de test définit la stratégie (périmètre, ressources, planning, critères d'entrée et de sortie). Le cahier de tests regroupe l'ensemble des cas de test d'un périmètre. Le cas de test est l'unité qui décrit un scénario précis.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>5. Quels sont les niveaux de test ?</h3>
+                    <p><strong>Réponse :</strong> Tests unitaires (une seule unité, côté développeur), tests d'intégration (interfaces entre composants), tests de système (l'application complète) et tests d'acceptation / recette (validation métier avant mise en production).</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>6. Citez des types de tests non fonctionnels</h3>
+                    <p><strong>Réponse :</strong> Performance (charge, stress), sécurité, accessibilité (RGAA/WCAG), utilisabilité, compatibilité, robustesse. Ils vérifient comment le système se comporte, pas seulement ce qu'il fait.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>7. Test de charge ou test de stress ?</h3>
+                    <p><strong>Réponse :</strong> Le test de charge simule le trafic attendu en conditions réelles ; le test de stress va au-delà des limites pour observer où et comment le système casse. On juge la performance avec des seuils définis à l'avance (percentiles de temps de réponse).</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>8. Que doit contenir un bon ticket de bug ?</h3>
+                    <p><strong>Réponse :</strong> Un titre explicite, des étapes de reproduction, le résultat attendu vs le résultat obtenu, l'environnement (navigateur, version, données), la sévérité et des captures. Un défaut non reproductible est difficilement corrigeable.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>9. Sévérité et priorité : prenez un exemple</h3>
+                    <p><strong>Réponse :</strong> Un faute d'orthographe sur la page d'accueil d'un site lancé : sévérité faible, priorité forte. Un bug dans une fonctionnalité rarement utilisée : sévérité forte, priorité faible. La sévérité mesure l'impact, la priorité mesure l'urgence.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>10. Que trouve-t-on dans un rapport d'exécution ?</h3>
+                    <p><strong>Réponse :</strong> Les cas exécutés, réussis, en échec et bloqués, le taux de couverture, les défauts trouvés et une synthèse actionnable avec recommandation (go / no-go). Il alimente la décision finale de mise en production.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>11. Qu'est-ce que la traçabilité et pourquoi est-elle clé ?</h3>
+                    <p><strong>Réponse :</strong> C'est le lien exigence ↔ cas de test ↔ défaut. Elle prouve que chaque exigence est couverte et permet de mesurer l'impact d'un changement. Sans traçabilité, pas de couverture démontrable.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>12. Quand automatise-t-on les tests ?</h3>
+                    <p><strong>Réponse :</strong> Quand le scénario est répétitif, critique pour le métier et stable dans le temps (typiquement les tests de régression). La pyramide de tests recommande beaucoup de tests unitaires automatisés et peu de tests de bout en bout.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>13. Quel est le rôle du testeur dans la CI/CD ?</h3>
+                    <p><strong>Réponse :</strong> Fournir des suites automatisées intégrées au pipeline : à chaque commit, build puis tests unitaires, d'intégration et de régression. La CI donne un retour rapide ; le testeur garantit que le pipeline reste significatif (un pipeline rouge ignoré perd sa valeur).</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>14. Quelle est la place du testeur dans une équipe Agile ?</h3>
+                    <p><strong>Réponse :</strong> Il participe aux rituels, rend les user stories testables (critères d'acceptation), teste au fil du sprint et veille à la non-régression. La qualité se construit avec toute l'équipe, dès le backlog — pas seulement à la fin.</p>
+                </article>
+
+                <article class="retention-card">
+                    <h3>15. Pourquoi l'accessibilité fait-elle partie du test ?</h3>
+                    <p><strong>Réponse :</strong> Parce qu'un site inaccessible exclut une partie des utilisateurs et que c'est une exigence légale (RGAA en France, référentiel WCAG : perceptible, utilisable, compréhensible, robuste). Navigation clavier complète et lecteur d'écran sont les deux réflexes de base du testeur.</p>
+                </article>
+            </section>
+
+            <p class="retention-footer">Ces points couvrent les trois blocs du titre : <strong>concevoir</strong> (cartes 1-4), <strong>exécuter et restituer</strong> (cartes 5-11), <strong>automatiser</strong> (cartes 12-13), complétés par la posture professionnelle attendue à l'oral (cartes 14-15).</p>
+        </div>
+    </main>
+
+<!-- Bouton Revenir en haut -->
+<button id="backToTop"
+        class="back-to-top"
+        aria-label="Revenir en haut de la page"
+        title="Revenir en haut">
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M12 5l-7 7h4v7h6v-7h4l-7-7z"/>
+  </svg>
+</button>
+
+    <div id="site-footer"></div>
+
+    <script src="layout.js?v=2026-10-06-1"></script>
+    <script src="back-to-top.js?v=2026-10-06-1"></script>
+</body>
+</html>
