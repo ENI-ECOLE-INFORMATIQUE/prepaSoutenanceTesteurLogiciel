@@ -218,15 +218,18 @@
                 <strong>Niveau :</strong> ${question.level}
             `;
             
-            // Afficher les réponses
+            // Afficher les réponses dans un ordre aléatoire
+            // (la bonne réponse n’est pas toujours en première position)
             const answersContainer = document.getElementById('answers-container');
             answersContainer.innerHTML = '';
             
-            question.answers.forEach((answer, index) => {
+            const displayOrder = shuffleArray(question.answers.map((_, i) => i));
+            displayOrder.forEach(originalIndex => {
                 const button = document.createElement('button');
                 button.className = 'answer-btn';
-                button.textContent = answer;
-                button.onclick = () => selectAnswer(index);
+                button.textContent = question.answers[originalIndex];
+                button.dataset.answerIndex = originalIndex;
+                button.onclick = () => selectAnswer(originalIndex);
                 answersContainer.appendChild(button);
             });
 
@@ -286,10 +289,11 @@
             totalTime += responseTime;
             
             // Colorer les réponses
-            buttons.forEach((button, index) => {
-                if (index === question.correct) {
+            buttons.forEach(button => {
+                const originalIndex = parseInt(button.dataset.answerIndex, 10);
+                if (originalIndex === question.correct) {
                     button.classList.add('correct');
-                } else if (index === selectedIndex) {
+                } else if (originalIndex === selectedIndex) {
                     button.classList.add('incorrect');
                 }
                 button.onclick = null; // Désactiver les clics
@@ -586,11 +590,12 @@
             // Permettre la navigation avec les touches numériques pendant le quiz
             if (document.getElementById('quiz').classList.contains('active')) {
                 const key = event.key;
-                if (key >= '1' && key <= '4') {
-                    const answerIndex = parseInt(key) - 1;
+                if (key >= '1' && key <= '9') {
+                    const position = parseInt(key) - 1;
                     const buttons = document.querySelectorAll('.answer-btn');
-                    if (buttons[answerIndex] && timer) {
-                        selectAnswer(answerIndex);
+                    const button = buttons[position];
+                    if (button && timer) {
+                        selectAnswer(parseInt(button.dataset.answerIndex, 10));
                     }
                 }
             }
