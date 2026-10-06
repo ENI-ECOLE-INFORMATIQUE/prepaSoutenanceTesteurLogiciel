@@ -87,6 +87,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Un bug est une erreur ou anomalie qui empêche le logiciel de fonctionner comme prévu."
+    },
+    {
+      "theme": "Fondamentaux du test",
+      "question": "Comment définit-on la qualité logicielle ?",
+      "level": "Débutant",
+      "answers": [
+        "L'absence totale de bugs dans le logiciel",
+        "L'ensemble des caractéristiques d'un logiciel qui satisfont les besoins explicites et implicites des utilisateurs",
+        "La vitesse à laquelle le logiciel s'exécute",
+        "Le respect du planning de livraison"
+      ],
+      "correct": 1,
+      "explanation": "La qualité n'est pas l'absence de défauts : c'est la capacité du produit à répondre aux besoins exprimés et implicites (fonctionnalité, fiabilité, utilisabilité, performance...). Le testeur fournit des informations sur cette qualité."
+    },
+    {
+      "theme": "Fondamentaux du test",
+      "question": "Quelle est la différence entre erreur, défaut et défaillance ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Ce sont trois synonymes pour parler d'un bug",
+        "Erreur = action humaine ; défaut = écart dans le code ou la documentation ; défaillance = comportement incorrect observé à l'exécution",
+        "Erreur = problème détecté en production ; défaut = problème en test ; défaillance = crash du système",
+        "L'erreur vient du testeur, le défaut du développeur, la défaillance de l'utilisateur"
+      ],
+      "correct": 1,
+      "explanation": "Vocabulaire ISTQB : un être humain commet une erreur, qui introduit un défaut dans le code. Si le défaut est exécuté dans certaines conditions, il provoque une défaillance visible par l'utilisateur."
+    },
+    {
+      "theme": "Fondamentaux du test",
+      "question": "Que dit le « principe du parc à moutons » (cluster of defects) ?",
+      "level": "Avancé",
+      "answers": [
+        "Les défauts se répartissent uniformément dans toute l'application",
+        "Un petit nombre de modules concentre la majorité des défauts restants",
+        "Les bugs apparaissent surtout la nuit, quand personne ne travaille",
+        "Plus on teste, plus on trouve de nouveaux types de défauts"
+      ],
+      "correct": 1,
+      "explanation": "Principe ISTQB : les défauts ne se répartissent pas uniformément — ils se regroupent dans quelques modules (souvent les plus complexes ou les plus modifiés). Conséquence pratique : si un module révèle beaucoup de défauts, il faut le tester en priorité."
     }
   ],
   "Types de tests": [
@@ -295,6 +334,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "La non‑régression vise l’absence d’effets secondaires sur l’existant ; les suites de régression (souvent automatisées) la contrôlent."
+    },
+    {
+      "theme": "Types de tests",
+      "question": "Qu'est-ce qu'un test de boîte noire ?",
+      "level": "Débutant",
+      "answers": [
+        "Un test qui s'exécute uniquement la nuit, sans supervision",
+        "Un test qui vérifie le comportement fonctionnel sans connaître la structure interne du code",
+        "Un test qui nécessite d'avoir lu tout le code source",
+        "Un test réservé aux applications sans interface"
+      ],
+      "correct": 1,
+      "explanation": "En boîte noire, le testeur ne connaît pas l'implémentation : il fournit des entrées et vérifie les sorties par rapport aux exigences. C'est l'approche typique du testeur fonctionnel (l'inverse est le test de boîte blanche, plutôt côté développeur)."
+    },
+    {
+      "theme": "Types de tests",
+      "question": "Quelle est la différence entre un test statique et un test dynamique ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Statique = sans exécuter le logiciel (revues, lectures) ; dynamique = en exécutant le logiciel",
+        "Statique = sur une application web ; dynamique = sur une application mobile",
+        "Statique = test manuel ; dynamique = test automatisé",
+        "Statique = test de performance ; dynamique = test fonctionnel"
+      ],
+      "correct": 0,
+      "explanation": "Le test statique examine les livrables sans exécuter le code : revue de spécifications, revue de code, inspection de cas de test. Le test dynamique exécute le logiciel et observe son comportement. Les deux sont complémentaires — le statique détecte les défauts très tôt."
+    },
+    {
+      "theme": "Types de tests",
+      "question": "Qu'est-ce qu'un test de mutation ?",
+      "level": "Avancé",
+      "answers": [
+        "Un test qui modifie légèrement le code pour vérifier si la suite de tests détecte le changement",
+        "Un test qui fait varier les données utilisateurs en production",
+        "Un test qui transforme un test manuel en test automatisé",
+        "Un test exécuté sur plusieurs navigateurs en parallèle"
+      ],
+      "correct": 0,
+      "explanation": "Le mutation testing évalue la qualité de la suite de tests : on introduit volontairement de petits changements (mutants) dans le code. Si les tests continuent de passer, c'est qu'ils sont insuffisants sur cette zone. C'est une mesure indirecte de l'efficacité des tests."
     }
   ],
   "Tests de performance": [
@@ -393,6 +471,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Gatling produit des rapports détaillés sur les performances et le comportement sous charge."
+    },
+    {
+      "theme": "Tests de performance",
+      "question": "Quels indicateurs mesure-t-on typiquement lors d'un test de performance ?",
+      "level": "Débutant",
+      "answers": [
+        "Le nombre de lignes de code et la couverture",
+        "Le temps de réponse, le débit (req/s) et le taux d'erreur sous charge",
+        "Le nombre de couleurs de l'interface et la taille des images",
+        "Uniquement la consommation du processeur"
+      ],
+      "correct": 1,
+      "explanation": "Un test de performance se juge sur des métriques définies à l'avance : temps de réponse (souvent en percentiles), débit (requêtes par seconde), taux d'erreur, et ressources consommées (CPU, mémoire) sous une charge donnée."
+    },
+    {
+      "theme": "Tests de performance",
+      "question": "Qu'est-ce qu'un test d'endurance (soak test) ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Un test qui pousse le système au-delà de ses limites pour le faire planter",
+        "Un test qui maintient une charge normale sur une longue durée pour révéler les dégradations lentes",
+        "Un test de 10 secondes sur une seule fonctionnalité",
+        "Un test qui simule un utilisateur unique très rapide"
+      ],
+      "correct": 1,
+      "explanation": "Le test d'endurance maintient une charge réaliste pendant plusieurs heures ou jours. Il révèle les problèmes qui n'apparaissent pas à court terme : fuites mémoire, saturation de disque, dérive des temps de réponse, connexions non libérées."
+    },
+    {
+      "theme": "Tests de performance",
+      "question": "Pourquoi mesurer le P95 plutôt que la moyenne des temps de réponse ?",
+      "level": "Avancé",
+      "answers": [
+        "La moyenne est trop difficile à calculer",
+        "La moyenne masque les valeurs extrêmes : 95 % des utilisateurs ont un temps inférieur au P95",
+        "Le P95 garantit que tous les utilisateurs sont rapides",
+        "La moyenne ne fonctionne pas sur les applications web"
+      ],
+      "correct": 1,
+      "explanation": "Une moyenne de 200 ms peut cacher des utilisateurs à 5 s. Le percentile P95 indique que 95 % des requêtes sont plus rapides que cette valeur : il donne une image honnête de l'expérience réelle sous charge, sensible aux pics."
     }
   ],
   "Automatisation & CI/CD": [
@@ -554,6 +671,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "La CI exécute automatiquement les suites de tests et empêche l’intégration/livraison en cas d’échec, améliorant la qualité et la vitesse de livraison."
+    },
+    {
+      "theme": "Automatisation & CI/CD",
+      "question": "Un test automatisé échoue en CI alors qu'il passait hier, sans changement du code testé. Que faire en premier ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Relancer le pipeline jusqu'à ce qu'il passe",
+        "Analyser l'échec : vrai défaut, test instable (flaky) ou problème d'environnement, puis documenter",
+        "Supprimer le test de la suite pour ne pas bloquer l'équipe",
+        "Attendre que quelqu'un d'autre s'en occupe"
+      ],
+      "correct": 1,
+      "explanation": "Un échec doit être qualifié avant toute action : relancer en boucle ou supprimer le test détruit la valeur de la CI. Un test flaky doit être stabilisé (attentes explicites, données stables), un problème d'environnement corrigé, un vrai défaut ticketé."
+    },
+    {
+      "theme": "Automatisation & CI/CD",
+      "question": "Qu'est-ce qu'un environnement de test éphémère (jetable) en CI/CD ?",
+      "level": "Avancé",
+      "answers": [
+        "Un environnement de production réduit à moitié prix",
+        "Un environnement recréé automatiquement à chaque pipeline puis détruit, pour garantir la reproductibilité",
+        "Un environnement que le testeur ouvre et ferme manuellement chaque matin",
+        "Un environnement sans données pour éviter les fuites"
+      ],
+      "correct": 1,
+      "explanation": "L'environnement éphémère est provisionné et détruit par le pipeline. Il garantit que chaque exécution part du même état (infra, code, données initialisées), élimine le « chez moi ça marche » et rend les échecs reproductibles."
+    },
+    {
+      "theme": "Automatisation & CI/CD",
+      "question": "Qu'est-ce que le contract testing (test de contrat) ?",
+      "level": "Avancé",
+      "answers": [
+        "Un test qui vérifie que deux services respectent le contrat d'interface convenu (format de requêtes et réponses)",
+        "Un test qui valide le contrat de licence du logiciel",
+        "Un test signé par le client avant la recette",
+        "Un test qui mesure le respect des délais entre équipes"
+      ],
+      "correct": 0,
+      "explanation": "Le contract testing vérifie que le producteur et le consommateur d'une API respectent le même contrat (champs, types, codes). Il évite de déployer un service qui casse silencieusement ses consommateurs — très utilisé en architecture microservices."
     }
   ],
   "Méthodes & Agile": [
@@ -713,6 +869,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Un reporting efficace est ciblé : décisionnel et orienté valeur pour le PO ; actionnable et technique pour l’équipe de dev."
+    },
+    {
+      "theme": "Méthodes & Agile",
+      "question": "Qu'est-ce qu'une user story bien formée ?",
+      "level": "Débutant",
+      "answers": [
+        "Une description technique détaillée de la solution à coder",
+        "Un besoin exprimé sous la forme « En tant que [persona], je veux [action] afin de [bénéfice] » avec des critères d'acceptation",
+        "Une liste de bugs trouvés pendant le sprint",
+        "Un diagramme UML validé par le client"
+      ],
+      "correct": 1,
+      "explanation": "La user story exprime un besoin utilisateur avec sa valeur. Les critères d'acceptation qui l'accompagnent servent à la fois de spécification et de base des cas de test : une story est prête quand elle est testable."
+    },
+    {
+      "theme": "Méthodes & Agile",
+      "question": "Qu'est-ce que la Definition of Done (DoD) ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "La date limite de livraison du sprint",
+        "La liste des critères communs à l'équipe pour considérer un travail réellement terminé (code, tests passés, documentation...)",
+        "La décision de mise en production prise par le PO",
+        "Le moment où le client paie la prestation"
+      ],
+      "correct": 1,
+      "explanation": "La DoD est un contrat d'équipe : une story n'est « done » que si tous les critères sont remplis — généralement code revu, tests passés (y compris non-régression), documentation à jour. Pour le testeur, elle formalise le fait que la qualité fait partie de « fini »."
+    },
+    {
+      "theme": "Méthodes & Agile",
+      "question": "Comment le testeur participe-t-il au refinement (grooming) du backlog ?",
+      "level": "Avancé",
+      "answers": [
+        "Il n'y participe pas : c'est une réunion de développeurs",
+        "Il questionne les stories, propose des critères d'acceptation testables et anticipe les jeux de données et les environnements nécessaires",
+        "Il attend le sprint planning pour découvrir les stories",
+        "Il refuse les stories qui ne l'intéressent pas"
+      ],
+      "correct": 1,
+      "explanation": "Au refinement, le testeur fait gagner l'équipe : rendre les exigences testables avant le sprint évite les allers-retours. Il identifie aussi tôt les besoins de données, d'environnements et d'automatisation — c'est du shift-left appliqué au backlog."
     }
   ],
   "Plan de test": [
@@ -805,6 +1000,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Les critères d’entrée/sortie (entry/exit) encadrent le démarrage et l’arrêt : disponibilité des moyens, niveau de couverture et qualité minimale attendue."
+    },
+    {
+      "theme": "Plan de test",
+      "question": "À quoi servent les critères de sortie (exit criteria) d'une campagne de tests ?",
+      "level": "Débutant",
+      "answers": [
+        "À indiquer comment quitter l'entreprise après la livraison",
+        "À définir objectivement quand la campagne peut s'arrêter : couverture atteinte, taux de défauts, bloqueurs résolus",
+        "À fermer les sessions des testeurs à heure fixe",
+        "À sortir les tests qui échouent du rapport"
+      ],
+      "correct": 1,
+      "explanation": "Sans critères de sortie, « on a fini » n'a pas de sens. Ils rendent la fin de campagne objective et négociable : par exemple 100 % des cas critiques exécutés, aucun défaut bloquant ouvert, taux de réussite ≥ 95 %."
+    },
+    {
+      "theme": "Plan de test",
+      "question": "Le planning ne permet pas de tout tester. Quelle est la bonne réaction ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Tout tester quand même, rapidement et superficiellement",
+        "Prioriser par risque, puis formaliser et communiquer ce qui ne sera PAS couvert",
+        "Refuser de tester et attendre un nouveau planning",
+        "Ne tester que les fonctionnalités les plus simples"
+      ],
+      "correct": 1,
+      "explanation": "Ne jamais pouvoir tout tester est normal (principe ISTQB). La réponse professionnelle : prioriser par risque (impact × probabilité), et rendre visible le périmètre non couvert pour que la décision de mise en production soit prise en connaissance de cause."
+    },
+    {
+      "theme": "Plan de test",
+      "question": "Qu'est-ce qu'une analyse d'impact et quand l'utiliser ?",
+      "level": "Avancé",
+      "answers": [
+        "Une étude du prix des licences de test ; utilisée à l'achat des outils",
+        "Une évaluation des zones touchées par une modification, pour cibler la régression à rejouer",
+        "Un calcul du nombre de testeurs nécessaires ; utilisée au recrutement",
+        "Une analyse du marché concurrentiel ; utilisée en marketing"
+      ],
+      "correct": 1,
+      "explanation": "L'analyse d'impact identifie les composants, exigences et cas de test affectés par un changement. Elle sert à dimensionner la régression utile (plutôt que de tout rejouer) : plus le changement est transverse, plus la zone de régression est large."
     }
   ],
   "Cas de test": [
@@ -896,6 +1130,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "L’ingénierie des tests part des exigences/US et critères d’acceptation pour couvrir cas nominal, erreurs et limites, avec traçabilité bidirectionnelle."
+    },
+    {
+      "theme": "Cas de test",
+      "question": "Qu'est-ce qu'une précondition dans un cas de test ?",
+      "level": "Débutant",
+      "answers": [
+        "Le résultat attendu du test",
+        "L'état nécessaire avant l'exécution : données, utilisateur connecté, écran précédent...",
+        "Le nom du testeur qui a rédigé le cas",
+        "Une condition pour annuler le test"
+      ],
+      "correct": 1,
+      "explanation": "La précondition décrit l'état initial requis pour que le cas de test soit exécutable et reproductible : compte créé, panier non vide, droit spécifique... Sans elle, deux exécuteurs peuvent partir dans des conditions différentes et obtenir des résultats incomparables."
+    },
+    {
+      "theme": "Cas de test",
+      "question": "Pourquoi un cas de test doit-il être indépendant des autres ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Pour que chaque testeur puisse choisir ses cas préférés",
+        "Pour qu'il puisse être exécuté seul, dans n'importe quel ordre, sans dépendre de l'état laissé par un autre cas",
+        "Pour éviter que deux testeurs travaillent sur le même cas",
+        "Pour pouvoir le supprimer sans affecter les autres tickets"
+      ],
+      "correct": 1,
+      "explanation": "Un cas dépendant (ex. « reprendre le panier du test précédent ») casse l'exécution : si le test précédent échoue, celui-ci devient inutilisable, et la réexécution ciblée est impossible. Chaque cas doit mettre en place son propre contexte."
+    },
+    {
+      "theme": "Cas de test",
+      "question": "Qu'est-ce que l'analyse des valeurs limites ?",
+      "level": "Avancé",
+      "answers": [
+        "Un test qui vérifie les limites de mémoire du serveur",
+        "Une technique qui teste aux bornes des classes d'équivalence : par exemple un champ acceptant 1 à 100 sera testé avec 0, 1, 100, 101",
+        "Une méthode pour fixer le temps maximum d'un test",
+        "Un calcul du budget maximum d'une campagne de tests"
+      ],
+      "correct": 1,
+      "explanation": "L'expérience montre que les défauts se concentrent aux frontières des domaines. Plutôt que de tester 50 valeurs valides, on teste les bornes et leurs voisines (min, min+1, max, max-1, min-1, max+1) : couverture maximale pour un coût minimal."
     }
   ],
   "Rapport d’exécution": [
@@ -989,6 +1262,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Une vue exécutive synthétique + détails sur demande accélère les décisions sans noyer l’audience."
+    },
+    {
+      "theme": "Rapport d’exécution",
+      "question": "Quelle est la différence entre un rapport d'exécution et un ticket de bug ?",
+      "level": "Débutant",
+      "answers": [
+        "Aucune, ce sont deux noms du même document",
+        "Le rapport synthétise toute la campagne (avancement, résultats, risques) ; le ticket décrit un défaut précis",
+        "Le rapport est destiné au développeur ; le ticket au client",
+        "Le ticket est rédigé avant les tests ; le rapport après"
+      ],
+      "correct": 1,
+      "explanation": "Le ticket décrit UNE anomalie reproductible ; le rapport d'exécution agrège les résultats de toute la campagne et éclaire la décision de mise en production. Les deux se rejoignent par la traçabilité : chaque échec du rapport pointe vers un ticket."
+    },
+    {
+      "theme": "Rapport d’exécution",
+      "question": "Que devient un cas de test bloqué par une anomalie dans le rapport d'exécution ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Il est compté comme réussi pour ne pas pénaliser l'équipe",
+        "Il est compté comme échoué, car le test n'a pas abouti",
+        "Il est signalé comme bloqué avec la cause et le ticket associatif, sans compter en réussite ni en échec",
+        "Il est supprimé du rapport"
+      ],
+      "correct": 2,
+      "explanation": "Un cas bloqué n'a pas pu s'exécuter (défaut empêchant, environnement indisponible...) : le compter en échec fausse le taux de réussite, le compter en succès masque un manque de couverture. Il se déclare bloqué, avec sa cause et le ticket lié."
+    },
+    {
+      "theme": "Rapport d’exécution",
+      "question": "Pourquoi « 100 % des tests passent » ne suffit-il pas pour décider d'une mise en production ?",
+      "level": "Avancé",
+      "answers": [
+        "Parce que les tests automatiques sont toujours fiables à 100 %",
+        "Parce que ce chiffre ne dit rien de la couverture réelle, des cas non exécutés ni des risques résiduels non couverts",
+        "Parce qu'il faut aussi l'accord du service marketing",
+        "Parce que 100 % est mathématiquement impossible"
+      ],
+      "correct": 1,
+      "explanation": "Le taux de réussite ne vaut que rapporté à ce qui a été testé : périmètre couvert, exigences non couvertes, cas bloqués, risques acceptés. Une décision go/no-go honnête combine taux de réussite ET limites documentées du périmètre."
     }
   ],
   "Ticket de bug": [
@@ -1082,6 +1394,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "La reproduction passe par la collecte d’informations, l’alignement d’environnement et parfois l’ajout de logs/instrumentation."
+    },
+    {
+      "theme": "Ticket de bug",
+      "question": "Un défaut cosmétique sur une page très rarement visitée : comment le qualifier ?",
+      "level": "Débutant",
+      "answers": [
+        "Sévérité bloquante, priorité maximum",
+        "Sévérité mineure et priorité faible — mais il est quand même documenté",
+        "Il ne faut pas le signaler, ce n'est qu'un détail",
+        "Sévérité critique car l'image de marque est engagée"
+      ],
+      "correct": 1,
+      "explanation": "La sévérité mesure l'impact (ici faible : esthétique, page peu visitée) ; la priorité mesure l'urgence. Un défaut mineur reste tracé : il sera traité quand la priorité le justifiera. Ne jamais « trier » silencieusement les anomalies qu'on trouve."
+    },
+    {
+      "theme": "Ticket de bug",
+      "question": "Le développeur rejette votre bug en indiquant « comportement attendu ». Que faire ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Fermer le ticket immédiatement, le développeur a toujours raison",
+        "Rouvrir en boucle jusqu'à ce qu'il cède",
+        "Vérifier la spécification, confronter les interprétations avec le PO et faire trancher le besoin, puis documenter la décision",
+        "Corriger soi-même le code pour prouver le bug"
+      ],
+      "correct": 2,
+      "explanation": "Le désaccord porte souvent sur l'attendu, pas sur l'observé. La bonne démarche : citer la spécification ou le critère d'acceptation, et faire arbitrer par le PO (porteur du besoin). La décision est consignée dans le ticket pour éviter de le rediscuter."
+    },
+    {
+      "theme": "Ticket de bug",
+      "question": "Qu'est-ce qu'un ticket doublon (duplicate) et comment l'éviter ?",
+      "level": "Avancé",
+      "answers": [
+        "Un bug qui apparaît deux fois à l'exécution ; on relance le test",
+        "Un second ticket décrivant le même défaut ; on l'évite en cherchant les anomalies existantes avant d'en créer un nouveau",
+        "Un bug causé par la duplication de code",
+        "Un ticket créé à la fois par le testeur et le PO"
+      ],
+      "correct": 1,
+      "explanation": "Avant de créer un ticket, on cherche (par mots-clés, par composant) s'il n'existe pas déjà : les doublons diluent le suivi, faussent les métriques et ralentissent l'équipe. Un doublon est lié au ticket principal puis fermé avec un statut dédié."
     }
   ],
   "Cahier de tests": [
@@ -1174,6 +1525,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Les revues régulières et l’annotation des impacts assurent l’actualité du référentiel de tests."
+    },
+    {
+      "theme": "Cahier de tests",
+      "question": "En quoi un cahier de tests aide-t-il un nouveau testeur à être rapidement opérationnel ?",
+      "level": "Débutant",
+      "answers": [
+        "Il remplace la formation et les échanges avec l'équipe",
+        "Il embarque la connaissance du produit : cas structurés, données, attendus, directement exécutables",
+        "Il liste les bugs passés du testeur précédent",
+        "Il garantit que le nouveau testeur ne fera aucune erreur"
+      ],
+      "correct": 1,
+      "explanation": "Le cahier de tests est un transfert de connaissance : un cas bien rédigé peut être exécuté par quelqu'un qui découvre le produit. Il n'élimine ni la formation ni le dialogue, mais il rend le nouveau testeur autonome plus vite."
+    },
+    {
+      "theme": "Cahier de tests",
+      "question": "Comment mesurer la couverture d'un cahier de tests ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "En comptant le nombre total de cas de test",
+        "En comparant le nombre de bugs trouvés au nombre de testeurs",
+        "En vérifiant le pourcentage d'exigences reliées à au moins un cas de test",
+        "En mesurant le temps passé à rédiger les cas"
+      ],
+      "correct": 2,
+      "explanation": "La couverture pertinente n'est pas le volume de cas mais le lien exigence ↔ cas de test : quelles exigences sont couvertes, partiellement couvertes ou non couvertes. C'est cette traçabilité qui permet de dire ce qui a été testé — et ce qui ne l'a pas été."
+    },
+    {
+      "theme": "Cahier de tests",
+      "question": "Quel est l'intérêt de structurer un cahier de tests par priorité de cas ?",
+      "level": "Avancé",
+      "answers": [
+        "Faire travailler les testeurs juniors sur les cas faciles",
+        "Pouvoir exécuter d'abord les cas critiques quand le temps manque (régression ciblée, sanity check avant une livraison)",
+        "Ranger les cas par ordre alphabétique",
+        "Répartir équitablement la charge entre testeurs"
+      ],
+      "correct": 1,
+      "explanation": "Structurer par priorité (critique / haute / moyenne / basse) permet de dimensionner la campagne au temps disponible : une passe rapide sur les cas critiques avant une livraison urgente, la campagne complète quand le planning le permet. Le risque guide toujours."
     }
   ],
   "Vérification & Confirmation": [
@@ -1292,6 +1682,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Les deux types de tests participent à l’assurance qualité en visant à améliorer la fiabilité et la robustesse du logiciel."
+    },
+    {
+      "theme": "Vérification & Confirmation",
+      "question": "Après la correction d'un bug, quel test exécuter en premier ?",
+      "level": "Débutant",
+      "answers": [
+        "Un test de charge complet de l'application",
+        "Le test de confirmation (re-test) : rejouer le cas d'origine qui avait mis le défaut en évidence",
+        "N'importe quel autre test pour changer",
+        "Aucun test : la correction du développeur suffit"
+      ],
+      "correct": 1,
+      "explanation": "Le test de confirmation vérifie que le défaut signalé est bien corrigé, en rejouant exactement le scénario d'origine (mêmes étapes, mêmes données). Tant qu'il n'est pas passé, le ticket ne peut pas passer en « corrigé »."
+    },
+    {
+      "theme": "Vérification & Confirmation",
+      "question": "Pourquoi un test de confirmation réussi ne suffit-il pas après un correctif ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Parce que le test de confirmation n'est jamais fiable",
+        "Parce que la correction peut avoir cassé ailleurs : une régression autour de la zone modifiée est nécessaire",
+        "Parce qu'il faut demander l'avis du PO avant de conclure",
+        "Parce que le développeur doit relire son code une deuxième fois"
+      ],
+      "correct": 1,
+      "explanation": "Le correctif répare le défaut signalé mais peut en introduire d'autres (effet de bord). On complète donc le re-test par une régression locale : les cas voisins de la fonctionnalité modifiée. Confirmation = « ce bug est corrigé » ; régression = « rien d'autre n'a cassé »."
+    },
+    {
+      "theme": "Vérification & Confirmation",
+      "question": "Comment documenter proprement la confirmation d'un correctif ?",
+      "level": "Avancé",
+      "answers": [
+        "En écrivant « OK » dans le ticket, sans autre détail",
+        "En relevant : version testée, environnement, date, résultat du cas d'origine et étendue de la régression jouée",
+        "En fermant le ticket sans commentaire, le PO comprendra",
+        "En envoyant un message privé au développeur"
+      ],
+      "correct": 1,
+      "explanation": "La confirmation doit être traçable : sur quelle version, dans quel environnement, à quelle date, avec quel résultat — et quelle régression a été couverte. Sans ces éléments, impossible de savoir plus tard ce qui a réellement été vérifié."
     }
   ],
   "Outils & Plateformes": [
@@ -1380,6 +1809,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "L’intégration native facilite l’automatisation, la traçabilité et la visibilité des résultats au plus près du code."
+    },
+    {
+      "theme": "Outils & Plateformes",
+      "question": "À quoi sert l'onglet Network des DevTools pour un testeur ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "À mesurer la qualité du réseau wifi du bureau",
+        "À inspecter les requêtes HTTP : URLs, méthodes, codes de réponse, payloads, temps — indispensable pour qualifier un défaut front/back",
+        "À bloquer les publicités du site",
+        "À changer les couleurs du site pour tester le design"
+      ],
+      "correct": 1,
+      "explanation": "L'onglet Network est le premier réflexe de diagnostic : une erreur 500 dans une requête API alors que l'écran affiche un comportement bizarre qualifie immédiatement le défaut côté serveur ; une requête jamais envoyée oriente vers le front."
+    },
+    {
+      "theme": "Outils & Plateformes",
+      "question": "À quoi sert un attribut data-testid dans une application web ?",
+      "level": "Avancé",
+      "answers": [
+        "À afficher l'identifiant du testeur sur l'écran",
+        "À fournir un identifiant stable réservé aux tests automatisés, insensible aux changements de style ou de texte",
+        "À compter le nombre de tests manuels exécutés",
+        "À crypter les données de test"
+      ],
+      "correct": 1,
+      "explanation": "Sélectionner un bouton par son texte ou sa classe CSS est fragile : le texte change, la classe est refactorée. Le data-testid est un point d'ancrage dédié aux tests : tant qu'il est présent, l'automatisation survit aux évolutions visuelles."
+    },
+    {
+      "theme": "Outils & Plateformes",
+      "question": "Quel est l'intérêt d'un gestionnaire de tickets comme Jira pour un testeur ?",
+      "level": "Débutant",
+      "answers": [
+        "Coder les tests automatisés directement dans l'outil",
+        "Tracer les anomalies et campagnes de test : suivi du cycle de vie, priorisation, liens vers les cas et releases",
+        "Remplacer la communication orale dans l'équipe",
+        "Générer automatiquement les cas de test à la place du testeur"
+      ],
+      "correct": 1,
+      "explanation": "Le gestionnaire de tickets est la mémoire de la qualité : chaque défaut y vit son cycle (ouvert → corrigé → confirmé → fermé), avec sa priorité, son assignataire et ses liens vers les cas de test et les versions. Il alimente aussi les métriques de la campagne."
     }
   ],
   "Web & Développement": [
@@ -1539,6 +2007,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "PK = identifiant unique local ; FK = lien référentiel vers une autre table (intégrité référentielle)."
+    },
+    {
+      "theme": "Web & Développement",
+      "question": "Que signifie un code de réponse HTTP 404 ?",
+      "level": "Débutant",
+      "answers": [
+        "Le serveur a rencontré une erreur interne inattendue",
+        "La ressource demandée est introuvable",
+        "La requête a réussi",
+        "L'accès est refusé faute d'autorisation"
+      ],
+      "correct": 1,
+      "explanation": "404 = ressource introuvable (page, image, API). Pour le testeur, c'est un symptôme précieux : un lien cassé, une route mal renommée ou une mauvaise URL. À distinguer de 403 (accès refusé) et 500 (erreur serveur)."
+    },
+    {
+      "theme": "Web & Développement",
+      "question": "Quelle est la différence entre une requête GET et une requête POST ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "GET envoie des données dans le corps de la requête ; POST dans l'URL",
+        "GET demande une ressource (paramètres visibles dans l'URL) ; POST envoie des données à traiter dans le corps de la requête",
+        "GET est plus sécurisée que POST",
+        "Il n'y a aucune différence fonctionnelle"
+      ],
+      "correct": 1,
+      "explanation": "GET récupère une ressource sans la modifier (idempotent, paramètres dans l'URL). POST transmet des données à traiter (formulaire, création) dans le corps. Le testeur vérifie notamment qu'aucune donnée sensible ne transite par une URL en GET."
+    },
+    {
+      "theme": "Web & Développement",
+      "question": "Pourquoi tester les validations côté serveur, et pas seulement côté client ?",
+      "level": "Avancé",
+      "answers": [
+        "Parce que le serveur est plus rapide que le navigateur",
+        "Parce que la validation côté client (JavaScript) peut être contournée : elle n'est qu'une commodité, la sécurité exige une validation serveur",
+        "Parce que les navigateurs n'ont pas de validation intégrée",
+        "Parce que les tests côté client sont plus difficiles à automatiser"
+      ],
+      "correct": 1,
+      "explanation": "Tout ce qui s'exécute dans le navigateur est contrôlable par l'utilisateur (DevTools, requêtes forgées). Une validation serveur manquante est donc une faille exploitable : données invalides en base, injections, contournement des règles métier."
     }
   ],
   "Accessibilité": [
@@ -1631,6 +2138,45 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Les lecteurs d’écran s’appuient sur des libellés/alternatives corrects et une structure DOM cohérente."
+    },
+    {
+      "theme": "Accessibilité",
+      "question": "Pourquoi un texte alternatif (attribut alt) est-il important sur les images ?",
+      "level": "Débutant",
+      "answers": [
+        "Il améliore le référencement, c'est tout",
+        "Il décrit l'image aux lecteurs d'écran pour les personnes aveugles ou malvoyantes",
+        "Il permet de charger l'image plus vite",
+        "Il affiche l'image en haute résolution"
+      ],
+      "correct": 1,
+      "explanation": "Sans texte alternatif, une image porteuse d'information est invisible pour un utilisateur de lecteur d'écran. Le testeur vérifie que les images utiles ont un alt pertinent (et que les images décoratives en sont volontairement dépourvues)."
+    },
+    {
+      "theme": "Accessibilité",
+      "question": "Que signifie « focus visible » en accessibilité ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Le site doit être visible sans lunettes",
+        "L'élément actif pendant la navigation clavier doit être perceptible (contour, surlignage)",
+        "Les couleurs doivent être vives sur toutes les pages",
+        "Le texte doit rester lisible en plein soleil"
+      ],
+      "correct": 1,
+      "explanation": "Un utilisateur qui navigue au clavier (Tab) doit toujours savoir où il se trouve. Un outline supprimé en CSS sans alternative rend la navigation clavier impossible à suivre — c'est l'un des blocages les plus fréquents à la navigation clavier."
+    },
+    {
+      "theme": "Accessibilité",
+      "question": "Pourquoi l'ordre des éléments dans le DOM (structure HTML) importe-t-il pour l'accessibilité ?",
+      "level": "Avancé",
+      "answers": [
+        "Parce que le DOM influence uniquement la vitesse de chargement",
+        "Parce que les lecteurs d'écran et la tabulation suivent l'ordre du HTML : un ordre visuel différent de l'ordre du DOM crée une lecture illogique",
+        "Parce que le DOM doit toujours être alphabétique",
+        "Cela n'a aucun impact, seul le rendu visuel compte"
+      ],
+      "correct": 1,
+      "explanation": "La lecture au lecteur d'écran et la navigation Tab suivent l'ordre du DOM, pas la disposition visuelle. Un bouton placé visuellement en haut mais en dernier dans le HTML sera lu en dernier : le testeur vérifie la cohérence entre ordre visuel et ordre structurel."
     }
   ],
   "Organisation & rôles produit": [
@@ -1722,11 +2268,49 @@ const questionsData = {
       ],
       "correct": 0,
       "explanation": "Le Go/No‑Go relève de la gouvernance projet/produit sur la base d’éléments qualité, risques et valeur."
+    },
+    {
+      "theme": "Organisation & rôles produit",
+      "question": "Une exigence du ticket est ambiguë. Avec qui le testeur la clarifie-t-il en premier ?",
+      "level": "Débutant",
+      "answers": [
+        "Avec le développeur qui a codé la fonctionnalité",
+        "Avec le porteur du besoin (PO / métier), qui arbitre l'attendu",
+        "Avec le testeur de l'équipe voisine",
+        "Personne : il choisit seul l'interprétation qui lui semble juste"
+      ],
+      "correct": 1,
+      "explanation": "Seul le porteur du besoin peut arbitrer l'attendu. Le développeur explique l'implémentation, le métier dit ce qui est voulu. Interpréter silencieusement une exigence ambiguë, c'est risquer de valider un comportement que le métier n'a jamais demandé."
+    },
+    {
+      "theme": "Organisation & rôles produit",
+      "question": "Quel est le rôle d'un Scrum Master dans l'équipe ?",
+      "level": "Intermédiaire",
+      "answers": [
+        "Il dirige l'équipe et assigne les tâches à chaque membre",
+        "Il facilite le processus agile, protège l'équipe et lève les blocages — sans être un chef",
+        "Il décide des priorités du backlog produit",
+        "Il rédige les cas de test à la place des testeurs"
+      ],
+      "correct": 1,
+      "explanation": "Le Scrum Master est un facilitateur : il garantit le respect du cadre Scrum, aide à lever les obstacles et anime les rituels. La priorisation du backlog relève du PO ; l'organisation technique relève de l'équipe. Ce n'est pas un chef de projet."
+    },
+    {
+      "theme": "Organisation & rôles produit",
+      "question": "Le PO juge mineur un bug que vous avez qualifié de sévère. Comment défendre votre qualification ?",
+      "level": "Avancé",
+      "answers": [
+        "Insister lourdement jusqu'à obtenir gain de cause",
+        "Présenter un scénario utilisateur concret et chiffré de l'impact (qui est bloqué, quand, avec quelles conséquences)",
+        "Escalader directement à la direction sans en parler au PO",
+        "Requalifier silencieusement le bug en mineur pour éviter le conflit"
+      ],
+      "correct": 1,
+      "explanation": "La sévérité est factuelle ; la priorité est une décision métier qui appartient au PO. Le testeur éclaire cette décision avec des faits : scénario concret, fréquence d'impact, utilisateurs touchés, coût d'un contournement. Le PO arbitre en connaissance de cause."
     }
   ]
 };
 
-// === SYNTHÈSES PAR THÈME (affichées dans la base de questions) ===
 const themeSyntheses = {
     "Fondamentaux du test": {
         definition: "Le test logiciel consiste à contrôler le produit pour révéler des défauts et fournir des informations sur la qualité, avec un objectif de prévention autant que de détection.",

@@ -17,7 +17,7 @@ Le contenu est aligné sur le titre **[RNCP39088 « Testeur logiciels »](https:
 
 ## 📚 Contenu pédagogique
 
-- **136 questions** réparties en **15 thèmes** :
+- **181 questions** réparties en **15 thèmes** :
   Fondamentaux du test, Types de tests, Tests de performance, Automatisation & CI/CD, Méthodes & Agile, Plan de test, Cas de test, Rapport d'exécution, Ticket de bug, Cahier de tests, Vérification & Confirmation, Outils & Plateformes, Web & Développement, Accessibilité, Organisation & rôles produit
 - **3 niveaux de difficulté** : Débutant, Intermédiaire, Avancé
 - **Synthèse par thème** : définition, points clés, pièges fréquents et 3 points à retenir — affichée en tête de chaque thème dans la base de questions
