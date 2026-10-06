@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI Ecole Informatique - Vademecum du Testeur Logiciel</title>
+    <link rel="stylesheet" href="style.css?v=2026-10-06-4">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="vademecum-page">
+        <div class="container">
+            <section class="vademecum-hero">
+                <h1>Vademecum du Testeur Logiciel</h1>
+                <p class="vademecum-subtitle">Le guide des bonnes pratiques du métier, aligné sur le titre RNCP39088 : posture, conception, exécution, rapport d'anomalies, automatisation — et les conseils qui font la différence en entreprise comme à l'oral.</p>
+            </section>
+
+            <section class="vademecum-summary">
+                <h2>Les bonnes pratiques du testeur logiciel</h2>
+                <p class="vademecum-summary-intro">Chapitre par chapitre, l'essentiel à appliquer au quotidien. Cliquez sur un chapitre pour le déplier.</p>
+
+                <details class="vademecum-chapter" open>
+                    <summary>1. La posture du testeur : les règles d'or</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Abordez chaque livraison avec un <strong>doute méthodique</strong> : votre travail commence là où le développeur est convaincu que ça marche.</li>
+                            <li>Vous êtes un <strong>fournisseur d'informations</strong>, pas un censeur : votre rapport éclaire la décision de mise en production, il ne la remplace pas.</li>
+                            <li>La qualité est l'affaire de toute l'équipe : proposez, questionnez, expliquez — jamais d'opposition frontale avec les développeurs.</li>
+                            <li>Demandez l'attendu quand il manque : <strong>pas de spécification claire = question posée au métier</strong>, pas d'interprétation silencieuse.</li>
+                            <li>Restez factuel dans vos échanges : un défaut se décrit, il ne se juge pas.</li>
+                            <li>Notez tout au fil de l'eau : une anomalie non écrite est une anomalie perdue.</li>
+                            <li>Assumez vos erreurs : un cas de test faux se corrige et s'assume — la confiance se construit sur l'honnêteté des résultats.</li>
+                            <li>Protégez les données personnelles : utilisez des données de test fictives ou anonymisées.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>2. Analyser avant de tester (Bloc 1 du RNCP)</summary>
+                    <div class="vademecum-chapter-body">
+                        <p>Lisez l'exigence et reformulez-la avec vos mots ; si vous n'y arrivez pas, l'exigence n'est pas testable.</p>
+                        <ul>
+                            <li>Identifiez les <strong>critères d'acceptation</strong> avec le PO avant d'écrire le premier cas de test.</li>
+                            <li>Priorisez par le <strong>risque</strong> : fréquence d'utilisation, impact métier, complexité technique. On teste d'abord ce qui ferait le plus mal s'il cassait.</li>
+                            <li>Couvrez le nominal ET les cas d'erreur : champs vides, formats invalides, valeurs extrêmes, doubles soumissions.</li>
+                            <li>Utilisez des techniques simples et efficaces : <strong>classes d'équivalence</strong> et <strong>analyse des valeurs limites</strong> pour réduire le nombre de cas sans perdre de couverture.</li>
+                            <li>Pensez au parcours utilisateur de bout en bout, pas seulement écran par écran.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>3. Écrire des cas de test utiles</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Un cas de test = un objectif vérifiable, avec un <strong>résultat attendu explicite</strong>. « Vérifier que ça marche » n'est pas un attendu.</li>
+                            <li>Rendez chaque cas <strong>indépendant</strong> : il doit pouvoir être exécuté seul, dans n'importe quel ordre.</li>
+                            <li>Utilisez des données de test <strong>réalistes et réutilisables</strong>, décrites dans le cas (l'exécuteur ne doit pas deviner).</li>
+                            <li>Écrivez pour quelqu'un d'autre : si un collègue ne peut pas exécuter votre cas sans vous poser de question, il n'est pas terminé.</li>
+                            <li>Relisez et faites relire : la relecture des cas de test est elle-même une activité de test.</li>
+                            <li>Supprimez ou mettez à jour les cas obsolètes : un cahier de tests qui ment est pire que pas de cahier.</li>
+                            <li>Assurez la <strong>traçabilité</strong> : chaque exigence doit être reliée à au moins un cas de test, et chaque échec à un ticket.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>4. Exécuter proprement (Bloc 2 du RNCP)</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Exécutez dans un <strong>environnement identifié</strong> (version, données, navigateur) et notez-le : un résultat sans contexte ne prouve rien.</li>
+                            <li>Suivez les étapes du cas tel qu'écrites ; si vous en sortez, notez-le — l'écart d'exécution est une information.</li>
+                            <li>Ne modifiez jamais un cas de test « pour qu'il passe » : un échec de test est un résultat, pas un problème à maquiller.</li>
+                            <li>Un cas bloqué se déclare comme tel, avec la cause : il ne compte ni en réussite ni en échec.</li>
+                            <li>Distinguez trois choses : <strong>défaut applicatif</strong>, <strong>anomalie d'environnement</strong> et <strong>cas de test erroné</strong>. Ils n'ont ni le même traitement ni le même destinataire.</li>
+                            <li>Après correction d'un bug : re-testez le cas d'origine ET la zone autour (régression locale).</li>
+                            <li>Gardez une session d'<strong>exploration</strong> en fin de campagne : c'est souvent là que se trouvent les défauts les plus embarrassants.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>5. Rapporter une anomalie comme un professionnel</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Reproduisez avant de rapporter : un défaut non reproductible sera renvoyé, et vous aurez perdu en crédibilité.</li>
+                            <li>Un défaut = un ticket. Ne regroupez jamais deux anomalies dans le même rapport.</li>
+                            <li>Structurez : titre explicite, étapes numérotées, attendu vs obtenu, environnement, données utilisées, captures ou console.</li>
+                            <li>Séparez <strong>sévérité</strong> (impact technique) et <strong>priorité</strong> (urgence de correction) — et laissez la priorité au PO.</li>
+                            <li>Qualifiez le défaut : front, back, données, environnement ? Votre diagnostic fait gagner des heures au développeur.</li>
+                            <li>Restez disponible pour la reprise : un ticket bien écrit + un testeur joignable = correction rapide.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>6. Le rapport d'exécution qui sert à quelque chose</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Donnez les faits : exécutés / réussis / échoués / bloqués, taux de couverture, défauts ouverts par sévérité.</li>
+                            <li>Puis l'interprétation : ce qui est prêt, ce qui ne l'est pas, les risques résiduels acceptés ou non.</li>
+                            <li>Terminez par une <strong>recommandation claire</strong> (go / no-go / go conditionnel) : c'est ce que le lecteur retiendra.</li>
+                            <li>Adaptez le niveau de détail au lecteur : synthèse pour le management, détail pour l'équipe.</li>
+                            <li>Soyez honnête sur ce qui n'a PAS été testé : les limites du périmètre font partie du rapport.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>7. Automatiser avec discernement (Bloc 3 du RNCP)</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Automatisez ce qui est <strong>répétitif, critique et stable</strong> : la régression avant tout. Le reste attend.</li>
+                            <li>Suivez la <strong>pyramide de tests</strong> : beaucoup d'unitaires, un peu d'intégration, peu de bout en bout.</li>
+                            <li>Un test automatisé instable (flaky) se répare ou se retire : une suite qui « échoue sans raison » n'est plus écoutée.</li>
+                            <li>Choisissez des sélecteurs stables (id, data-testid) — pas des positions ou des styles.</li>
+                            <li>Versionnez vos scripts et vos jeux de données comme du code applicatif (Git).</li>
+                            <li>Intégrez la CI : chaque commit doit déclencher les suites, et un pipeline rouge doit bloquer, pas être ignoré.</li>
+                            <li>Comptez le coût de maintenance : automatiser n'est rentable que si le scénario vivra assez longtemps.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>8. Les pièges classiques à éviter</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Le <strong>bug du dernier écran</strong> : on teste en profondeur le début du parcours et on survole la fin.</li>
+                            <li>Le syndrome du « chez moi ça marche » : un seul navigateur, une seule résolution, un seul jeu de données — c'est insuffisant.</li>
+                            <li>Ignorer la console et les requêtes réseau pendant l'exécution : les erreurs silencieuses d'aujourd'hui sont les bugs visibles de demain.</li>
+                            <li>Tester uniquement le chemin heureux : les utilisateurs réels, eux, ne lisent pas la documentation.</li>
+                            <li>Ne pas re-tester après correction : « le dev a dit que c'est corrigé » n'est pas un résultat de test.</li>
+                            <li>Empiler les cas de test dupliqués : la couverture réelle baisse pendant que le cahier grossit.</li>
+                            <li>Annoncer « 100 % OK » sans mentionner les limites du périmètre : c'est le meilleur moyen de perdre la confiance du jury ou du client.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>9. La boîte à outils du testeur</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li><strong>DevTools du navigateur</strong> (F12) : Network pour qualifier un défaut (front/back/env), Console pour les erreurs — le réflexe n°1 du testeur Web.</li>
+                            <li><strong>Jira / backlog</strong> : suivi des anomalies et des campagnes ; un ticket bien lié à son cas de test, toujours.</li>
+                            <li><strong>Postman</strong> : tester les API au-delà de l'interface, y compris les cas d'erreur.</li>
+                            <li><strong>Playwright / Cypress / Selenium</strong> : automatisation Web à intégrer en CI.</li>
+                            <li><strong>JMeter / k6</strong> : tests de charge et de stress avec des seuils définis.</li>
+                            <li><strong>NVDA ou lecteur d'écran + navigation clavier</strong> : les deux contrôles de base de l'accessibilité (RGAA/WCAG).</li>
+                            <li><strong>Un tableur ou un vrai outil (TestRail, Xray)</strong> : le support importe moins que la rigueur de la traçabilité.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>10. Conseils pour la soutenance</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Illustrez chaque concept par <strong>un exemple vécu</strong> de votre projet : le jury évalue la démarche, pas la récitation.</li>
+                            <li>Présentez un livrable concret (plan de test, cas, ticket, rapport) et <strong>commentez-le en direct</strong>.</li>
+                            <li>Assumez les limites : dire « ce point n'a pas été couvert pour telle raison, voici le risque » est une réponse professionnelle, pas un aveu de faiblesse.</li>
+                            <li>Reliez systématiquement vos réponses aux <strong>trois blocs du titre</strong> : concevoir, exécuter/restituer, automatiser.</li>
+                            <li>Maîtrisez le vocabulaire : défaut, sévérité, priorité, recette, régression, couverture, traçabilité — à bon escient.</li>
+                            <li>Préparez une réponse aux « et si ? » : que faites-vous quand l'exigence est ambiguë, quand le dev conteste le bug, quand le temps manque ? La méthode compte plus que la réponse parfaite.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="vademecum-chapter">
+                    <summary>11. Progresser après la formation</summary>
+                    <div class="vademecum-chapter-body">
+                        <ul>
+                            <li>Faites de la <strong>veille</strong> : blogs de testeurs, communautés (Ministry of Testing, Mtribu, French Testing Board), conférences.</li>
+                            <li>Entraînez-vous sur des applications volontairement boguées (ex. « the-internet », démos de praticiens) pour affiner votre œil.</li>
+                            <li>Apprenez les bases du développement que vous testez : lire du code, comprendre une API, lire un log — sans devenir développeur.</li>
+                            <li>Documentez vos campagnes comme des études de cas : c'est votre portfolio pour les entretiens.</li>
+                            <li>Le certificat <strong>ISTQB Foundation</strong> est une suite naturelle du RNCP39088 si vous souhaitez valoriser le socle théorique.</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
+        </div>
+    </main>
+
+<!-- Bouton Revenir en haut -->
+<button id="backToTop"
+        class="back-to-top"
+        aria-label="Revenir en haut de la page"
+        title="Revenir en haut">
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M12 5l-7 7h4v7h6v-7h4l-7-7z"/>
+  </svg>
+</button>
+
+    <div id="site-footer"></div>
+
+    <script src="layout.js?v=2026-10-06-1"></script>
+    <script src="back-to-top.js?v=2026-10-06-1"></script>
+</body>
+</html>

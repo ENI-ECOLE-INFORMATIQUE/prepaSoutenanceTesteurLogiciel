@@ -10,7 +10,7 @@
                     <ul>
                         <li><a href="index.html?page=accueil" class="nav-link" data-page="accueil">Accueil</a></li>
                         <li><a href="index.html?page=quiz-setup" class="nav-link" data-page="quiz-setup">Quiz</a></li>
-                        <li><a href="index.html?page=questions-list" class="nav-link" data-page="questions-list">Questions</a></li><li><a href="a-retenir.html" class="nav-link">À retenir</a></li>
+                        <li><a href="index.html?page=questions-list" class="nav-link" data-page="questions-list">Questions</a></li><li><a href="a-retenir.html" class="nav-link">À retenir</a></li><li><a href="vademecum.html" class="nav-link">Vademecum</a></li>
                         </ul>
                 </nav>
             </div>
