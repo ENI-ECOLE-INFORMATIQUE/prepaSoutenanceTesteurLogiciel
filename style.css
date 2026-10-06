@@ -91,6 +91,8 @@ header {
 .logo img {
     height: 38px;
     width: auto;
+    /* Logo ENI noir a l origine : passe en blanc pour le theme sombre */
+    filter: brightness(0) invert(1);
 }
 
 .text-header {
