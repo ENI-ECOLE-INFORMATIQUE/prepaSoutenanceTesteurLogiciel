@@ -19,6 +19,7 @@
             displayHistory();
             updateProgressOverview();
             renderRecommendations();
+            renderThemeStats();
 
             const storedTarget = sessionStorage.getItem('targetPage');
             const searchParams = new URLSearchParams(window.location.search);
@@ -26,7 +27,7 @@
             const hash = window.location.hash.replace('#', '');
             const pageToOpen = storedTarget || pageFromQuery || hash;
 
-            if (pageToOpen && ['accueil', 'quiz-setup', 'quiz', 'results', 'questions-list'].includes(pageToOpen)) {
+            if (pageToOpen && ['accueil', 'quiz-setup', 'quiz', 'results', 'questions-list', 'flashcards'].includes(pageToOpen)) {
                 showPage(pageToOpen);
                 sessionStorage.removeItem('targetPage');
                 if (!window.location.search.includes(`page=${pageToOpen}`)) {
@@ -121,10 +122,13 @@
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
                 const onClickAttr = link.getAttribute('onclick');
+                const dataPage = link.getAttribute('data-page');
                 if (onClickAttr && onClickAttr.includes(`showPage('${pageId}')`)) {
                     link.classList.add('active');
                 } else if ((pageId === 'quiz' || pageId === 'results' || pageId === 'quiz-setup') && 
-                           onClickAttr && onClickAttr.includes("showPage('quiz-setup')")) {
+                           (dataPage === 'quiz-setup' || (onClickAttr && onClickAttr.includes("showPage('quiz-setup')")))) {
+                    link.classList.add('active');
+                } else if (dataPage === pageId) {
                     link.classList.add('active');
                 }
             });
@@ -187,7 +191,7 @@
         function displayQuestion() {
             const question = currentQuiz[currentQuestionIndex];
             const seenState = getProgressState();
-            const questionId = `${question.theme}::${currentQuestionIndex}`;
+            const questionId = `${question.theme}::${question.question}`;
             const seenQuestions = new Set(seenState.seenQuestions || []);
             seenQuestions.add(questionId);
             seenState.seenQuestions = [...seenQuestions];
@@ -225,12 +229,19 @@
                 button.onclick = () => selectAnswer(index);
                 answersContainer.appendChild(button);
             });
+
+            // Astuce clavier (les touches 1 a N repondent)
+            const hint = document.createElement('p');
+            hint.className = 'keyboard-hint';
+            hint.textContent = 'Astuce : touches 1 à ' + question.answers.length + ' pour répondre';
+            answersContainer.appendChild(hint);
             
             // Masquer l'explication et le bouton suivant
             document.getElementById('explanation').classList.remove('show');
             document.getElementById('next-btn').classList.add('hidden');
             
             // Démarrer le timer
+            document.getElementById('timer').textContent = timePerQuestion;
             questionStartTime = Date.now();
             startTimer();
         }
@@ -626,18 +637,23 @@
         }
 
         function getProgressState() {
+            // v2 : identifiants de questions stables (theme::texte). Les anciens identifiants v1 (theme::index) sont jetes,
+            // les statistiques par theme restent valables.
+            let state = {};
             try {
-                const state = JSON.parse(localStorage.getItem('quiz_progress')) || { seenQuestions: [], themeStats: {} };
-                return {
-                    seenQuestions: Array.isArray(state.seenQuestions) ? state.seenQuestions : [],
-                    themeStats: state.themeStats && typeof state.themeStats === 'object' ? state.themeStats : {}
-                };
+                state = JSON.parse(localStorage.getItem('quiz_progress')) || {};
             } catch (e) {
-                return { seenQuestions: [], themeStats: {} };
+                state = {};
             }
+            return {
+                v: 2,
+                seenQuestions: state.v === 2 && Array.isArray(state.seenQuestions) ? state.seenQuestions : [],
+                themeStats: state.themeStats && typeof state.themeStats === 'object' ? state.themeStats : {}
+            };
         }
 
         function saveProgressState(state) {
+            state.v = 2;
             localStorage.setItem('quiz_progress', JSON.stringify(state));
         }
 
@@ -681,7 +697,7 @@
 
             currentQuiz.forEach((question, index) => {
                 const theme = question.theme;
-                const questionId = `${theme}::${index}`;
+                const questionId = `${theme}::${question.question}`;
                 seenQuestions.add(questionId);
 
                 if (!themeStats[theme]) {
@@ -699,6 +715,7 @@
             saveProgressState(state);
             updateProgressOverview();
             renderRecommendations();
+            renderThemeStats();
         }
 
         function getRecommendedThemes() {
@@ -898,3 +915,103 @@
             // Ajouter une classe pour indiquer que JS est chargé
             document.body.classList.add('js-loaded');
         });
+        // === MODE EXAMEN BLANC (simulation soutenance) ===
+        function startExamBlanc() {
+            document.getElementById('theme-select').value = 'all';
+            document.getElementById('niveau-select').value = 'all';
+            document.getElementById('question-count').value = '20';
+            document.getElementById('time-limit').value = '60';
+            startQuiz();
+        }
+
+        // === STATISTIQUES PAR THEME ===
+        function renderThemeStats() {
+            const container = document.getElementById('theme-stats-container');
+            if (!container) return;
+
+            const stats = getProgressState().themeStats || {};
+            const rows = Object.entries(stats)
+                .filter(([theme, s]) => s && s.attempts > 0)
+                .map(([theme, s]) => ({
+                    theme,
+                    attempts: s.attempts,
+                    pct: Math.round((s.correct / s.attempts) * 100)
+                }))
+                .sort((a, b) => a.pct - b.pct);
+
+            if (!rows.length) {
+                container.innerHTML = '<p class="muted">Passez des quiz pour voir vos statistiques par thème apparaître ici.</p>';
+                return;
+            }
+
+            container.innerHTML = rows.map(r => `
+                <div class="theme-stat-row">
+                    <span class="theme-stat-label" title="${escapeHTML(r.theme)}">${escapeHTML(r.theme)}</span>
+                    <div class="theme-stat-bar"><div class="theme-stat-fill" style="width:${r.pct}%"></div></div>
+                    <span class="theme-stat-value ${r.pct >= 70 ? 'ok' : 'ko'}">${r.pct}%</span>
+                </div>
+            `).join('');
+        }
+
+        // === FLASHCARDS ===
+        let flashcardsDeck = [];
+        let flashcardIndex = 0;
+        let flashcardKnown = 0;
+
+        function startFlashcards() {
+            flashcardsDeck = shuffleArray(Object.values(questionsData).flat());
+            flashcardIndex = 0;
+            flashcardKnown = 0;
+            showPage('flashcards');
+            renderFlashcard();
+        }
+
+        function renderFlashcard() {
+            const q = flashcardsDeck[flashcardIndex];
+            document.getElementById('flashcard-counter').textContent = `Carte ${flashcardIndex + 1} / ${flashcardsDeck.length}`;
+            document.getElementById('flashcard-meta').innerHTML = `
+                <strong>Thème :</strong> ${escapeHTML(q.theme)} &nbsp;|&nbsp;
+                <strong>Niveau :</strong> ${escapeHTML(q.level)}
+            `;
+            document.getElementById('flashcard-question').textContent = q.question;
+
+            const answer = document.getElementById('flashcard-answer');
+            answer.hidden = true;
+            answer.innerHTML = `
+                <div class="correct-answer">✓ Réponse : ${escapeHTML(q.answers[q.correct])}</div>
+                <div class="explanation-container"><div class="explanation-text">✓ ${escapeHTML(q.explanation)}</div></div>
+            `;
+
+            document.getElementById('flashcard-reveal').hidden = false;
+            document.getElementById('flashcard-known').hidden = true;
+            document.getElementById('flashcard-unknown').hidden = true;
+            document.getElementById('flashcard-restart').hidden = true;
+        }
+
+        function revealFlashcard() {
+            document.getElementById('flashcard-answer').hidden = false;
+            document.getElementById('flashcard-reveal').hidden = true;
+            document.getElementById('flashcard-known').hidden = false;
+            document.getElementById('flashcard-unknown').hidden = false;
+        }
+
+        function markFlashcard(known) {
+            if (known) flashcardKnown++;
+            flashcardIndex++;
+
+            if (flashcardIndex >= flashcardsDeck.length) {
+                const pct = Math.round((flashcardKnown / flashcardsDeck.length) * 100);
+                document.getElementById('flashcard-counter').textContent =
+                    `Terminé : ${flashcardKnown}/${flashcardsDeck.length} cartes sues (${pct}%)`;
+                document.getElementById('flashcard-meta').innerHTML = '';
+                document.getElementById('flashcard-question').textContent = 'Série terminée ! Les cartes marquées à revoir sont celles à refaire en priorité.';
+                document.getElementById('flashcard-answer').hidden = true;
+                document.getElementById('flashcard-reveal').hidden = true;
+                document.getElementById('flashcard-known').hidden = true;
+                document.getElementById('flashcard-unknown').hidden = true;
+                document.getElementById('flashcard-restart').hidden = false;
+                return;
+            }
+
+            renderFlashcard();
+        }
