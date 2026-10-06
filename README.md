@@ -55,7 +55,7 @@ Le contenu est aligné sur le titre **[RNCP39088 « Testeur logiciels »](https:
 - Header et footer mutualisés, chargés dynamiquement (`layout.js`) avec repli en cas d'absence de `fetch`
 - Design responsive, animations d'entrée, bouton retour en haut sur toutes les pages
 - **Application installable** (manifest PWA) et favicon ENI
-- Lien vers le **[podcast ISTQB](https://eni-ecole-informatique.github.io/PodcastITSQB/)** dans la navigation
+- Lien vers le **[podcast ISTQB](https://eni-ecole-informatique.github.io/PodcastITSQB/)** dans le footer
 
 ---
 
