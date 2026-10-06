@@ -1,65 +1,234 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Accueil — Révisions Testeurs Logiciels</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Atelier de révision pour testeurs logiciels : quiz et fiches de révision thématiques." />
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI Ecole Informatique - Révision Testeurs Logiciels - Quiz Interactif</title>
+    <link rel="stylesheet" href="style.css?v=2026-10-06-1">
 </head>
 <body>
+    <div id="site-header"></div>
 
-  <div class="home-container" id="homeContainer">
-    <img src="img/logo_eni.png" alt="LOGO ENI" class="topnav" aria-label="Logo ENI">
-    <nav>
-        <a href="index.html" title="Accueil" class="active" aria-current="page">Accueil</a>
-        <a href="quiz.html" title="Quiz">Quiz</a>
-        <a href="revision.html" title="Révision">Révision</a>
-    </nav>
-
-    <header class="hero">
-      <h1>Atelier de Révision — Testeurs Logiciels</h1>
-      <a id="top"></a>
-      <p class="tagline">
-        Ce site a été conçu pour aider les apprenants à <strong>réviser les fondamentaux du test logiciel</strong> :
-        types de tests, plan &amp; cas de test, automatisation/CI‑CD, accessibilité, reporting, et plus encore.
-      </p>
-      <p class="details">
-        Deux modes complémentaires sont à votre disposition :
-        <br><strong>• Quiz</strong> pour vous évaluer rapidement. <br>
-        <strong>• Révisions</strong> pour parcourir les questions avec leur réponse et explication.
-      </p>
-
-      <div class="cta">
-        <a class="btn btn-primary" href="quiz.html" title="Quiz">🎯 Lancer le quiz</a>
-        <a class="btn btn-secondary" href="revision.html" title="Révision">📚 Mode révision</a>
-      </div>
-    </header>
-
+    <!-- MAIN CONTENT -->
     <main>
-      <section class="about">
-        <h2>Ce que vous allez travailler</h2>
-        <ul>
-          <li><strong>Thèmes</strong> : fondamentaux, types de tests, performance, automatisation &amp; CI/CD, méthodes &amp; Agile, plan/cas de test, ticket de bug, accessibilité, etc.</li>
-          <li><strong>Niveaux</strong> : Débutant, Intermédiaire, Avancé (affichés sur chaque carte de révision).</li>
-          <li><strong>Objectif</strong> : consolider vos connaissances, améliorer votre vocabulaire métier et préparer vos mises en situation.</li>
-        </ul>
-      </section>
+        <div class="container">
+            <!-- PAGE ACCUEIL -->
+            <div id="accueil" class="page active">
+                <div class="welcome">
+                    <h1>Révision Testeurs Logiciels</h1>
+                    <p>Plateforme de révision interactive pour les apprenants en préparation de soutenance — Testeurs Logiciels BAC+2</p>
+                    <p>Deux modes complémentaires sont à votre disposition :</p>
+                    <ul class="alignLeft">
+                        <li>Quiz interactif pour vous évaluer rapidement.</li>
+                        <li>Base de questions pour parcourir les questions avec leur réponse et explication.</li>
+                    </ul>
 
-      <section class="tips">
-        <h2>Conseils d’utilisation</h2>
-        <ol>
-          <li>Commencez par les <strong>Révisions</strong> pour (re)voir les concepts clés avec explications.</li>
-          <li>Enchaînez avec le <strong>Quiz</strong> pour évaluer votre niveau et cibler les thèmes à renforcer.</li>
-          <li>Utilisez les <strong>filtres par thème et niveau</strong>, ainsi que la <strong>recherche</strong> dans les révisions pour aller à l’essentiel.</li>
-        </ol>
-      </section>
+                    <h2>Conseils d’utilisation</h2>
+                    <ol class="alignLeft">
+                        <li>Commencez par la base de questions pour (re)voir les concepts clés avec explications.</li>
+                        <li>Enchaînez avec le Quiz pour évaluer votre niveau et cibler les thèmes à renforcer.</li>
+                        <li>Utilisez les filtres par thème et niveau, ainsi que la recherche dans la base de questions pour aller à l’essentiel.</li>
+                    </ol>
+
+                    <div class="orientation-panel">
+                        <div class="orientation-grid">
+                            <div class="orientation-card orientation-card-primary" onclick="showPage('questions-list')">
+                                <span class="orientation-badge">Réviser</span>
+                                <h3>Je veux réviser</h3>
+                                <p>Consulter les questions par thème avec explications détaillées.</p>
+                            </div>
+                            <div class="orientation-card orientation-card-secondary" onclick="showPage('quiz-setup')">
+                                <span class="orientation-badge">Évaluer</span>
+                                <h3>Je veux m’évaluer</h3>
+                                <p>Tester rapidement vos connaissances et identifier vos points faibles.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="home-summary-box">
+                        <div class="summary-stat">
+                            <span class="summary-label">Questions</span>
+                            <strong id="home-total-questions">0</strong>
+                        </div>
+                        <div class="summary-stat">
+                            <span class="summary-label">Thèmes</span>
+                            <strong id="home-theme-count">0</strong>
+                        </div>
+                        <div class="summary-stat">
+                            <span class="summary-label">Difficulté</span>
+                            <strong id="home-difficulty">3 niveaux</strong>
+                        </div>
+                        <div class="summary-stat">
+                            <span class="summary-label">Temps moyen</span>
+                            <strong id="home-time-average">30s</strong>
+                        </div>
+                    </div>
+
+                    <div class="quick-guide">
+                        <h3>Guide rapide</h3>
+                        <p>Commencez par <strong>la base de questions</strong>, puis <strong>le quiz</strong>, et revoyez les synthèses de thème avant l’oral.</p>
+                    </div>
+
+                    <div class="menu-cards">
+                        <div class="menu-card" onclick="showPage('quiz-setup')">
+                            <h3>🎯 Quiz Interactif</h3>
+                            <p class="welcome-text-card">Testez vos connaissances avec des questions chronométrées et obtenez des explications détaillées</p>
+                        </div>
+                        <div class="menu-card" onclick="showPage('questions-list')">
+                            <h3>📚 Base de Questions</h3>
+                            <p class="welcome-text-card"><span id="total-questions-info" class="highlight"></span></p>
+                            <p class="welcome-text-card">Parcourez toutes les questions organisées par thème et niveau avec leurs réponses complètes</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-overview">
+                        <div class="progress-card">
+                            <span class="progress-label">Questions vues</span>
+                            <strong class="progress-value" id="progress-seen">0/0</strong>
+                            <span class="progress-meta" id="progress-seen-meta">0% du programme</span>
+                        </div>
+                        <div class="progress-card">
+                            <span class="progress-label">Thèmes maîtrisés</span>
+                            <strong class="progress-value" id="progress-themes">0</strong>
+                            <span class="progress-meta">Seuil : 70%</span>
+                        </div>
+                        <div class="progress-card">
+                            <span class="progress-label">Réussite des 3 derniers quiz</span>
+                            <strong class="progress-value" id="progress-recent">0%</strong>
+                            <span class="progress-meta" id="progress-recent-meta">Aucun quiz enregistré</span>
+                        </div>
+                    </div>
+
+                    <div class="recommendations-section">
+                        <h2>🧠 Révisions recommandées</h2>
+                        <div id="recommendations-container"></div>
+                    </div>
+
+                    <!-- HISTORIQUE DES SCORES -->
+                    <div class="history-section">
+                        <h2>📈 Vos 5 Derniers Quiz</h2>
+                        <div id="history-container"></div>
+                        <button class="btn btn-secondary btn-sm" onclick="clearHistory()">Effacer l'historique</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE CONFIGURATION QUIZ -->
+            <div id="quiz-setup" class="page">
+                <h2>Configuration du Quiz</h2>
+                <div class="quiz-setup">
+                    <div class="form-group">
+                        <label for="theme-select">Choisir un thème :</label>
+                        <select id="theme-select">
+                            <option value="all">Tous les thèmes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="niveau-select">Choisir un niveau :</label>
+                        <select id="niveau-select">
+                            <option value="all">Tous les niveaux</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question-count">Nombre de questions :</label>
+                        <input type="number" id="question-count" min="1" max="50" value="10" placeholder="Nombre de questions">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time-limit">Temps par question (secondes) :</label>
+                        <input type="number" id="time-limit" min="10" max="300" value="30" placeholder="Temps en secondes">
+                    </div>
+
+                    <button class="btn" onclick="startQuiz()">Commencer le Quiz</button>
+                </div>
+            </div>
+
+            <!-- PAGE QUIZ -->
+            <div id="quiz" class="page">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            Question <span id="current-question">1</span> sur <span id="total-questions">10</span>
+                        </div>
+                        <div class="timer" id="timer">30</div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="quiz-progress-bar" style="width: 0%;"></div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-title" id="question-text"></div>
+                        <div class="question-meta" id="question-meta"></div>
+                        <div class="answers" id="answers-container"></div>
+                        <div class="explanation" id="explanation"></div>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn hidden" id="next-btn" onclick="nextQuestion()">Question Suivante</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE RÉSULTATS -->
+            <div id="results" class="page">
+                <div class="results-container">
+                    <h2>Résultats du Quiz</h2>
+                    <div class="score-circle" id="score-circle">
+                        <div class="score-text" id="score-text">0%</div>
+                    </div>
+
+                    <div class="results-summary">
+                        <div class="stat-card">
+                            <div class="stat-number" id="correct-answers">0</div>
+                            <div class="stat-label">Bonnes réponses</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="incorrect-answers">0</div>
+                            <div class="stat-label">Mauvaises réponses</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-time">0s</div>
+                            <div class="stat-label">Temps total</div>
+                        </div>
+                    </div>
+
+                    <div class="results-review" id="wrong-answers-review"></div>
+
+                    <div class="mt-2">
+                        <button class="btn" onclick="showPage('quiz-setup')">Nouveau Quiz</button>
+                        <button class="btn" onclick="showPage('accueil')" style="margin-left: 1rem;">Retour Accueil</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE LISTE DES QUESTIONS -->
+            <div id="questions-list" class="page">
+                <h2>Base de Questions par Thème</h2>
+                <div class="search-filter-container">
+                    <div class="form-group search-group">
+                        <input type="text" id="question-search-input" placeholder="🔍 Rechercher dans les questions ou explications..." oninput="filterQuestionsList()">
+                    </div>
+                    <div class="form-group filter-group">
+                        <select id="question-level-filter" onchange="filterQuestionsList()">
+                            <option value="all">Tous les niveaux</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermédiaire">Intermédiaire</option>
+                            <option value="Avancé">Avancé</option>
+                        </select>
+                    </div>
+                </div>
+               <div class="questions-list" id="questions-container">
+               </div>
+            </div>
+        </div>
     </main>
 
-    <footer>
-      &copy; ENI ECOLE INFORMATIQUE — Denis SANCHEZ — v1.0 : 2025/10/06
-    </footer>
-  </div>
+    <div id="site-footer"></div>
 
+    <script src="questions.js?v=2026-10-06-1"></script>
+    <script src="script.js?v=2026-10-06-1"></script>
+    <script src="layout.js?v=2026-10-06-1"></script>
 </body>
 </html>
